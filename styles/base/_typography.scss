@@ -1,0 +1,43 @@
+/*
+  Typography
+  ==========================================================================
+*/
+
+@font-face {
+  font-family: "Inconsolata-Black";
+  src: url("../fonts/Inconsolata/Inconsolata-Black.ttf");
+}
+@font-face {
+  font-family: "Inconsolata-Bold";
+  src: url("../fonts/Inconsolata/Inconsolata-Bold.ttf");
+}
+@font-face {
+  font-family: "Inconsolata-ExtraBold";
+  src: url("../fonts/Inconsolata/Inconsolata-ExtraBold.ttf");
+}
+@font-face {
+  font-family: "Inconsolata-Extralight";
+  src: url("../fonts/Inconsolata/Inconsolata-Extralight.ttf");
+}
+@font-face {
+  font-family: "Inconsolata-Light";
+  src: url("../fonts/Inconsolata/Inconsolata-Light.ttf");
+}
+@font-face {
+  font-family: "Inconsolata-Medium";
+  src: url("../fonts/Inconsolata/Inconsolata-Medium.ttf");
+}
+@font-face {
+  font-family: "Inconsolata-Regular";
+  src: url("../fonts/Inconsolata/Inconsolata-Regular.ttf");
+}
+@font-face {
+  font-family: "Inconsolata-SemiBold";
+  src: url("../fonts/Inconsolata/Inconsolata-SemiBold.ttf");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

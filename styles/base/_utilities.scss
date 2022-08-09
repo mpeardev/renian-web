@@ -1,0 +1,22 @@
+/* Utilities
+   ========================================================================== */
+
+@mixin renian-truncate-lines($size) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $size;
+  overflow: hidden;
+}
+
+@mixin renian-flexbox-param($display, $align, $justify) {
+  display: $display;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin renian-grid-param($display, $columns, $row, $column) {
+  display: $display;
+  grid-template-columns: $columns;
+  row-gap: $row;
+  column-gap: $column;
+}

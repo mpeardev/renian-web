@@ -1,0 +1,142 @@
+/*
+Breakpoints
+==========================================================================
+*/
+
+// XX-small smartphones (landscape view)
+$screen-xxs: 295px;
+
+// X-small smartphones (landscape view)
+$screen-xs: 395px;
+
+// Small smartphones (landscape view)
+$screen-sm: 576px;
+
+// Medium tablets (portrait view)
+$screen-md: 767px;
+
+// Large Tablets and small desktops
+$screen-lg: 991.98px;
+
+// Large Tablets and small desktops
+$screen-ml: 1024px;
+
+// Extra-Large tablets and desktops
+$screen-xl: 1200px;
+
+// Extra-Large tablets and desktops
+$screen-xxl: 1350px;
+
+// Max-Large Viewport
+$screen-max: 1440px;
+
+// X-small devices 295 (mobile)
+@mixin min-xx-small {
+  @media (min-width: #{$screen-xxs}) {
+    @content;
+  }
+}
+@mixin xx-small {
+  @media (max-width: #{$screen-xxs}) {
+    @content;
+  }
+}
+
+// X-small devices 395 (mobile)
+@mixin min-x-small {
+  @media (min-width: #{$screen-xs}) {
+    @content;
+  }
+}
+@mixin x-small {
+  @media (max-width: #{$screen-xs}) {
+    @content;
+  }
+}
+
+// Small devices 576 (mobile)
+@mixin min-small {
+  @media (min-width: #{$screen-sm}) {
+    @content;
+  }
+}
+@mixin small {
+  @media (max-width: #{$screen-sm}) {
+    @content;
+  }
+}
+
+// Medium devices 767 (landscape tablets)
+@mixin min-medium {
+  @media (min-width: #{$screen-md}) {
+    @content;
+  }
+}
+@mixin medium {
+  @media (max-width: #{$screen-md}) {
+    @content;
+  }
+}
+
+// Large devices 992 (large tablet, small desktop)
+@mixin min-large {
+  @media (min-width: #{$screen-lg}) {
+    @content;
+  }
+}
+@mixin large {
+  @media (max-width: #{$screen-lg}) {
+    @content;
+  }
+}
+
+// Large devices 1024 (desktop, ipad)
+@mixin min-m-large {
+  @media (min-width: #{$screen-ml}) {
+    @content;
+  }
+}
+@mixin m-large {
+  @media (max-width: #{$screen-ml}) {
+    @content;
+  }
+}
+
+// Large devices 1200 (desktop, ipad)
+@mixin min-xl-large {
+  @media (min-width: #{$screen-xl}) {
+    @content;
+  }
+}
+@mixin xl-large {
+  @media (max-width: #{$screen-xl}) {
+    @content;
+  }
+}
+
+// Large devices 1350 (desktop, ipad)
+@mixin min-xxl-large {
+  @media (min-width: #{$screen-xxl}) {
+    @content;
+  }
+}
+@mixin xxl-large {
+  @media (max-width: #{$screen-xxl}) {
+    @content;
+  }
+}
+
+// Max viewport 1440
+@mixin max-large {
+  @media (max-width: #{screen-max}) {
+    @content;
+  }
+}
+
+// Landscape-lg
+@mixin landscape-large {
+  @media (orientation: landscape) and
+  (max-device-width: #{$screen-lg}) {
+    @content;
+  }
+}
