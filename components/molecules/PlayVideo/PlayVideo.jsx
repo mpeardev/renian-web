@@ -35,7 +35,7 @@ export const PlayVideo = () => {
             <div
               onClick={openVideo}
               style={stylesButton}
-              className={classes.play__videoButton}
+              className={classes.play__videoPreview}
             >
               <lord-icon
                 src="https://cdn.lordicon.com/ujphzprf.json"

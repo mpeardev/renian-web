@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import classes from "./login-view.module.scss";
 
@@ -34,7 +35,17 @@ export const LoginView = () => {
           <p className={classes.login__signUp}>Sign up</p>
         </div>
       </div>
-      <div className={classes.login__right}></div>
+      <div className={classes.login__right}>
+        <div>
+          <Image
+            src="/svg/renian-logo.svg"
+            layout="responsive"
+            width={160}
+            height={50}
+            alt="fb-icon"
+          />
+        </div>
+      </div>
     </div>
   );
 };

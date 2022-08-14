@@ -28,9 +28,9 @@
       max-width: 37rem;
       margin-top: 2rem;
       font-family: typography.$typography30;
-      font-size: 20px;
+      font-size: 19px;
       color: colors.$gray60;
-      line-height: 35px;
+      line-height: 32px;
     }
     & > div {
       width: 100%;
@@ -83,7 +83,7 @@
         margin-top: 0.2rem;
         font-family: typography.$typography30;
         font-size: 16px;
-        color: colors.$gray60;
+        // color: colors.$gray60;
         line-height: 20px;
         transition-duration: 0.5s;
       }

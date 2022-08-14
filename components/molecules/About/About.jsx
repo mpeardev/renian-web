@@ -46,7 +46,9 @@ export const About = () => {
 
               <div className={classes.about__cardText}>
                 <h2>30k+</h2>
-                <p>Mascotas Registradas</p>
+                <p style={{ color: hover01 ? "#212121" : "#757575" }}>
+                  Mascotas Registradas
+                </p>
               </div>
             </div>
 
@@ -66,7 +68,9 @@ export const About = () => {
 
               <div className={classes.about__cardText}>
                 <h2>325+</h2>
-                <p>Veterinarias Afiliadas</p>
+                <p style={{ color: hover02 ? "#212121" : "#757575" }}>
+                  Veterinarias Afiliadas
+                </p>
               </div>
             </div>
 
@@ -86,7 +90,9 @@ export const About = () => {
 
               <div className={classes.about__cardText}>
                 <h2>15+</h2>
-                <p>Municipalidades</p>
+                <p style={{ color: hover03 ? "#212121" : "#757575" }}>
+                  Municipalidades
+                </p>
               </div>
             </div>
           </div>
