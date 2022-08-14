@@ -3,41 +3,85 @@
   ==========================================================================
 */
 
-@font-face {
-  font-family: "Inconsolata-Black";
-  src: url("../fonts/Inconsolata/Inconsolata-Black.ttf");
-}
-@font-face {
-  font-family: "Inconsolata-Bold";
-  src: url("../fonts/Inconsolata/Inconsolata-Bold.ttf");
-}
-@font-face {
-  font-family: "Inconsolata-ExtraBold";
-  src: url("../fonts/Inconsolata/Inconsolata-ExtraBold.ttf");
-}
-@font-face {
-  font-family: "Inconsolata-Extralight";
-  src: url("../fonts/Inconsolata/Inconsolata-Extralight.ttf");
-}
-@font-face {
-  font-family: "Inconsolata-Light";
-  src: url("../fonts/Inconsolata/Inconsolata-Light.ttf");
-}
-@font-face {
-  font-family: "Inconsolata-Medium";
-  src: url("../fonts/Inconsolata/Inconsolata-Medium.ttf");
-}
-@font-face {
-  font-family: "Inconsolata-Regular";
-  src: url("../fonts/Inconsolata/Inconsolata-Regular.ttf");
-}
-@font-face {
-  font-family: "Inconsolata-SemiBold";
-  src: url("../fonts/Inconsolata/Inconsolata-SemiBold.ttf");
-}
+/* ----INCONSOLATA---- */
+// $typography80: "Inconsolata-Black";
+// $typography70: "Inconsolata-ExtraBold";
+// $typography60: "Inconsolata-Bold";
+// $typography50: "Inconsolata-SemiBold";
+// $typography40: "Inconsolata-Medium";
+// $typography30: "Inconsolata-Regular";
+// $typography20: "Inconsolata-Light";
+// $typography10: "Inconsolata-Extralight";
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+// @font-face {
+//   font-family: $typography80;
+//   src: url("../fonts/Inconsolata/Inconsolata-Black.ttf");
+// }
+// @font-face {
+//   font-family: $typography70;
+//   src: url("../fonts/Inconsolata/Inconsolata-ExtraBold.ttf");
+// }
+// @font-face {
+//   font-family: $typography60;
+//   src: url("../fonts/Inconsolata/Inconsolata-Bold.ttf");
+// }
+// @font-face {
+//   font-family: $typography50;
+//   src: url("../fonts/Inconsolata/Inconsolata-SemiBold.ttf");
+// }
+// @font-face {
+//   font-family: $typography40;
+//   src: url("../fonts/Inconsolata/Inconsolata-Medium.ttf");
+// }
+// @font-face {
+//   font-family: $typography30;
+//   src: url("../fonts/Inconsolata/Inconsolata-Regular.ttf");
+// }
+// @font-face {
+//   font-family: $typography20;
+//   src: url("../fonts/Inconsolata/Inconsolata-Light.ttf");
+// }
+// @font-face {
+//   font-family: $typography10;
+//   src: url("../fonts/Inconsolata/Inconsolata-Extralight.ttf");
+// }
+
+/* ============================================= */
+
+/* ----INTER---- */
+$typography70: "Inter-ExtraBold";
+$typography60: "Inter-Bold";
+$typography50: "Inter-SemiBold";
+$typography40: "Inter-Medium";
+$typography30: "Inter-Regular";
+$typography20: "Inter-Light";
+$typography10: "Inter-Extralight";
+
+@font-face {
+  font-family: $typography70;
+  src: url("../fonts/Inter/Inter-ExtraBold.ttf");
+}
+@font-face {
+  font-family: $typography60;
+  src: url("../fonts/Inter/Inter-Bold.ttf");
+}
+@font-face {
+  font-family: $typography50;
+  src: url("../fonts/Inter/Inter-SemiBold.ttf");
+}
+@font-face {
+  font-family: $typography40;
+  src: url("../fonts/Inter/Inter-Medium.ttf");
+}
+@font-face {
+  font-family: $typography30;
+  src: url("../fonts/Inter/Inter-Regular.ttf");
+}
+@font-face {
+  font-family: $typography20;
+  src: url("../fonts/Inter/Inter-Light.ttf");
+}
+@font-face {
+  font-family: $typography10;
+  src: url("../fonts/Inter/Inter-Extralight.ttf");
 }

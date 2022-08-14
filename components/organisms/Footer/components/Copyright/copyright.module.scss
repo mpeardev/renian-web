@@ -1,0 +1,24 @@
+@use "/styles/base/breakpoints" as breakpoints;
+@use "/styles/base/colors" as colors;
+@use "/styles/base/utilities" as utilities;
+@use "/styles/base/typography" as typography;
+
+.copyright {
+  width: 100%;
+  padding: 0.6rem 0;
+  background: colors.$primary100;
+
+  &__container {
+    width: 100%;
+    max-width: breakpoints.$screen-max;
+    margin: 0 auto;
+    @include utilities.renian-flexbox-param(flex, center, space-between);
+
+    & p {
+      font-family: typography.$typography60;
+      font-size: 10px;
+      line-height: 20px;
+      color: colors.$gray10;
+    }
+  }
+}

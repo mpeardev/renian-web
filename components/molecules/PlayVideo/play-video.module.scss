@@ -1,0 +1,56 @@
+@use "/styles/base/breakpoints" as breakpoints;
+@use "/styles/base/colors" as colors;
+@use "/styles/base/utilities" as utilities;
+@use "/styles/base/typography" as typography;
+
+.play {
+  width: 100%;
+  padding: 6rem 0 4rem;
+  background: colors.$black;
+  background-image: url("/img/play-background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  &__container {
+    width: 100%;
+    max-width: breakpoints.$screen-max;
+    margin: 0 auto;
+  }
+
+  &__text {
+    max-width: 50rem;
+    margin: 0 auto;
+    text-align: center;
+    font-family: typography.$typography30;
+    font-size: 16px;
+    line-height: 30px;
+    color: colors.$gray10;
+    & span {
+      color: colors.$primary100;
+    }
+  }
+
+  &__video {
+    margin-top: 2rem;
+    border: 1px solid colors.$gray80;
+    border-radius: 25px;
+    width: 39rem;
+    margin: 0 auto;
+    height: 20rem;
+    @include utilities.renian-flexbox-param(flex, center, center);
+    flex-direction: column;
+    overflow: hidden;
+    margin-top: 3rem;
+
+    &Button {
+      position: absolute;
+      border-radius: 30px;
+      cursor: pointer;
+      & > p {
+        font-family: typography.$typography70;
+        font-size: 17px;
+        color: colors.$white;
+      }
+    }
+  }
+}

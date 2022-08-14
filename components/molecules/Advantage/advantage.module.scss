@@ -1,0 +1,48 @@
+@use "/styles/base/breakpoints" as breakpoints;
+@use "/styles/base/colors" as colors;
+@use "/styles/base/utilities" as utilities;
+@use "/styles/base/typography" as typography;
+
+.advantage {
+  width: 100%;
+  padding: 10rem 0 8rem;
+
+  &__container {
+    width: 100%;
+    max-width: breakpoints.$screen-max;
+    margin: 0 auto;
+    @include utilities.renian-grid-param(grid, repeat(2, 1fr), auto, 4rem);
+  }
+
+  &__text {
+    padding: 4rem;
+    & > h5 {
+      font-family: typography.$typography50;
+      font-size: 17px;
+      color: colors.$gray70;
+    }
+    & > h2 {
+      font-family: typography.$typography70;
+      font-size: 45px;
+      color: colors.$gray100;
+      & span {
+        color: colors.$primary;
+      }
+    }
+    & > ul {
+      margin-top: 5rem;
+      & li {
+        @include utilities.renian-flexbox-param(flex, center, auto);
+        border-bottom: 1px solid colors.$gray40;
+        padding: 0.8rem 0;
+
+        & > p {
+          font-family: typography.$typography50;
+          font-size: 17px;
+          color: colors.$gray80;
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+}
