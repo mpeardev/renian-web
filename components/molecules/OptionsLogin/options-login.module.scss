@@ -1,0 +1,113 @@
+@use "/styles/base/breakpoints" as breakpoints;
+@use "/styles/base/colors" as colors;
+@use "/styles/base/utilities" as utilities;
+@use "/styles/base/typography" as typography;
+
+.options {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  // overflow: hidden;
+  // padding: 10rem 0 5rem;
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    max-width: breakpoints.$screen-max;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+    @include utilities.renian-flexbox-param(flex, center, center);
+    flex-direction: column;
+
+    & > h5 {
+      font-family: typography.$typography70;
+      font-size: 15px;
+      color: colors.$gray80;
+      text-transform: uppercase;
+    }
+
+    & > h1 {
+      font-family: typography.$typography70;
+      font-size: 45px;
+      color: colors.$gray100;
+      & span {
+        color: colors.$primary;
+      }
+    }
+
+    & > div {
+      width: 100%;
+      @include utilities.renian-grid-param(grid, repeat(2, 1fr), auto, auto);
+      margin-top: 6rem;
+    }
+  }
+
+  &__card {
+    // display: none;
+    width: 100%;
+    max-width: 35rem;
+    margin: 0 auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition-duration: 0.5s;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    &:hover {
+      transform: scale(1.05);
+    }
+    &Deg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.212);
+      backdrop-filter: blur(0.2rem);
+      transition-duration: 0.4s;
+      z-index: 100;
+
+      & > div {
+        width: 100%;
+        height: 100%;
+        @include utilities.renian-flexbox-param(flex, center, center);
+        flex-direction: column;
+        & > p {
+          font-family: typography.$typography60;
+          font-size: 25px;
+          color: colors.$gray10;
+          text-shadow: 1px 1px 4px colors.$black;
+        }
+      }
+    }
+
+    &Text {
+      width: 100%;
+      height: 5rem;
+      @include utilities.renian-flexbox-param(flex, center, center);
+      padding: 1rem 2rem;
+      & > h3 {
+        font-family: typography.$typography60;
+        font-size: 20px;
+        letter-spacing: -0.5px;
+        color: colors.$gray80;
+        transition-duration: 0.4s;
+        line-height: 24px;
+        & span {
+          font-family: typography.$typography70;
+          color: colors.$primary;
+        }
+        & small {
+          font-family: typography.$typography60;
+          font-size: 15px;
+        }
+      }
+    }
+
+    &Image {
+      width: 100%;
+      height: 22rem;
+      position: relative;
+    }
+  }
+}
