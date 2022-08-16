@@ -12,7 +12,7 @@ export const Projection = () => {
           </h2>
           <p>
             Sin un control adecuado de la poblacion de animales domesticos esto
-            podria llegar a ser una realidad .
+            podria llegar a ser una realidad.
           </p>
         </div>
 

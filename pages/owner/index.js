@@ -1,5 +1,8 @@
-import { OwnerLoginView } from "../../components/templates/OwnerLoginView/OwnerLoginView";
-
 export default function Owner() {
-  return <OwnerLoginView />;
+  return (
+    <>
+      <h1>Owner Page</h1>
+      <p>This is Owner page</p>
+    </>
+  );
 }

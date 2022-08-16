@@ -1,4 +1,4 @@
-import { LoginView } from "../../components/templates/LoginView/LoginView";
+import { LoginView } from "../../components";
 
 export default function Login() {
   return <LoginView />;

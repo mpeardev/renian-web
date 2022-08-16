@@ -8,8 +8,11 @@ import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export const Banner = () => {
+  const router = useRouter();
+
   return (
     <>
       <section className={classes.banner}>
@@ -37,7 +40,9 @@ export const Banner = () => {
                     <span>RENIAN</span>
                   </h1>
                   <div>
-                    <button>Contactanos</button>
+                    <button onClick={() => router.push("/contact")}>
+                      Contactanos
+                    </button>
                   </div>
                 </div>
               </div>
@@ -54,7 +59,9 @@ export const Banner = () => {
                     protejamoslos. <span>(Ley 30407)</span>
                   </h1>
                   <div>
-                    <button>Contactanos</button>
+                    <button onClick={() => router.push("/contact")}>
+                      Contactanos
+                    </button>
                   </div>
                 </div>
               </div>

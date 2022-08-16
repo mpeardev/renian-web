@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { AuthContextProvider } from "../context/AuthContext";
-import "../styles/globals.css";
 import "../styles/main.scss";
 
 function MyApp({ Component, pageProps }) {

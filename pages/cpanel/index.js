@@ -1,5 +1,5 @@
-import { CpanelView } from "../../components/templates/CpanelView/CpanelView";
+import { CPanelView } from "../../components";
 
-export default function Login() {
-  return <CpanelView />;
+export default function CPanel() {
+  return <CPanelView />;
 }

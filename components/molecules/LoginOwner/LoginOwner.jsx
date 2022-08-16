@@ -1,41 +1,41 @@
 import React from "react";
 import classes from "./login-owner.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 export const LoginOwner = () => {
   return (
-    <div className={classes.owner}>
+    <section className={classes.owner}>
       <div className={classes.owner__form}>
-        <h3 className={classes.owner__title}>Welcome back</h3>
-        <p className={classes.owner__subtitle}>
-          Welcome back! Please enter your details.
-        </p>
-        <p className={classes.owner__email}>Email</p>
-        <input
-          className={classes.owner__input}
-          type="text"
-          placeholder="Enter your email"
-        />
-        <p className={classes.owner__password}>Password</p>
-        <input
-          className={classes.owner__input}
-          type="password"
-          placeholder="••••••••"
-        />
-        <div className={classes.owner__buttons}>
-          <button matRipple className={classes.owner__button}>
-            Sign in
-          </button>
-          <button matRipple className={classes.owner__buttonGoogle}>
-            Sign in with Google
-          </button>
-        </div>
-        <div className={classes.owner__textsTwo}>
-          <p className={classes.owner__account}>Don’t have an account?</p>
-          <p className={classes.owner__signUp}>Sign up</p>
+        <h3>Ingresar</h3>
+        <h6>Bienvenido! Porfavor ingrese sus datos.</h6>
+
+        <main>
+          <div className={classes.owner__formBox}>
+            <h5>Usuario</h5>
+            <input type="text" placeholder="Usuario" />
+            <small>Usuario incorrecto</small>
+          </div>
+
+          <div className={classes.owner__formBox}>
+            <h5>Contraseña</h5>
+            <input type="password" placeholder="••••••••" />
+          </div>
+
+          <div className={classes.owner__formButton}>
+            <button>Ingresa</button>
+          </div>
+        </main>
+
+        <div>
+          <p>
+            *Solo para entidades registradoras{" "}
+            <Link href="/cpanel">Registrar</Link>
+          </p>
         </div>
       </div>
-      <div className={classes.owner__right}>
+
+      <div className={classes.owner__decorate}>
         <div>
           <Image
             src="/svg/renian-logo.svg"
@@ -46,6 +46,6 @@ export const LoginOwner = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
