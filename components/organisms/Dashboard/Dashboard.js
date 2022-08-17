@@ -18,10 +18,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { mainListItems, secondaryListItems } from "./listItems";
-import Chart from "./Chart";
-import Deposits from "./Deposits";
-import Orders from "./Orders";
 import Image from "next/image";
+import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { FormNewUser } from "./FormNewUser";
 
 function Copyright(props) {
   return (
@@ -89,16 +90,26 @@ const Drawer = styled(MuiDrawer, {
 
 const mdTheme = createTheme();
 
-function DashboardContent() {
+const darkTheme = createTheme({
+  palette: {
+    // mode: "dark",
+    primary: {
+      main: "#0096A4",
+    },
+  },
+});
+
+const DashboardContent = () => {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };
 
   return (
-    <ThemeProvider theme={mdTheme}>
+    <ThemeProvider theme={darkTheme}>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
+
         <AppBar position="absolute" open={open}>
           <Toolbar
             sx={{
@@ -127,38 +138,48 @@ function DashboardContent() {
               Dashboard
             </Typography>
             <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
+              <MoreVertIcon />
             </IconButton>
           </Toolbar>
         </AppBar>
+
         <Drawer variant="permanent" open={open}>
           <Toolbar
             sx={{
               display: "flex",
               alignItems: "center",
-              justifyContent: "flex-end",
+              justifyContent: "space-between",
               px: [1],
             }}
           >
             <Image
-              src="/svg/renian-logo.svg"
+              src="/svg/war-logo.svg"
               width={160}
               height={50}
               alt="renian-icon"
             />
+
             <IconButton onClick={toggleDrawer}>
               <ChevronLeftIcon />
             </IconButton>
           </Toolbar>
+
           <Divider />
+
           <List component="nav">
             {mainListItems}
             <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
+            <ListItemButton>
+              <ListItemIcon>
+                <ExitToAppIcon />
+              </ListItemIcon>
+              <ListItemText primary="Salir" />
+            </ListItemButton>
           </List>
+
+          <List component="nav"></List>
         </Drawer>
+
         <Box
           component="main"
           sx={{
@@ -175,46 +196,19 @@ function DashboardContent() {
 
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-              {/* Chart */}
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    height: 240,
-                  }}
-                >
-                  <Chart />
-                </Paper>
-              </Grid>
-              {/* Recent Deposits */}
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    height: 240,
-                  }}
-                >
-                  <Deposits />
-                </Paper>
-              </Grid>
-              {/* Recent Orders */}
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-                  <Orders />
+                  <FormNewUser />
                 </Paper>
               </Grid>
             </Grid>
-            <Copyright sx={{ pt: 4 }} />
+            {/* <Copyright sx={{ pt: 10, display: "flex" }} /> */}
           </Container>
         </Box>
       </Box>
     </ThemeProvider>
   );
-}
+};
 
 export default function Dashboard() {
   return <DashboardContent />;

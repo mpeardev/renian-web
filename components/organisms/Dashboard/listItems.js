@@ -25,18 +25,21 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Buscar" />
     </ListItemButton>
+
     <ListItemButton>
       <ListItemIcon>
         <PetsIcon />
       </ListItemIcon>
       <ListItemText primary="Mascotas General" />
     </ListItemButton>
+
     <ListItemButton>
       <ListItemIcon>
         <AssignmentIndIcon />
       </ListItemIcon>
       <ListItemText primary="Veterinarios" />
     </ListItemButton>
+
     <ListItemButton>
       <ListItemIcon>
         <AddCardIcon />
