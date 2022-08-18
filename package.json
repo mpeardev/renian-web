@@ -21,6 +21,7 @@
     "react-hook-form": "^7.34.0",
     "react-icons": "^4.4.0",
     "react-player": "^2.10.1",
+    "react-select": "^5.4.0",
     "recharts": "^2.1.13",
     "sass": "^1.54.3",
     "swiper": "8.3.2",

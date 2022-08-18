@@ -7,16 +7,29 @@ import { Web3Context } from "../../../contexts/Web3/Web3Context";
 import { Users } from "../../../utils/war/UsersSystem";
 import { isObjEmpty, objectUppercase } from "../../../utils/helpers";
 import { getResponsibility } from "../../../utils/war/RegisteringEntities";
+import { useUbigeo } from "./useUbigeo";
+import Select from "react-select";
 
 export const FormNewUser = () => {
 	const {
 		register,
 		handleSubmit,
+		setValue,
+		watch,
 		formState: { errors },
 	} = useForm();
 	const [sendData, setSendData] = useState();
 	const [user, setUser] = useState({});
 	const [userEntity, setUserEntity] = useState({});
+	const [publicAddress, setPublicAddress] = useState({});
+	const {
+		departments,
+		provinces,
+		districts,
+		handleDepartaments,
+		handleProvinces,
+		handleDistricts,
+	} = useUbigeo();
 
 	const regexNum = /^[0-9]+/;
 	const regexText = /^[a-zA-Z0-9 ]+$/;
@@ -27,28 +40,25 @@ export const FormNewUser = () => {
 			_id: "",
 			status: false,
 			idRegisteringEntity: userEntity,
+			sendEmail: true,
 			...objectUppercase(data),
 		};
 		setSendData(info);
-		console.log(info);
-
-		handlePost(
-			info,
-			"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjdlY2ZkZWI5ODM2NmY1YzYzMzg2ZTgiLCJpYXQiOjE2NjA3OTI4NDUsImV4cCI6MTY2MDgzNjA0NX0.XxW1861A5aJWkxQqcgJcu7r4dwBZ1qrLwwEAHNkjdqo",
-			"POST"
-		);
+		handlePost(info, web3.authToken, "POST");
 	};
 
 	const { web3, handleWeb3, handleAccount, handleChainId, handleToken } =
 		useContext(Web3Context);
 
-    
+	useEffect(() => {
+		handleDepartaments();
+	}, []);
+
 	useEffect(() => {
 		web3.account != "" &&
 			web3.wallet != null &&
 			Users(web3.wallet, web3.account)
 				.then((resolve) => {
-					console.log(resolve);
 					!isObjEmpty(resolve) ? setUser(resolve) : setUser({});
 				})
 				.catch((e) => console.log(e));
@@ -63,6 +73,12 @@ export const FormNewUser = () => {
 			);
 		}
 	}, [user?.registeringEntity, web3.wallet]);
+
+	const newAddress = async () => {
+		const response = await web3.wallet.eth.accounts.create();
+		setPublicAddress(response);
+		setValue("address", response.address);
+	};
 
 	return (
 		<div>
@@ -166,6 +182,7 @@ export const FormNewUser = () => {
 							alignItems: "center",
 							justifyContent: "flex-start",
 						}}
+						onClick={() => newAddress()}
 					>
 						<button>Crear Address</button>
 					</div>
@@ -413,52 +430,81 @@ export const FormNewUser = () => {
 					{/* DEPARTAMENTO*/}
 					<div className="mb-3">
 						<label className="form-label">Departamento</label>
-						<select
-							className="form-select"
+						<Select
+							options={departments}
+							value={{ label: watch("department") }}
+							onChange={(target) => {
+								setValue("department", target.value);
+								setValue("province", "");
+								setValue("district", "");
+								handleProvinces(target.value);
+							}}
+						/>
+						<input
+							type="hidden"
 							{...register("department", {
 								required: {
 									value: true,
 									message: "Campo requerido",
 								},
 							})}
-						>
-							<option value=""></option>
-							<option value="lima">Lima</option>
-						</select>
+						/>
+						{errors.department && (
+							<small className="text-danger">{errors.department.message}</small>
+						)}
 					</div>
 
 					{/* PROVINCIA*/}
 					<div className="mb-3">
 						<label className="form-label">Provincia</label>
-						<select
-							className="form-select"
+						<Select
+							options={provinces}
+							value={{ label: watch("province") }}
+							onChange={(target) => {
+								setValue("province", target.value);
+								setValue("district", "");
+								handleDistricts(target.value);
+							}}
+						/>
+						<input
+							type="hidden"
 							{...register("province", {
 								required: {
 									value: true,
 									message: "Campo requerido",
 								},
 							})}
-						>
-							<option value=""></option>
-							<option value="lima">Lima</option>
-						</select>
+						/>
+						{errors.province && (
+							<small className="text-danger">{errors.province.message}</small>
+						)}
 					</div>
 
 					{/* DISTRITO*/}
 					<div className="mb-3">
 						<label className="form-label">Distrito</label>
-						<select
-							className="form-select"
+						<Select
+							options={districts}
+							value={{ label: watch("district") }}
+							onChange={(target) => {
+								setValue("district", target.value);
+							}}
+							name="district"
+							id="district"
+							required
+						/>
+						<input
+							type="hidden"
 							{...register("district", {
 								required: {
 									value: true,
 									message: "Campo requerido",
 								},
 							})}
-						>
-							<option value=""></option>
-							<option value="lima">Lima</option>
-						</select>
+						/>
+						{errors.district && (
+							<small className="text-danger">{errors.district.message}</small>
+						)}
 					</div>
 				</section>
 
