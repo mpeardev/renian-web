@@ -23,6 +23,7 @@ import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { FormNewUser } from "./FormNewUser";
+import { useRouter } from "next/router";
 
 function Copyright(props) {
   return (
@@ -100,6 +101,7 @@ const darkTheme = createTheme({
 });
 
 const DashboardContent = () => {
+  const router = useRouter();
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -133,9 +135,9 @@ const DashboardContent = () => {
               variant="h6"
               color="inherit"
               noWrap
-              sx={{ flexGrow: 1 }}
+              sx={{ flexGrow: 1, textShadow: "1px 1px 4px black" }}
             >
-              Dashboard
+              WAR Dashboard &gt; Nuevo registro
             </Typography>
             <IconButton color="inherit">
               <MoreVertIcon />
@@ -169,7 +171,7 @@ const DashboardContent = () => {
           <List component="nav">
             {mainListItems}
             <Divider sx={{ my: 1 }} />
-            <ListItemButton>
+            <ListItemButton onClick={() => router.push("/login")}>
               <ListItemIcon>
                 <ExitToAppIcon />
               </ListItemIcon>

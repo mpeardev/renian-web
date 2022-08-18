@@ -1,0 +1,41 @@
+@use "/styles/base/breakpoints" as breakpoints;
+@use "/styles/base/colors" as colors;
+@use "/styles/base/utilities" as utilities;
+@use "/styles/base/typography" as typography;
+
+.containerButton {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.designButton {
+  // background-image: url(/img/firulaix-office/second-floor/connect-on.png);
+  background-position: center;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s;
+  width: 30%;
+}
+
+.designButton:hover {
+  // background-image: url(/img/firulaix-office/second-floor/connect-off.png);
+}
+
+.designButton:active {
+  // background-image: url(/img/firulaix-office/second-floor/connect-on.png);
+}
+
+.designButton p {
+  color: colors.$primary;
+  font-weight: bold;
+}
+
+.disabled {
+  cursor: not-allowed;
+}

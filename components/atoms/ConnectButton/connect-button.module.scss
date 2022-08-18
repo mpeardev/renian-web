@@ -1,0 +1,33 @@
+@use "/styles/base/breakpoints" as breakpoints;
+@use "/styles/base/colors" as colors;
+@use "/styles/base/utilities" as utilities;
+@use "/styles/base/typography" as typography;
+
+.containerConnect {
+  align-items: center;
+  // background-image: url(/img/firulaix-office/second-floor/connect-wallet-on.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: colors.$black;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  padding: 0.5% 1%;
+  text-align: center;
+  transition: 0.2s;
+  background: colors.$gray30;
+  border-radius: 15px;
+  // padding: 0.3rem 1rem;
+}
+
+.containerConnect:hover {
+  // background-image: url(/img/firulaix-office/second-floor/connect-wallet-off.png);
+  background: colors.$gray20;
+}
+
+.containerConnect:active {
+  // background-image: url(/img/firulaix-office/second-floor/connect-wallet-on.png);
+  background: colors.$gray30;
+}

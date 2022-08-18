@@ -1,0 +1,75 @@
+.modal {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10000;
+}
+
+.modalDialog {
+  background: rgba(0, 0, 0, 0.7);
+  font-family: Arial, Helvetica, sans-serif;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  transition: opacity 400ms ease-in;
+  top: 0;
+  z-index: 9999;
+  -moz-transition: opacity 400ms ease-in;
+  -webkit-transition: opacity 400ms ease-in;
+}
+
+.flex {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.content {
+  background: #fff;
+  border-radius: 10px;
+  height: auto;
+  padding: 5px 20px 13px 20px;
+  position: relative;
+  transition: opacity 400ms ease-in;
+  z-index: 10001;
+  -moz-transition: opacity 400ms ease-in;
+  -webkit-transition: opacity 400ms ease-in;
+  max-width: 25rem;
+}
+
+.content h5 {
+  color: #003343;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 1rem 0 0.5rem 0;
+  text-align: center;
+}
+
+.content hr {
+  background-image: linear-gradient(to right, #00a99d, #02826b);
+  border: none;
+  border-radius: 10%;
+  height: 0.5vh;
+  margin: 0 auto 5% auto;
+  padding: 0;
+  text-align: center;
+  width: 30%;
+}
+
+.content p {
+  color: #333;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 165%;
+}
+
+.content span {
+  color: #02826b;
+  font-weight: bold;
+  margin-left: 2%;
+}

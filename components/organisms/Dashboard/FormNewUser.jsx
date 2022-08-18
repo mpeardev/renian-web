@@ -1,7 +1,10 @@
 import { Divider } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import Title from "./Title";
+import { handlePost } from "../../../utils/war/adopters";
+import { Web3Context } from "../../../contexts/Web3/Web3Context";
+import { Users } from "../../../utils/war/UsersSystem";
 
 export const FormNewUser = () => {
   const {
@@ -15,7 +18,57 @@ export const FormNewUser = () => {
   const regexText = /^[a-zA-Z0-9 ]+$/;
   const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-  const onSubmit = (data) => setSendData(data);
+  const onSubmit = (data) => {
+    const info = objectUppercase(data);
+    setSendData(info);
+    console.log(info);
+
+    handlePost(
+      info,
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjdlY2ZkZWI5ODM2NmY1YzYzMzg2ZTgiLCJpYXQiOjE2NjA3OTI4NDUsImV4cCI6MTY2MDgzNjA0NX0.XxW1861A5aJWkxQqcgJcu7r4dwBZ1qrLwwEAHNkjdqo",
+      "POST"
+    );
+  };
+
+  const objectUppercase = (object, includes = [""]) => {
+    Object.keys(object).map((key) => {
+      if (
+        typeof object[key] === "string" &&
+        key != "_id" &&
+        key != "user" &&
+        !includes.includes(key)
+      ) {
+        object[key] = String(object[key]).toUpperCase();
+      }
+    });
+    return object;
+  };
+
+  const { web3, handleWeb3, handleAccount, handleChainId, handleToken } =
+    useContext(Web3Context);
+
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    web3.account != "" &&
+      web3.wallet != null &&
+      Users(web3.wallet, web3.account)
+        .then((resolve) => {
+          !isObjEmpty(resolve) ? setUser(resolve) : setUser({});
+        })
+        .catch((e) => console.log(e));
+  }, [web3.account, web3.wallet, web3.chainId]);
+
+  useEffect(() => {
+    if (user?.registeringEntity != "" && user?.registeringEntity != undefined) {
+      getResponsibility(web3.wallet, user?.registeringEntity).then(
+        (resolve2) => {
+          setUserEntity({ idRegisteringEntity: resolve2 });
+        }
+      );
+    }
+  }, [user?.registeringEntity, web3.wallet]);
+  console.log(handleToken);
 
   return (
     <div>
@@ -32,12 +85,8 @@ export const FormNewUser = () => {
           {/* PAIS */}
           <div className="mb-3">
             <label className="form-label">Pais</label>
-            <select class="form-select" {...register("country")} disabled>
-              <option value="peru" selected>
-                Peru
-              </option>
-              <option value="colombia">Colombia</option>
-              <option value="chile">Chile</option>
+            <select className="form-select" {...register("country")}>
+              <option value="PE">Peru</option>
             </select>
           </div>
 
@@ -45,29 +94,23 @@ export const FormNewUser = () => {
           <div className="mb-3">
             <label className="form-label">Tipo Persona</label>
             <select
-              class="form-select"
-              {...register("personType", {
+              className="form-select"
+              {...register("person", {
                 required: {
                   value: true,
                   message: "Campo requerido",
                 },
               })}
             >
-              <option value="natural" selected>
-                Natural
-              </option>
-              <option value="juridic">Juridico</option>
+              <option value="natural">Natural</option>
             </select>
-            {errors.personType && (
-              <small className="text-danger">{errors.personType.message}</small>
-            )}
           </div>
 
           {/* DOCUMENTO-IDENTIFICACION */}
           <div className="mb-3">
             <label className="form-label">Documento de Identificacion</label>
             <select
-              class="form-select"
+              className="form-select"
               {...register("document", {
                 required: {
                   value: true,
@@ -75,15 +118,10 @@ export const FormNewUser = () => {
                 },
               })}
             >
-              <option value="dni" selected>
-                DNI
-              </option>
-              <option value="ruc">RUC</option>
+              <option value="d.n.i.">D.N.I.</option>
+              <option value="c.i">C.I</option>
+              <option value="r.u.c.">RUC</option>
             </select>
-
-            {errors.document && (
-              <small className="text-danger">{errors.document.message}</small>
-            )}
           </div>
           <div className="mb-3">
             <label className="form-label">Numero Documento</label>
@@ -113,20 +151,29 @@ export const FormNewUser = () => {
 
           {/* ADOPTER*/}
           <div className="mb-3">
-            <label className="form-label">Rol</label>
+            <label className="form-label">Tipo</label>
             <select
-              class="form-select"
-              aria-label="Default select example"
-              disabled
+              className="form-select"
+              {...register("type", {
+                required: {
+                  value: true,
+                  message: "Campo requerido",
+                },
+              })}
             >
-              <option value="1" selected>
-                Adoptante
-              </option>
-              <option value="2">Entidad</option>
+              <option value="adopter">Adoptante</option>
             </select>
-            {/* {errors.email && (
-            <small className="text-danger">{errors.email.message}</small>
-          )} */}
+          </div>
+
+          <div
+            className="mb-3"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-start",
+            }}
+          >
+            <button>Crear Address</button>
           </div>
         </section>
 
@@ -172,7 +219,7 @@ export const FormNewUser = () => {
             <input
               type="text"
               className="form-control"
-              {...register("firstName", {
+              {...register("name", {
                 required: {
                   value: true,
                   message: "Campo requerido",
@@ -185,8 +232,8 @@ export const FormNewUser = () => {
                 },
               })}
             />
-            {errors.firstName && (
-              <small className="text-danger">{errors.firstName.message}</small>
+            {errors.name && (
+              <small className="text-danger">{errors.name.message}</small>
             )}
           </div>
 
@@ -220,7 +267,7 @@ export const FormNewUser = () => {
             <input
               type="text"
               className="form-control"
-              {...register("firstLastName", {
+              {...register("lastName", {
                 required: {
                   value: true,
                   message: "Campo requerido",
@@ -233,10 +280,8 @@ export const FormNewUser = () => {
                 },
               })}
             />
-            {errors.firstLastName && (
-              <small className="text-danger">
-                {errors.firstLastName.message}
-              </small>
+            {errors.lastName && (
+              <small className="text-danger">{errors.lastName.message}</small>
             )}
           </div>
 
@@ -246,7 +291,7 @@ export const FormNewUser = () => {
             <input
               type="text"
               className="form-control"
-              {...register("secondLastName", {
+              {...register("mLastName", {
                 required: {
                   value: true,
                   message: "Campo requerido",
@@ -259,10 +304,8 @@ export const FormNewUser = () => {
                 },
               })}
             />
-            {errors.secondLastName && (
-              <small className="text-danger">
-                {errors.secondLastName.message}
-              </small>
+            {errors.mLastName && (
+              <small className="text-danger">{errors.mLastName.message}</small>
             )}
           </div>
 
@@ -288,7 +331,7 @@ export const FormNewUser = () => {
           <div className="mb-3">
             <label className="form-label">Genero</label>
             <select
-              class="form-select"
+              className="form-select"
               {...register("gender", {
                 required: {
                   value: true,
@@ -296,14 +339,9 @@ export const FormNewUser = () => {
                 },
               })}
             >
-              <option value="male" selected>
-                Hombre
-              </option>
+              <option value="male">Hombre</option>
               <option value="female">Mujer</option>
             </select>
-            {errors.gender && (
-              <small className="text-danger">{errors.gender.message}</small>
-            )}
           </div>
 
           {/* CELULAR*/}
@@ -312,7 +350,7 @@ export const FormNewUser = () => {
             <input
               type="number"
               className="form-control"
-              {...register("cellphone", {
+              {...register("phone", {
                 required: {
                   value: true,
                   message: "Campo requerido",
@@ -325,8 +363,8 @@ export const FormNewUser = () => {
                 },
               })}
             />
-            {errors.cellphone && (
-              <small className="text-danger">{errors.cellphone.message}</small>
+            {errors.phone && (
+              <small className="text-danger">{errors.phone.message}</small>
             )}
           </div>
 
@@ -353,15 +391,15 @@ export const FormNewUser = () => {
           </div>
         </section>
 
-        <div class="form-check mt-3">
-          <input
-            class="form-check-input"
+        <div className="form-check mt-3">
+          {/* <input
+            className="form-check-input"
             type="checkbox"
             value=""
             id="flexCheckChecked"
             checked
-          />
-          <label class="form-check-label" for="flexCheckChecked">
+          /> */}
+          <label className="form-check-label">
             Acepto compartir mi informacion personal en las busquedas en la
             Platafora
           </label>
@@ -373,35 +411,86 @@ export const FormNewUser = () => {
         <section
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr",
+            gridTemplateColumns: "repeat(3, 1fr)",
             columnGap: "1.5rem",
             marginTop: "2rem",
           }}
         >
-          {/* DIRECCION*/}
+          {/* DEPARTAMENTO*/}
           <div className="mb-3">
-            <label className="form-label">Direccion</label>
-            <input
-              type="text"
-              className="form-control"
-              {...register("direction", {
+            <label className="form-label">Departamento</label>
+            <select
+              className="form-select"
+              {...register("department", {
                 required: {
                   value: true,
                   message: "Campo requerido",
                 },
-                minLength: { value: 5, message: "Direccion muy corta" },
-                maxLength: { value: 100, message: "Direccion muy larga" },
-                pattern: {
-                  value: regexText,
-                  message: "Formato incorrecto",
+              })}
+            >
+              <option value=""></option>
+              <option value="lima">Lima</option>
+            </select>
+          </div>
+
+          {/* PROVINCIA*/}
+          <div className="mb-3">
+            <label className="form-label">Provincia</label>
+            <select
+              className="form-select"
+              {...register("province", {
+                required: {
+                  value: true,
+                  message: "Campo requerido",
                 },
               })}
-            />
-            {errors.direction && (
-              <small className="text-danger">{errors.direction.message}</small>
-            )}
+            >
+              <option value=""></option>
+              <option value="lima">Lima</option>
+            </select>
+          </div>
+
+          {/* DISTRITO*/}
+          <div className="mb-3">
+            <label className="form-label">Distrito</label>
+            <select
+              className="form-select"
+              {...register("district", {
+                required: {
+                  value: true,
+                  message: "Campo requerido",
+                },
+              })}
+            >
+              <option value=""></option>
+              <option value="lima">Lima</option>
+            </select>
           </div>
         </section>
+
+        {/* DIRECCION*/}
+        <div className="mb-3">
+          <label className="form-label">Direccion</label>
+          <input
+            type="text"
+            className="form-control"
+            {...register("direction", {
+              required: {
+                value: true,
+                message: "Campo requerido",
+              },
+              minLength: { value: 5, message: "Direccion muy corta" },
+              maxLength: { value: 100, message: "Direccion muy larga" },
+              pattern: {
+                value: regexText,
+                message: "Formato incorrecto",
+              },
+            })}
+          />
+          {errors.direction && (
+            <small className="text-danger">{errors.direction.message}</small>
+          )}
+        </div>
 
         <Divider sx={{ my: 5 }} />
 

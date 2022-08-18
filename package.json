@@ -23,7 +23,8 @@
     "react-player": "^2.10.1",
     "recharts": "^2.1.13",
     "sass": "^1.54.3",
-    "swiper": "8.3.2"
+    "swiper": "8.3.2",
+    "web3": "^1.7.5"
   },
   "devDependencies": {
     "eslint": "8.21.0",

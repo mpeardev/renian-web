@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./login-owner.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { ConnectButton } from "../../atoms/ConnectButton/ConnectButton";
+import { Sign } from "../../atoms/Sign/Sign";
 
 export const LoginOwner = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <section className={classes.owner}>
       <div className={classes.owner__form}>
@@ -14,7 +18,7 @@ export const LoginOwner = () => {
           <div className={classes.owner__formBox}>
             <h5>Usuario</h5>
             <input type="text" placeholder="Usuario" />
-            <small>Usuario incorrecto</small>
+            {/* <small>Usuario incorrecto</small> */}
           </div>
 
           <div className={classes.owner__formBox}>
@@ -27,24 +31,44 @@ export const LoginOwner = () => {
           </div>
         </main>
 
-        <div>
+        {/* <div>
           <p>
             *Solo para entidades registradoras{" "}
             <Link href="/cpanel">Registrar</Link>
           </p>
-        </div>
+        </div> */}
+
+        <h4>Inicia sesion con Metamask:</h4>
+        <ConnectButton setOpen={setOpen} open={open} />
       </div>
 
       <div className={classes.owner__decorate}>
-        <div>
+        <span>
           <Image
             src="/svg/renian-logo.svg"
             layout="responsive"
             width={160}
             height={50}
+            alt="renian-logo"
+            priority
+          />
+        </span>
+        <div>
+          <p>
+            *Solo para entidades registradoras{" "}
+            {/* <Link href="/cpanel">Registrar</Link> */}
+          </p>
+          <Sign />
+        </div>
+        <span>
+          <Image
+            src="/svg/war-logo.svg"
+            layout="responsive"
+            width={160}
+            height={50}
             alt="fb-icon"
           />
-        </div>
+        </span>
       </div>
     </section>
   );
