@@ -36,21 +36,21 @@ export const FormNewUser = () => {
   const regexText = /^[a-zA-Z0-9 ]+$/;
   const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-	const onSubmit = (data) => {
-		const newPassword = Math.random().toString(36).slice(-8);
+  const onSubmit = (data) => {
+    const newPassword = Math.random().toString(36).slice(-8);
 
-		const info = {
-			_id: "",
-			status: false,
-			idRegisteringEntity: userEntity,
-			sendEmail: true,
-			privateKey: publicAddress.privateKey,
-			password: newPassword,
-			...objectUppercase(data),
-		};
-		setSendData(...objectUppercase(data));
-		handlePost(info, web3.authToken, "POST");
-	};
+    const info = {
+      _id: "",
+      status: false,
+      idRegisteringEntity: userEntity,
+      sendEmail: true,
+      privateKey: publicAddress.privateKey,
+      password: newPassword,
+      ...objectUppercase(data),
+    };
+    setSendData(info);
+    handlePost(info, web3.authToken, "POST");
+  };
 
   const { web3, handleWeb3, handleAccount, handleChainId, handleToken } =
     useContext(Web3Context);
@@ -79,11 +79,11 @@ export const FormNewUser = () => {
     }
   }, [user?.registeringEntity, web3.wallet]);
 
-	const newAddress = async () => {
-		const response = await web3.wallet.eth.accounts.create();
-		setPublicAddress(response);
-		setValue("address", response.address);
-	};
+  const newAddress = async () => {
+    const response = await web3.wallet.eth.accounts.create();
+    setPublicAddress(response);
+    setValue("address", response.address);
+  };
 
   return (
     <div>
@@ -99,7 +99,7 @@ export const FormNewUser = () => {
         >
           {/* PAIS */}
           <div className="mb-3">
-            <label className="form-label">Pais</label>
+            <label className="form-label">Pais*</label>
             <select
               className="form-select"
               {...register("country", {
@@ -120,7 +120,7 @@ export const FormNewUser = () => {
 
           {/* TIPO-PERSONA */}
           <div className="mb-3">
-            <label className="form-label">Tipo Persona</label>
+            <label className="form-label">Tipo Persona*</label>
             <select
               className="form-select"
               {...register("person", {
@@ -131,69 +131,64 @@ export const FormNewUser = () => {
               })}
             >
               <option value=""></option>
-							<option value=""></option>
               <option value="natural">Natural</option>
               <option value="juridic">Juridico</option>
-							<option value="juridic">Juridico</option>
             </select>
             {errors.person && (
               <small className="text-danger">{errors.person.message}</small>
             )}
-						{errors.person && (
-							<small className="text-danger">{errors.person.message}</small>
-						)}
           </div>
 
-					{/* DOCUMENTO-IDENTIFICACION */}
-					<div className="mb-3">
-						<label className="form-label">Documento de Identificacion</label>
-						<select
-							className="form-select"
-							{...register("document", {
-								required: {
-									value: true,
-									message: "Campo requerido",
-								},
-							})}
-						>
-							<option value=""></option>
-							<option value="d.n.i.">D.N.I</option>
-							<option value="c.i">C.E</option>
-							<option value="r.u.c.">RUC</option>
-						</select>
-						{errors.document && (
-							<small className="text-danger">{errors.document.message}</small>
-						)}
-					</div>
-					<div className="mb-3">
-						<label className="form-label">Numero Documento</label>
-						<input
-							type="number"
-							className="form-control"
-							{...register("documentNumber", {
-								required: {
-									value: true,
-									message: "Campo requerido",
-								},
-								minLength: { value: 8, message: "Formato incorrecto" },
-								maxLength: { value: 11, message: "Formato incorrecto" },
-								pattern: {
-									value: regexNum,
-									message: "Formato incorrecto",
-								},
-							})}
-						/>
+          {/* DOCUMENTO-IDENTIFICACION */}
+          <div className="mb-3">
+            <label className="form-label">Documento de Identificacion*</label>
+            <select
+              className="form-select"
+              {...register("document", {
+                required: {
+                  value: true,
+                  message: "Campo requerido",
+                },
+              })}
+            >
+              <option value=""></option>
+              <option value="d.n.i.">D.N.I</option>
+              <option value="c.e.">C.E</option>
+              <option value="r.u.c.">RUC</option>
+            </select>
+            {errors.document && (
+              <small className="text-danger">{errors.document.message}</small>
+            )}
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Numero Documento*</label>
+            <input
+              type="number"
+              className="form-control"
+              {...register("documentNumber", {
+                required: {
+                  value: true,
+                  message: "Campo requerido",
+                },
+                minLength: { value: 8, message: "Formato incorrecto" },
+                maxLength: { value: 11, message: "Formato incorrecto" },
+                pattern: {
+                  value: regexNum,
+                  message: "Formato incorrecto",
+                },
+              })}
+            />
 
-						{errors.documentNumber && (
-							<small className="text-danger">
-								{errors.documentNumber.message}
-							</small>
-						)}
-					</div>
+            {errors.documentNumber && (
+              <small className="text-danger">
+                {errors.documentNumber.message}
+              </small>
+            )}
+          </div>
 
           {/* ADOPTER*/}
           <div className="mb-3">
-            <label className="form-label">Tipo</label>
+            <label className="form-label">Tipo*</label>
             <select
               className="form-select"
               {...register("type", {
@@ -203,37 +198,42 @@ export const FormNewUser = () => {
                 },
               })}
             >
+              <option value=""></option>
               <option value="adopter">Adoptante</option>
             </select>
+
+            {errors.type && (
+              <small className="text-danger">{errors.type.message}</small>
+            )}
           </div>
 
-					<div
-						className="mb-3"
-						style={{
-							display: "flex",
-							alignItems: "flex-end",
-							justifyContent: "flex-start",
-						}}
-					>
-						<div
-							style={{
-								display: "flex",
-								border: "1px solid rgb(191, 193, 193)",
-								padding: ".5rem 1rem",
-								borderRadius: "0.375rem",
-								cursor: "pointer",
-							}}
-							onClick={() => newAddress()}
-						>
-							<AccountBalanceWalletIcon />
-							<p style={{ margin: "0 0 0 8px" }}>Crear address</p>
-						</div>
-					</div>
-				</section>
+          <div
+            className="mb-3"
+            style={{
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "flex-start",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                border: "1px solid rgb(191, 193, 193)",
+                padding: ".5rem 1rem",
+                borderRadius: "0.375rem",
+                cursor: "pointer",
+              }}
+              onClick={() => newAddress()}
+            >
+              <AccountBalanceWalletIcon />
+              <p style={{ margin: "0 0 0 8px" }}>Crear address</p>
+            </div>
+          </div>
+        </section>
 
         {/* ADDRESS*/}
         <div className="mb-3">
-          <label className="form-label">Address</label>
+          <label className="form-label">Address*</label>
           <input
             type="text"
             placeholder="0x..."
@@ -250,13 +250,15 @@ export const FormNewUser = () => {
                 message: "Formato incorrecto",
               },
             })}
+            disabled
+            readonly
           />
           {errors.address && (
             <small className="text-danger">{errors.address.message}</small>
           )}
         </div>
 
-				<Divider sx={{ my: 5 }} />
+        <Divider sx={{ my: 5 }} />
 
         <Title>Datos Personales</Title>
         <section
@@ -269,7 +271,7 @@ export const FormNewUser = () => {
         >
           {/* PRIMER-NOMBRE*/}
           <div className="mb-3">
-            <label className="form-label">Primer Nombre</label>
+            <label className="form-label">Primer Nombre*</label>
             <input
               type="text"
               className="form-control"
@@ -291,29 +293,29 @@ export const FormNewUser = () => {
             )}
           </div>
 
-					{/* SEGUNDO-NOMBRE*/}
-					<div className="mb-3">
-						<label className="form-label">Segundo Nombre</label>
-						<input
-							type="text"
-							className="form-control"
-							{...register("secondName", {
-								minLength: { value: 3, message: "Apellido muy corto" },
-								maxLength: { value: 20, message: "Apellido muy largo" },
-								pattern: {
-									value: regexText,
-									message: "Formato incorrecto",
-								},
-							})}
-						/>
-						{errors.secondName && (
-							<small className="text-danger">{errors.secondName.message}</small>
-						)}
-					</div>
+          {/* SEGUNDO-NOMBRE*/}
+          <div className="mb-3">
+            <label className="form-label">Segundo Nombre</label>
+            <input
+              type="text"
+              className="form-control"
+              {...register("secondName", {
+                minLength: { value: 3, message: "Apellido muy corto" },
+                maxLength: { value: 20, message: "Apellido muy largo" },
+                pattern: {
+                  value: regexText,
+                  message: "Formato incorrecto",
+                },
+              })}
+            />
+            {errors.secondName && (
+              <small className="text-danger">{errors.secondName.message}</small>
+            )}
+          </div>
 
           {/* PRIMER-APELLIDO*/}
           <div className="mb-3">
-            <label className="form-label">Primer Apellido</label>
+            <label className="form-label">Primer Apellido*</label>
             <input
               type="text"
               className="form-control"
@@ -337,7 +339,7 @@ export const FormNewUser = () => {
 
           {/* SEGUNDO-APELLIDO*/}
           <div className="mb-3">
-            <label className="form-label">Segundo Apellido</label>
+            <label className="form-label">Segundo Apellido*</label>
             <input
               type="text"
               className="form-control"
@@ -361,7 +363,7 @@ export const FormNewUser = () => {
 
           {/* FECHA-NACIMIENTO*/}
           <div className="mb-3">
-            <label className="form-label">Fecha de Nacimiento</label>
+            <label className="form-label">Fecha de Nacimiento*</label>
             <input
               type="date"
               className="form-control"
@@ -379,7 +381,7 @@ export const FormNewUser = () => {
 
           {/* GENERO*/}
           <div className="mb-3">
-            <label className="form-label">Genero</label>
+            <label className="form-label">Genero*</label>
             <select
               className="form-select"
               {...register("gender", {
@@ -389,14 +391,18 @@ export const FormNewUser = () => {
                 },
               })}
             >
+              <option value=""></option>
               <option value="male">Hombre</option>
               <option value="female">Mujer</option>
             </select>
+            {errors.gender && (
+              <small className="text-danger">{errors.gender.message}</small>
+            )}
           </div>
 
           {/* CELULAR*/}
           <div className="mb-3">
-            <label className="form-label">Celular</label>
+            <label className="form-label">Celular*</label>
             <input
               type="number"
               className="form-control"
@@ -420,7 +426,7 @@ export const FormNewUser = () => {
 
           {/* CORREO*/}
           <div className="mb-3">
-            <label className="form-label">Correo Electronico</label>
+            <label className="form-label">Correo Electronico*</label>
             <input
               type="text"
               className="form-control"
@@ -468,7 +474,7 @@ export const FormNewUser = () => {
         >
           {/* DEPARTAMENTO*/}
           <div className="mb-3">
-            <label className="form-label">Departamento</label>
+            <label className="form-label">Departamento*</label>
             <Select
               options={departments}
               value={{ label: watch("department") }}
@@ -495,7 +501,7 @@ export const FormNewUser = () => {
 
           {/* PROVINCIA*/}
           <div className="mb-3">
-            <label className="form-label">Provincia</label>
+            <label className="form-label">Provincia*</label>
             <Select
               options={provinces}
               value={{ label: watch("province") }}
@@ -521,7 +527,7 @@ export const FormNewUser = () => {
 
           {/* DISTRITO*/}
           <div className="mb-3">
-            <label className="form-label">Distrito</label>
+            <label className="form-label">Distrito*</label>
             <Select
               options={districts}
               value={{ label: watch("district") }}
@@ -549,7 +555,7 @@ export const FormNewUser = () => {
 
         {/* DIRECCION*/}
         <div className="mb-3">
-          <label className="form-label">Direccion</label>
+          <label className="form-label">Direccion*</label>
           <input
             type="text"
             className="form-control"

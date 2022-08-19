@@ -4,12 +4,12 @@ import { useConnect } from "../../hook/useConnect";
 import { useRouter } from "next/router";
 
 export const LoginView = () => {
-	const router = useRouter();
-	const {auth, loading} = useConnect();
-  
-	useEffect(() => {
-		loading && auth && router.push("/cpanel");
-	}, [auth]);
+  const router = useRouter();
+  const { auth, loading } = useConnect();
 
-	return <>{loading && !auth && <LoginOwner />};</>;
+  useEffect(() => {
+    loading && auth && router.push("/cpanel");
+  }, [auth]);
+
+  return <>{loading && !auth && <LoginOwner />}</>;
 };

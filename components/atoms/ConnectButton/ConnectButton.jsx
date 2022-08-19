@@ -33,7 +33,6 @@ export const ConnectButton = ({ open, setOpen }) => {
           </div>
         )}
       </div>
-
       {open && !web3.account && <Connect handleClose={() => setOpen(false)} />}
 
       {/* {open && web3.account && <Session handleClose={() => setOpen(false)} />} */}

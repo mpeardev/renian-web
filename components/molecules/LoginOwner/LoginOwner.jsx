@@ -32,7 +32,7 @@ export const LoginOwner = () => {
         </main>
 
         <div>
-          <p style={{ color: "black" }}>Inicia sesion con</p>
+          <p style={{ color: "black" }}>Inicia sesion con:</p>
           <ConnectButton setOpen={setOpen} open={open} />
         </div>
       </div>

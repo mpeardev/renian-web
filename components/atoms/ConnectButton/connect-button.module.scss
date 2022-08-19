@@ -4,7 +4,8 @@
 @use "/styles/base/typography" as typography;
 
 .containerConnect {
-  align-items: center;
+  height: 100%;
+  // align-items: center;
   // background-image: url(/img/firulaix-office/second-floor/connect-wallet-on.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -15,7 +16,7 @@
   justify-content: center;
   font-weight: bold;
   padding: 0.5% 1%;
-  text-align: center;
+  // text-align: center;
   transition: 0.2s;
   background: colors.$white;
   border-radius: 15px;
