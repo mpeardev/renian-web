@@ -1,11 +1,15 @@
-import { Button } from "@mui/material";
-import React from "react";
+import { useEffect } from "react";
+import { useConnect } from "../../hook/useConnect";
 import Dashboard from "../organisms/Dashboard/Dashboard";
+import { useRouter } from "next/router";
 
 export const CPanelView = () => {
-  return (
-    <>
-      <Dashboard />
-    </>
-  );
+  const router = useRouter();
+	const {auth, loading} = useConnect();
+
+  useEffect(() => {
+		loading && !auth && router.push("/login");
+	}, [auth]);
+
+	return <>{loading  && auth && <Dashboard />}</>;
 };

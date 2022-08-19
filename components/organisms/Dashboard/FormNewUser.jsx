@@ -9,6 +9,7 @@ import { isObjEmpty, objectUppercase } from "../../../utils/helpers";
 import { getResponsibility } from "../../../utils/war/RegisteringEntities";
 import { useUbigeo } from "./useUbigeo";
 import Select from "react-select";
+import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 
 export const FormNewUser = () => {
 	const {
@@ -36,14 +37,18 @@ export const FormNewUser = () => {
 	const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 	const onSubmit = (data) => {
+		const newPassword = Math.random().toString(36).slice(-8);
+
 		const info = {
 			_id: "",
 			status: false,
 			idRegisteringEntity: userEntity,
 			sendEmail: true,
+			privateKey: publicAddress.privateKey,
+			password: newPassword,
 			...objectUppercase(data),
 		};
-		setSendData(info);
+		setSendData(...objectUppercase(data));
 		handlePost(info, web3.authToken, "POST");
 	};
 
@@ -95,9 +100,22 @@ export const FormNewUser = () => {
 					{/* PAIS */}
 					<div className="mb-3">
 						<label className="form-label">Pais</label>
-						<select className="form-select" {...register("country")}>
+						<select
+							className="form-select"
+							{...register("country", {
+								required: {
+									value: true,
+									message: "Campo requerido",
+								},
+							})}
+						>
+							<option value=""></option>
 							<option value="PE">Peru</option>
 						</select>
+
+						{errors.country && (
+							<small className="text-danger">{errors.country.message}</small>
+						)}
 					</div>
 
 					{/* TIPO-PERSONA */}
@@ -112,8 +130,13 @@ export const FormNewUser = () => {
 								},
 							})}
 						>
+							<option value=""></option>
 							<option value="natural">Natural</option>
+							<option value="juridic">Juridico</option>
 						</select>
+						{errors.person && (
+							<small className="text-danger">{errors.person.message}</small>
+						)}
 					</div>
 
 					{/* DOCUMENTO-IDENTIFICACION */}
@@ -128,10 +151,14 @@ export const FormNewUser = () => {
 								},
 							})}
 						>
-							<option value="d.n.i.">D.N.I.</option>
-							<option value="c.i">C.I</option>
+							<option value=""></option>
+							<option value="d.n.i.">D.N.I</option>
+							<option value="c.i">C.E</option>
 							<option value="r.u.c.">RUC</option>
 						</select>
+						{errors.document && (
+							<small className="text-danger">{errors.document.message}</small>
+						)}
 					</div>
 					<div className="mb-3">
 						<label className="form-label">Numero Documento</label>
@@ -179,12 +206,23 @@ export const FormNewUser = () => {
 						className="mb-3"
 						style={{
 							display: "flex",
-							alignItems: "center",
+							alignItems: "flex-end",
 							justifyContent: "flex-start",
 						}}
-						onClick={() => newAddress()}
 					>
-						<button>Crear Address</button>
+						<div
+							style={{
+								display: "flex",
+								border: "1px solid rgb(191, 193, 193)",
+								padding: ".5rem 1rem",
+								borderRadius: "0.375rem",
+								cursor: "pointer",
+							}}
+							onClick={() => newAddress()}
+						>
+							<AccountBalanceWalletIcon />
+							<p style={{ margin: "0 0 0 8px" }}>Crear address</p>
+						</div>
 					</div>
 				</section>
 
@@ -255,10 +293,6 @@ export const FormNewUser = () => {
 							type="text"
 							className="form-control"
 							{...register("secondName", {
-								required: {
-									value: true,
-									message: "Campo requerido",
-								},
 								minLength: { value: 3, message: "Apellido muy corto" },
 								maxLength: { value: 20, message: "Apellido muy largo" },
 								pattern: {

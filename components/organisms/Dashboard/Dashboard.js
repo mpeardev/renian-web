@@ -24,6 +24,8 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { FormNewUser } from "./FormNewUser";
 import { useRouter } from "next/router";
+import { logout } from "../../../utils/war/auth";
+import { Web3Context } from "../../../contexts/Web3/Web3Context";
 
 function Copyright(props) {
   return (
@@ -102,6 +104,7 @@ const darkTheme = createTheme({
 
 const DashboardContent = () => {
   const router = useRouter();
+  const {web3, handleWeb3,handleToken, handleAccount} = React.useContext(Web3Context);
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -171,7 +174,9 @@ const DashboardContent = () => {
           <List component="nav">
             {mainListItems}
             <Divider sx={{ my: 1 }} />
-            <ListItemButton onClick={() => router.push("/login")}>
+            <ListItemButton onClick={() => {
+              logout(web3, handleWeb3,handleToken, handleAccount);
+            }}>
               <ListItemIcon>
                 <ExitToAppIcon />
               </ListItemIcon>

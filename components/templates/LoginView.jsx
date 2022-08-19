@@ -1,6 +1,15 @@
-import React from "react";
+import { useEffect } from "react";
 import { LoginOwner } from "../../components";
+import { useConnect } from "../../hook/useConnect";
+import { useRouter } from "next/router";
 
 export const LoginView = () => {
-  return <LoginOwner />;
+	const router = useRouter();
+	const {auth, loading} = useConnect();
+  
+	useEffect(() => {
+		loading && auth && router.push("/cpanel");
+	}, [auth]);
+
+	return <>{loading && !auth && <LoginOwner />};</>;
 };
