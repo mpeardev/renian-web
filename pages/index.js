@@ -12,13 +12,15 @@ export default function Home() {
 	}, []);
 
 	return (
-		<div>
-			<Script src="https://cdn.lordicon.com/xdjxvujz.js"></Script>
-			<Background>
-				<Header />
-				<HomeView />
-				<Footer />
-			</Background>
-		</div>
+    <>
+    </>
+		// <div>
+		// 	<Script src="https://cdn.lordicon.com/xdjxvujz.js"></Script>
+		// 	<Background>
+		// 		<Header />
+		// 		<HomeView />
+		// 		<Footer />
+		// 	</Background>
+		// </div>
 	);
 }
