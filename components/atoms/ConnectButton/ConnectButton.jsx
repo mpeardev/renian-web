@@ -26,6 +26,7 @@ export const ConnectButton = ({ open, setOpen }) => {
                 layout="responsive"
                 width={30}
                 height={30}
+                style={{ opacity: "10" }}
               />
             </div>
             <p style={{ margin: "0" }}>Metamask</p>

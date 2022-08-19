@@ -7,16 +7,10 @@
   display: flex;
   width: 100%;
   height: 100vh;
-  background: rgb(221, 0, 0);
-  background: radial-gradient(
-    circle,
-    rgba(221, 0, 0, 1) 1%,
-    rgba(128, 0, 0, 1) 80%
-  );
-  // background-image: url("/img/bg-login.png");
+  background-image: url("/img/bg-login2.png");
   // background-repeat: no-repeat;
-  // background-size: cover;
-  // background-position: center;
+  background-size: contain;
+  background-position: center;
 
   &__form {
     width: 50%;
@@ -24,25 +18,43 @@
     flex-direction: column;
     color: colors.$white;
     & > h3 {
+      color: rgba(255, 0, 0, 0.664);
       font-family: typography.$typography70;
-      font-size: 30px;
+      text-shadow: 1px 1px 4px colors.$black;
+      font-size: 27px;
+      text-transform: uppercase;
     }
     & > h6 {
-      font-family: typography.$typography20;
-      font-size: 15px;
+      color: black;
+      font-family: typography.$typography40;
+      font-size: 14px;
       margin-top: 10px;
     }
 
     & > h4 {
+      color: rgba(255, 140, 0, 0.664);
       font-family: typography.$typography60;
-      font-size: 18px;
-      margin-top: 40px;
+      font-size: 15px;
+      text-shadow: 1px 1px 2.2px colors.$black;
+      // margin-top: 40px;
+      padding: 3.5rem 0 0.3rem 0;
     }
 
     & > main {
       margin-top: 2.5rem;
       width: 100%;
       max-width: 380px;
+    }
+
+    & > div {
+      display: flex;
+      align-items: flex-end;
+      justify-content: auto;
+      margin-top: 3rem;
+
+      & > p {
+        width: 8rem;
+      }
     }
 
     &Box {
@@ -74,21 +86,17 @@
     }
 
     &Button {
-      margin-top: 0.2rem;
+      // margin-top: 0.2rem;
       & > button {
         width: 100%;
-        height: 44px;
-        background: rgb(47, 142, 251);
-        box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
-        border-radius: 8px;
-        font-weight: 500;
-        font-size: 23px;
-        line-height: 24px;
-        font-family: typography.$typography50;
-        color: colors.$primary;
-        border: none;
-        margin-bottom: 16px;
-        cursor: pointer;
+        height: 3rem;
+        margin: 0 auto;
+        background: transparent;
+        border: 0;
+        background-image: url("/img/registry-button.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
       }
     }
 
@@ -129,7 +137,7 @@
     padding: 5rem;
     & span {
       width: 100%;
-      max-width: 25rem;
+      max-width: 12rem;
     }
 
     & > div {
@@ -138,9 +146,8 @@
       // margin-top: 40px;
       text-align: center;
       padding-top: 1rem;
-      border: 1px solid colors.$gray30;
-      border-radius: 8px;
-      background: rgba(208, 208, 208, 0.934);
+      border-radius: 12px;
+      transition: 0.5s;
       & > p {
         font-family: typography.$typography40;
         font-size: 12px;
