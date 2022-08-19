@@ -3,7 +3,6 @@ import React, { useRef } from "react";
 import useHover from "@react-hook/hover";
 import classes from "./card-section.module.scss";
 import { useRouter } from "next/router";
-import Link from "next/link";
 
 export const CardSection = () => {
   const router = useRouter();
@@ -51,7 +50,7 @@ export const CardSection = () => {
               className={classes.section__cardImage}
               style={hover01 ? { filter: "opacity(0.3)" } : { filter: "none" }}
             >
-              <Image src="/img/cards/1.jpg" layout="fill" priority />
+              <Image src="/img/cards/1.jpg" layout="fill" priority  alt="image"/>
             </div>
           </div>
 
@@ -84,6 +83,7 @@ export const CardSection = () => {
                 src="/img/cards/2.jpg"
                 layout="fill"
                 priority
+                alt="image"
                 style={
                   hover02 ? { filter: "opacity(0.3)" } : { filter: "none" }
                 }
@@ -121,6 +121,7 @@ export const CardSection = () => {
                 src="/img/cards/3.jpg"
                 layout="fill"
                 priority
+                alt="image"
                 style={
                   hover03 ? { filter: "opacity(0.3)" } : { filter: "none" }
                 }
@@ -128,7 +129,7 @@ export const CardSection = () => {
             </div>
           </div>
 
-          <a href="https://firulaixcoin.finance/war-office" target="_blank">
+          <a href="https://firulaixcoin.finance/war-office" target="_blank" rel="noreferrer noopener">
             <div className={classes.section__card} ref={target04}>
               <div
                 className={classes.section__cardDeg}
@@ -154,6 +155,7 @@ export const CardSection = () => {
                   src="/img/cards/4.jpg"
                   layout="fill"
                   priority
+                  alt="image"
                   style={
                     hover04 ? { filter: "opacity(0.3)" } : { filter: "none" }
                   }

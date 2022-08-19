@@ -12,6 +12,7 @@ export const Advantage = () => {
             layout="responsive"
             width={40}
             height={40}
+            alt="image"
           />
         </div>
 

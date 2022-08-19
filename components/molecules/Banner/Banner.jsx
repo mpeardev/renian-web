@@ -30,7 +30,7 @@ export const Banner = () => {
           <SwiperSlide>
             <div className={classes.banner__slide}>
               <div className={classes.banner__image}>
-                <Image src="/img/pets/6.jpg" layout="fill" priority="true" />
+                <Image src="/img/pets/6.jpg" layout="fill" priority="true"  alt="image" />
               </div>
               <div className={classes.banner__description}>
                 <div className={classes.banner__right}>
@@ -66,7 +66,7 @@ export const Banner = () => {
                 </div>
               </div>
               <div className={classes.banner__image}>
-                <Image src="/img/pets/8.jpg" layout="fill" priority="true" />
+                <Image src="/img/pets/8.jpg" layout="fill" priority="true" alt="image" />
               </div>
             </div>
           </SwiperSlide>

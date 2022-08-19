@@ -25,6 +25,7 @@ export const Microchip = () => {
                 layout="responsive"
                 width={10}
                 height={10}
+                alt="image"
               />
               <div>
                 <lord-icon
@@ -54,6 +55,7 @@ export const Microchip = () => {
               layout="responsive"
               width={60}
               height={29}
+              alt="image"
             />
           </div>
         </div>

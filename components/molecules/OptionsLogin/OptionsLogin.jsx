@@ -48,7 +48,7 @@ export const OptionsLogin = () => {
               className={classes.options__cardImage}
               style={hover01 ? { filter: "opacity(0.3)" } : { filter: "none" }}
             >
-              <Image src="/img/option-owner.png" layout="fill" />
+              <Image src="/img/option-owner.png" layout="fill" alt="image" />
             </div>
           </div>
 
@@ -78,6 +78,7 @@ export const OptionsLogin = () => {
               <Image
                 src="/img/option-register.png"
                 layout="fill"
+                alt="image"
                 style={
                   hover02 ? { filter: "opacity(0.3)" } : { filter: "none" }
                 }

@@ -24,6 +24,7 @@ export const Mission = () => {
               layout="responsive"
               width={120}
               height={50}
+              alt="image"
             />
           </div>
         </div>
@@ -36,6 +37,7 @@ export const Mission = () => {
           width={120}
           height={28}
           priority="true"
+          alt="image"
         />
       </div>
     </section>

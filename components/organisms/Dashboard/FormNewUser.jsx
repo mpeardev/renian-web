@@ -251,7 +251,7 @@ export const FormNewUser = () => {
               },
             })}
             disabled
-            readonly
+            readOnly
           />
           {errors.address && (
             <small className="text-danger">{errors.address.message}</small>

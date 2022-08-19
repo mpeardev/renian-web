@@ -45,7 +45,7 @@ export const ContactHead = () => {
           </div>
         </div>
         <div className={styles.contact__networks}>
-          <a href="https://www.facebook.com/RenianPeru/" target="_blank">
+          <a href="https://www.facebook.com/RenianPeru/" target="_blank"  rel="noreferrer noopener">
             <Image
               src="/svg/networks/facebook-icon.svg"
               width={28}
@@ -55,7 +55,7 @@ export const ContactHead = () => {
           </a>
           <a
             href="https://www.instagram.com/renian_peru/?hl=es-la"
-            target="_blank"
+            target="_blank" rel="noreferrer noopener"
           >
             <Image
               src="/svg/networks/instagram-icon.svg"

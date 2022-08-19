@@ -22,6 +22,7 @@ export const Projection = () => {
             layout="responsive"
             width={120}
             height={60}
+            alt="image"
           />
         </div>
       </div>

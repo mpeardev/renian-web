@@ -103,6 +103,7 @@ export const About = () => {
             layout="responsive"
             width={28}
             height={28}
+            alt="image"
           />
         </div>
       </div>

@@ -9,7 +9,7 @@ export const LoginView = () => {
 
   useEffect(() => {
     loading && auth && router.push("/cpanel");
-  }, [auth]);
+  }, [auth, loading]);
 
   return <>{loading && !auth && <LoginOwner />}</>;
 };

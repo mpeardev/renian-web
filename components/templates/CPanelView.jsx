@@ -4,12 +4,12 @@ import Dashboard from "../organisms/Dashboard/Dashboard";
 import { useRouter } from "next/router";
 
 export const CPanelView = () => {
-  const router = useRouter();
-	const {auth, loading} = useConnect();
+	const router = useRouter();
+	const { auth, loading } = useConnect();
 
-  useEffect(() => {
+	useEffect(() => {
 		loading && !auth && router.push("/login");
-	}, [auth]);
+	}, [auth, loading]);
 
-	return <>{loading  && auth && <Dashboard />}</>;
+	return <>{loading && auth && <Dashboard />}</>;
 };

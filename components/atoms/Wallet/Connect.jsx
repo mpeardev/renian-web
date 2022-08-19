@@ -31,6 +31,7 @@ export const Connect = ({ handleClose }) => {
               layout="responsive"
               width={30}
               height={30}
+              alt="image"
             />
           </div>
           {/* <div>

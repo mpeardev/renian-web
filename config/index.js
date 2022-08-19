@@ -31,7 +31,7 @@ import {
 /**
  * @ENTORNO
  */
-export const PRODUCTION = false;
+export const PRODUCTION = true;
 
 /**
  * @NETWORKS

@@ -27,6 +27,7 @@ export const ConnectButton = ({ open, setOpen }) => {
                 width={30}
                 height={30}
                 style={{ opacity: "10" }}
+                alt="image"
               />
             </div>
             <p style={{ margin: "0" }}>Metamask</p>
