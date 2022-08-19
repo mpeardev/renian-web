@@ -27,30 +27,24 @@ export const LoginOwner = () => {
           </div>
 
           <div className={classes.owner__formButton}>
-            <button>Ingresa</button>
+            <button></button>
           </div>
         </main>
 
-        {/* <div>
-          <p>
-            *Solo para entidades registradoras{" "}
-            <Link href="/cpanel">Registrar</Link>
-          </p>
-        </div> */}
-
-        <h4>Inicia sesion con Metamask:</h4>
-        <ConnectButton setOpen={setOpen} open={open} />
+        <div>
+          <p style={{ color: "black" }}>Inicia sesion con</p>
+          <ConnectButton setOpen={setOpen} open={open} />
+        </div>
       </div>
 
       <div className={classes.owner__decorate}>
         <span>
           <Image
-            src="/svg/renian-logo.svg"
+            src="/svg/war-logo.svg"
             layout="responsive"
-            width={160}
+            width={50}
             height={50}
-            alt="renian-logo"
-            priority
+            alt="fb-icon"
           />
         </span>
         <div>
@@ -62,11 +56,12 @@ export const LoginOwner = () => {
         </div>
         <span>
           <Image
-            src="/svg/war-logo.svg"
+            src="/svg/renian-logo.svg"
             layout="responsive"
             width={160}
             height={50}
-            alt="fb-icon"
+            alt="renian-logo"
+            priority
           />
         </span>
       </div>
