@@ -10,7 +10,6 @@ import { getResponsibility } from "../../../utils/war/RegisteringEntities";
 import { useUbigeo } from "./useUbigeo";
 import Select from "react-select";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 
 export const FormNewUser = () => {
   const {
