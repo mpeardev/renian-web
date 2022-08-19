@@ -18,6 +18,7 @@ export const FormNewUser = () => {
     setValue,
     watch,
     formState: { errors },
+    reset,
   } = useForm();
   const [sendData, setSendData] = useState();
   const [user, setUser] = useState({});
@@ -50,6 +51,7 @@ export const FormNewUser = () => {
     };
     setSendData(info);
     handlePost(info, web3.authToken, "POST");
+    reset();
   };
 
   const { web3, handleWeb3, handleAccount, handleChainId, handleToken } =
@@ -109,7 +111,6 @@ export const FormNewUser = () => {
                 },
               })}
             >
-              <option value=""></option>
               <option value="PE">Peru</option>
             </select>
 
@@ -130,7 +131,6 @@ export const FormNewUser = () => {
                 },
               })}
             >
-              <option value=""></option>
               <option value="natural">Natural</option>
               <option value="juridic">Juridico</option>
             </select>
@@ -151,7 +151,6 @@ export const FormNewUser = () => {
                 },
               })}
             >
-              <option value=""></option>
               <option value="d.n.i.">D.N.I</option>
               <option value="c.e.">C.E</option>
               <option value="r.u.c.">RUC</option>
@@ -198,7 +197,6 @@ export const FormNewUser = () => {
                 },
               })}
             >
-              <option value=""></option>
               <option value="adopter">Adoptante</option>
             </select>
 
@@ -381,7 +379,7 @@ export const FormNewUser = () => {
 
           {/* GENERO*/}
           <div className="mb-3">
-            <label className="form-label">Genero*</label>
+            <label className="form-label">Sexo*</label>
             <select
               className="form-select"
               {...register("gender", {
@@ -391,7 +389,6 @@ export const FormNewUser = () => {
                 },
               })}
             >
-              <option value=""></option>
               <option value="male">Hombre</option>
               <option value="female">Mujer</option>
             </select>
@@ -596,7 +593,7 @@ export const FormNewUser = () => {
 
       <div className="alert alert-warning">
         <code>
-          Data sent: <br />
+          Registro realizado: <br />
           {JSON.stringify(sendData)}
         </code>
       </div>

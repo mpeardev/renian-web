@@ -56,11 +56,11 @@ export const LoginOwner = () => {
         </div>
         <span>
           <Image
-            src="/svg/renian-logo.svg"
+            src="/img/firulaix-logo.png"
             layout="responsive"
             width={160}
-            height={50}
-            alt="renian-logo"
+            height={40}
+            alt="firulaix-logo"
             priority
           />
         </span>
