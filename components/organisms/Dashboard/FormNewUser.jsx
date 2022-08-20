@@ -34,7 +34,8 @@ export const FormNewUser = () => {
   } = useUbigeo();
 
   const regexNum = /^[0-9]+/;
-  const regexText = /^[a-zA-Z0-9 ]+$/;
+  // const regexText = /^[a-zA-Z0-9 ]+$/;
+  const regexText = "";
   const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
   const onSubmit = (data) => {
@@ -248,8 +249,6 @@ export const FormNewUser = () => {
                 message: "Formato incorrecto",
               },
             })}
-            disabled
-            readOnly
           />
           {errors.address && (
             <small className="text-danger">{errors.address.message}</small>
