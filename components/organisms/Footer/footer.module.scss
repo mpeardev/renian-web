@@ -30,7 +30,7 @@
     & > p {
       margin-top: 1rem;
       font-family: typography.$typography30;
-      color: colors.$gray10;
+      color: colors.$gray50;
       font-size: 13px;
     }
   }
@@ -38,19 +38,25 @@
   &__contact {
     & h3 {
       font-family: typography.$typography60;
-      color: colors.$primary;
+      color: #dd000090;
       font-size: 24px;
     }
     & > ul {
+      margin-top: 1rem;
       & > li {
         // border-bottom: 1px solid colors.$gray10;
         padding: 0.2rem 0;
+        & div {
+          width: 30px;
+          height: 30px;
+          @include utilities.renian-flexbox-param(flex, center, center);
+        }
 
         @include utilities.renian-flexbox-param(flex, center, auto);
         & > p {
           margin-left: 0.5rem;
           font-family: typography.$typography30;
-          color: colors.$white;
+          color: colors.$gray50;
           font-size: 13px;
         }
       }

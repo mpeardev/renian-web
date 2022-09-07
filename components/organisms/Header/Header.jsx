@@ -1,13 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { useRouter } from "next/router";
 import { ContactHead } from "./components/ContactHead/ContactHead";
 import classes from "./header.module.scss";
 
 export const Header = () => {
-  const router = useRouter();
-
   return (
     <>
       <ContactHead />
@@ -26,19 +23,17 @@ export const Header = () => {
 
           <nav className={classes.header__links}>
             <div>
-              <a>Nosotros</a>
-              <a>Microship</a>
-              <a>Mision</a>
-              <Link href="/news">Noticias</Link>
-              <Link href="/questions">Preguntas Frecuntes</Link>
-              <Link href="/contact">Contacto</Link>
+              <a>nosotros</a>
+              <a>microship</a>
+              <a>mision</a>
+              <a>noticias</a>
+              <a>preguntas frecuentes</a>
+              <a>contacto</a>
             </div>
           </nav>
 
           <div className={classes.header__login}>
-            {/* <Link href="/login"> */}
-            <button onClick={() => router.push("/login")}>Ingresar</button>
-            {/* </Link> */}
+            <button>Ingresar</button>
           </div>
         </main>
       </header>

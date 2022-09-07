@@ -28,6 +28,7 @@
         font-size: 13px;
         color: colors.$gray100;
         transition-duration: 0.4s;
+        text-transform: capitalize;
         &:hover {
           color: colors.$primary;
         }

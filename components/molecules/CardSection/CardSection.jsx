@@ -22,11 +22,7 @@ export const CardSection = () => {
       <div className={classes.section__container}>
         <h3>Explora nuestras opciones</h3>
         <div>
-          <div
-            className={classes.section__card}
-            ref={target01}
-            onClick={() => router.push("/owner")}
-          >
+          <div className={classes.section__card} ref={target01}>
             <div
               className={classes.section__cardDeg}
               style={hover01 ? { display: "block" } : { display: "none" }}
@@ -50,15 +46,16 @@ export const CardSection = () => {
               className={classes.section__cardImage}
               style={hover01 ? { filter: "opacity(0.3)" } : { filter: "none" }}
             >
-              <Image src="/img/cards/1.jpg" layout="fill" priority  alt="image"/>
+              <Image
+                src="/img/cards/1.jpg"
+                layout="fill"
+                priority
+                alt="image"
+              />
             </div>
           </div>
 
-          <div
-            className={classes.section__card}
-            ref={target02}
-            onClick={() => router.push("/owner/registry")}
-          >
+          <div className={classes.section__card} ref={target02}>
             <div
               className={classes.section__cardDeg}
               style={hover02 ? { display: "block" } : { display: "none" }}
@@ -94,7 +91,7 @@ export const CardSection = () => {
           <div
             className={classes.section__card}
             ref={target03}
-            onClick={() => router.push("/cpanel")}
+            // onClick={() => router.push("/cpanel")}
           >
             <div
               className={classes.section__cardDeg}
@@ -129,40 +126,38 @@ export const CardSection = () => {
             </div>
           </div>
 
-          <a href="https://firulaixcoin.finance/war-office" target="_blank" rel="noreferrer noopener">
-            <div className={classes.section__card} ref={target04}>
-              <div
-                className={classes.section__cardDeg}
-                style={hover04 ? { display: "block" } : { display: "none" }}
-              >
-                <div>
-                  <lord-icon
-                    src="https://cdn.lordicon.com/zniqnylq.json"
-                    trigger="loop"
-                    colors="primary:#f5f5f5,secondary:#f5f5f5"
-                    style={{ width: "120px", height: "120px" }}
-                  ></lord-icon>
-                  <p>Consultar</p>
-                </div>
-              </div>
-              <div className={classes.section__cardText}>
-                <h3>
-                  <span>Consulta</span> el registro en <span>WAR</span>
-                </h3>
-              </div>
-              <div className={classes.section__cardImage}>
-                <Image
-                  src="/img/cards/4.jpg"
-                  layout="fill"
-                  priority
-                  alt="image"
-                  style={
-                    hover04 ? { filter: "opacity(0.3)" } : { filter: "none" }
-                  }
-                />
+          <div className={classes.section__card} ref={target04}>
+            <div
+              className={classes.section__cardDeg}
+              style={hover04 ? { display: "block" } : { display: "none" }}
+            >
+              <div>
+                <lord-icon
+                  src="https://cdn.lordicon.com/zniqnylq.json"
+                  trigger="loop"
+                  colors="primary:#f5f5f5,secondary:#f5f5f5"
+                  style={{ width: "120px", height: "120px" }}
+                ></lord-icon>
+                <p>Consultar</p>
               </div>
             </div>
-          </a>
+            <div className={classes.section__cardText}>
+              <h3>
+                <span>Consulta</span> el registro en <span>WAR</span>
+              </h3>
+            </div>
+            <div className={classes.section__cardImage}>
+              <Image
+                src="/img/cards/4.jpg"
+                layout="fill"
+                priority
+                alt="image"
+                style={
+                  hover04 ? { filter: "opacity(0.3)" } : { filter: "none" }
+                }
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
