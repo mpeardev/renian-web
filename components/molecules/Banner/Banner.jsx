@@ -30,7 +30,12 @@ export const Banner = () => {
           <SwiperSlide>
             <div className={classes.banner__slide}>
               <div className={classes.banner__image}>
-                <Image src="/img/pets/6.jpg" layout="fill" priority="true"  alt="image" />
+                <Image
+                  src="/img/pets/6.jpg"
+                  layout="fill"
+                  priority="true"
+                  alt="image"
+                />
               </div>
               <div className={classes.banner__description}>
                 <div className={classes.banner__right}>
@@ -40,9 +45,7 @@ export const Banner = () => {
                     <span>RENIAN</span>
                   </h1>
                   <div>
-                    <button onClick={() => router.push("/contact")}>
-                      Contactanos
-                    </button>
+                    <button>Contactanos</button>
                   </div>
                 </div>
               </div>
@@ -59,14 +62,17 @@ export const Banner = () => {
                     protejamoslos. <span>(Ley 30407)</span>
                   </h1>
                   <div>
-                    <button onClick={() => router.push("/contact")}>
-                      Contactanos
-                    </button>
+                    <button>Contactanos</button>
                   </div>
                 </div>
               </div>
               <div className={classes.banner__image}>
-                <Image src="/img/pets/8.jpg" layout="fill" priority="true" alt="image" />
+                <Image
+                  src="/img/pets/8.jpg"
+                  layout="fill"
+                  priority="true"
+                  alt="image"
+                />
               </div>
             </div>
           </SwiperSlide>
