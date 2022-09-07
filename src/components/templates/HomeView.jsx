@@ -9,7 +9,7 @@ import {
   Mission,
   PlayVideo,
   Projection,
-} from "../../components";
+} from "..";
 
 export const HomeView = () => {
   return (
