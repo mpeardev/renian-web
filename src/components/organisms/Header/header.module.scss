@@ -5,8 +5,9 @@
 
 .header {
   width: 100%;
-  height: 6rem;
+  height: 4rem;
   padding: 0 2%;
+  background: rgba(159, 158, 158, 0.108);
   @include utilities.renian-flexbox-param(flex, center, auto);
 
   &__container {
