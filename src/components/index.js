@@ -17,3 +17,4 @@ export * from "./organisms/Header/Header";
 
 /* -----TEMPLATES----- */
 export * from "./templates/HomeView";
+export * from "./templates/MaintenanceView";

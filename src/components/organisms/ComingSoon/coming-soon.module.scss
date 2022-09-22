@@ -1,0 +1,86 @@
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/typography" as typography;
+
+.background {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  background: colors.$gray10;
+  @include utilities.renian-flexbox-param(flex, center, center);
+  flex-direction: column;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.coming {
+  width: 100%;
+  max-width: 55rem;
+  position: relative;
+  @include utilities.renian-flexbox-param(flex, center, center);
+  flex-direction: column;
+  &__logo {
+    width: 18rem;
+    position: relative;
+  }
+  &__text {
+    text-align: center;
+    margin-top: 1rem;
+    & > h3 {
+      font-family: typography.$typography50;
+      font-size: 30px;
+      margin: 0.5rem 0;
+      color: colors.$gray80;
+      text-shadow: 1px 1px white;
+      & > span {
+        font-family: typography.$typography70;
+      }
+    }
+    & > div {
+      width: 10rem;
+      margin: 0 auto;
+      padding: 1rem 0;
+      position: relative;
+    }
+  }
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  max-width: 45rem;
+  &__content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    margin-top: 3.5rem;
+    background: colors.$primary;
+    padding: 4rem 0.5rem;
+    & > p {
+      font-family: typography.$typography50;
+      font-size: 25px;
+      color: colors.$gray10;
+      text-align: center;
+      & > span {
+        font-family: typography.$typography70;
+      }
+    }
+  }
+  &__dog {
+    width: 9rem;
+    position: absolute;
+    top: 30px;
+    left: -85px;
+    z-index: 8;
+    transform: rotate(-20deg);
+  }
+  // & > div {
+  //   width: 8rem;
+  //   position: absolute;
+  //   z-index: 9;
+  //   top: 0;
+  //   left: -30px;
+  // }
+}

@@ -23,18 +23,16 @@ export const Header = () => {
 
           <nav className={classes.header__links}>
             <div>
-              <a>nosotros</a>
-              <a>microship</a>
-              <a>mision</a>
+              <a>registro mundial</a>
               <a>noticias</a>
-              <a>preguntas frecuentes</a>
+              <a>nosotros</a>
               <a>contacto</a>
             </div>
           </nav>
 
-          <div className={classes.header__login}>
+          {/* <div className={classes.header__login}>
             <button>Ingresar</button>
-          </div>
+          </div> */}
         </main>
       </header>
     </>

@@ -6,67 +6,38 @@
 .banner {
   width: 100%;
   // max-width: breakpoints.$screen-max;
-  height: calc(100vh - 9rem);
+  height: calc((100vh - 7rem + 4.5rem) - 30rem);
   min-height: 30rem;
   margin: 0 auto;
 
-  &__slide {
-    background: transparent;
+  &__first {
     width: 100%;
     height: 100%;
-    @include utilities.renian-flexbox-param(flex, auto, auto);
+    background: rgb(209, 247, 255);
+    background: radial-gradient(
+      circle,
+      rgba(209, 247, 255, 1) 0%,
+      rgba(91, 223, 255, 1) 100%
+    );
   }
-  &__image {
-    width: 40%;
+  &__second {
+    width: 100%;
     height: 100%;
-    position: relative;
+    background: rgb(249, 249, 249);
+    background: radial-gradient(
+      circle,
+      rgba(249, 249, 249, 1) 0%,
+      rgba(193, 193, 193, 1) 100%
+    );
   }
-  &__description {
-    width: 60%;
+  &__third {
+    width: 100%;
     height: 100%;
-    @include utilities.renian-flexbox-param(flex, center, auto[]);
-    & > div {
-      width: 100%;
-      flex-direction: column;
-      padding: 0 2rem;
-      & h5 {
-        font-family: typography.$typography60;
-        font-size: 18px;
-        letter-spacing: -0.8px;
-        color: colors.$gray100;
-      }
-      & h1 {
-        max-width: 42rem;
-        font-family: typography.$typography70;
-        font-size: 50px;
-        letter-spacing: -0.8px;
-        color: colors.$gray100;
-        margin-top: 0.5rem;
-        & span {
-          color: colors.$primary;
-        }
-      }
-      & div {
-        margin-top: 2rem;
-        & > button {
-          background: black;
-          color: white;
-          border: 0;
-          border-radius: 5px;
-          padding: 10px 20px;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-  &__right {
-    @include utilities.renian-flexbox-param(flex, flex-end, auto);
-    text-align: end;
-    margin-right: 2rem;
-  }
-  &__left {
-    @include utilities.renian-flexbox-param(flex, flex-start, auto);
-    text-align: start;
-    margin-left: 2rem;
+    background: rgb(209, 247, 255);
+    background: radial-gradient(
+      circle,
+      rgba(209, 247, 255, 1) 0%,
+      rgba(91, 223, 255, 1) 100%
+    );
   }
 }
