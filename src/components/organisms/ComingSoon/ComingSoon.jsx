@@ -20,7 +20,7 @@ const Background = ({ children }) => {
           position: "absolute",
           width: "100%",
           // height: "88%",
-          opacity: ".4",
+          opacity: ".2",
           // filter: "brightness(.8)",
         }}
         options={{
@@ -28,7 +28,7 @@ const Background = ({ children }) => {
           defaultOptions,
         }}
       />
-      {children}
+      <div className={classes.background__container}>{children}</div>
     </main>
   );
 };
@@ -36,6 +36,11 @@ const Background = ({ children }) => {
 const Banner = () => {
   return (
     <div className={classes.banner}>
+      <div className={classes.banner__bg}>
+        <div>
+          <Image src="/img/alert-frame.png" layout="fill" />
+        </div>
+      </div>
       <div className={classes.banner__content}>
         <p>
           Estaremos unidos con el <span>World Animal Registry</span> con
@@ -76,13 +81,15 @@ export const ComingSoon = () => {
             <span>"Moonriver".</span>
           </h3>
 
-          <div>
-            <Image
-              src="/img/blockchain-icon.png"
-              layout="responsive"
-              width={50}
-              height={50}
-            />
+          <div className={classes.coming__textImg}>
+            <div>
+              <Image
+                src="/img/blockchain-icon.png"
+                layout="responsive"
+                width={50}
+                height={50}
+              />
+            </div>
           </div>
 
           <h3>

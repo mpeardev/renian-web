@@ -85,3 +85,19 @@ $typography10: "Inter-Extralight";
   font-family: $typography10;
   src: url("../fonts/Inter/Inter-Extralight.ttf");
 }
+
+/* ----WWDIGITAL---- */
+$typographySecondary: "WW-Digital";
+
+@font-face {
+  font-family: $typographySecondary;
+  src: url("../fonts/WWDigital/WWDigital.ttf");
+}
+
+/* ----INDIE_FLOWER---- */
+$typographyIndie: "IndieFlower";
+
+@font-face {
+  font-family: $typographyIndie;
+  src: url("../fonts/Indie_Flower/IndieFlower-Regular.ttf");
+}

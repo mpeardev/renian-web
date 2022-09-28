@@ -5,32 +5,41 @@
 
 .background {
   width: 100%;
-  height: 100%;
-  min-height: 100vh;
+  height: auto;
   position: relative;
   background: colors.$gray10;
-  @include utilities.renian-flexbox-param(flex, center, center);
-  flex-direction: column;
   overflow: hidden;
-  padding: 2rem 0;
+  &__container {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    max-width: breakpoints.$screen-max;
+    margin: 0 auto;
+    position: relative;
+    z-index: 100;
+    @include utilities.renian-flexbox-param(flex, center, center);
+    flex-direction: column;
+    padding: 0 2%;
+  }
 }
 
 .coming {
   width: 100%;
-  max-width: 55rem;
+  max-width: 40rem;
   position: relative;
   @include utilities.renian-flexbox-param(flex, center, center);
   flex-direction: column;
   &__logo {
-    width: 18rem;
+    width: 12rem;
     position: relative;
   }
   &__text {
     text-align: center;
     margin-top: 1rem;
+
     & > h3 {
       font-family: typography.$typography50;
-      font-size: 30px;
+      font-size: 25px;
       margin: 0.5rem 0;
       color: colors.$gray80;
       text-shadow: 1px 1px white;
@@ -38,11 +47,37 @@
         font-family: typography.$typography70;
       }
     }
-    & > div {
-      width: 10rem;
+    &Img {
+      width: 13rem;
+      height: 13rem;
       margin: 0 auto;
-      padding: 1rem 0;
-      position: relative;
+      @include utilities.renian-flexbox-param(flex, center, center);
+      & > div {
+        width: 10rem;
+        height: 10rem;
+        position: absolute;
+        animation: cube 8s infinite;
+        & > div {
+          width: 100%;
+          height: 100%;
+          position: relative;
+        }
+
+        @keyframes cube {
+          0% {
+            margin-left: 0;
+            margin-top: 0;
+          }
+          50% {
+            margin-left: 3%;
+            margin-top: 2%;
+          }
+          100% {
+            margin-left: 0;
+            margin-top: 0;
+          }
+        }
+      }
     }
   }
 }
@@ -50,37 +85,62 @@
 .banner {
   position: relative;
   width: 100%;
-  max-width: 45rem;
+  max-width: 35rem;
+  margin-top: 3.5rem;
+  &__bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    & > div {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+  }
   &__content {
+    background: colors.$primary;
+    background: url("/img/alert-frame.png");
+    min-height: 13rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     position: relative;
     z-index: 10;
     width: 100%;
-    margin-top: 3.5rem;
-    background: colors.$primary;
-    padding: 4rem 0.5rem;
+    padding: 3rem 1.5rem;
+    animation: banner 4s infinite;
+    @include utilities.renian-flexbox-param(flex, center, center);
+    @keyframes banner {
+      0% {
+        background: colors.$primary;
+      }
+      50% {
+        background: rgb(255, 89, 0);
+      }
+      100% {
+        background: colors.$primary;
+      }
+    }
+
     & > p {
       font-family: typography.$typography50;
-      font-size: 25px;
+      font-size: 22px;
       color: colors.$gray10;
       text-align: center;
       & > span {
         font-family: typography.$typography70;
+        text-transform: uppercase;
       }
     }
   }
   &__dog {
     width: 9rem;
     position: absolute;
-    top: 30px;
-    left: -85px;
-    z-index: 8;
-    transform: rotate(-20deg);
+    top: -20px;
+    left: -140px;
+    z-index: 9;
+    // transform: rotate(-20deg);
   }
-  // & > div {
-  //   width: 8rem;
-  //   position: absolute;
-  //   z-index: 9;
-  //   top: 0;
-  //   left: -30px;
-  // }
 }

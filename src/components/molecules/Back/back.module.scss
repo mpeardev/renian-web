@@ -1,0 +1,66 @@
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/typography" as typography;
+
+.back {
+  width: 100%;
+  background: colors.$gray10;
+  padding: 1.5rem 0;
+  padding: 1rem 2%;
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    max-width: breakpoints.$screen-max;
+    margin: 0 auto;
+    @include utilities.renian-grid-param(grid, 0.4fr 1.6fr, auto, 2rem);
+  }
+
+  &__title {
+    @include utilities.renian-flexbox-param(flex, center, auto);
+    & > h2 {
+      font-size: 23px;
+      font-family: typography.$typography60;
+      text-align: center;
+      text-transform: uppercase;
+      color: colors.$primary;
+    }
+  }
+
+  &__slider {
+    width: 100%;
+    min-height: 3.5rem;
+    overflow: hidden;
+    margin: 0 auto;
+    & > div {
+      list-style: none;
+      height: 100%;
+      @include utilities.renian-flexbox-param(flex, auto, auto);
+      gap: 0.5rem;
+      animation: marquee 70s linear infinite;
+      @keyframes marquee {
+        0% {
+          transform: translateX(-180vw);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+      & > div {
+        width: 20vw;
+        height: 100%;
+        position: relative;
+        flex-shrink: 0;
+        font-size: 30px;
+        white-space: nowrap;
+        font-size: 30px;
+        & > div {
+          width: 100%;
+          max-width: 7rem;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

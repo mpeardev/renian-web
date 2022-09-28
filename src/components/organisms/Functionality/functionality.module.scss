@@ -1,0 +1,81 @@
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/typography" as typography;
+
+.background {
+  width: 100%;
+  height: auto;
+  background: colors.$gray10;
+  position: relative;
+  overflow: hidden;
+  &Decorate {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  &__container {
+    width: 100%;
+    height: 100%;
+    max-width: breakpoints.$screen-max;
+    margin: 0 auto;
+    padding: 0 2%;
+  }
+}
+
+.functionality {
+  @include utilities.renian-grid-param(grid, repeat(2, 1fr), auto, 1.5rem);
+  padding: 4rem 0;
+  &__text {
+    text-align: justify;
+    width: 100%;
+    max-width: 35rem;
+    & > h2 {
+      font-size: 28px;
+      font-family: typography.$typography60;
+      text-align: center;
+      // text-transform: uppercase;
+      color: colors.$primary;
+      @include breakpoints.xl-large {
+        font-size: 23px;
+      }
+    }
+    & > p {
+      margin-top: 1.5rem;
+      font-size: 18px;
+      font-family: typography.$typography30;
+      line-height: 28px;
+      @include breakpoints.xl-large {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+    & > ul {
+      margin-top: 1.5rem;
+      font-size: 18px;
+      line-height: 25px;
+      font-family: typography.$typography30;
+      list-style-type: circle;
+      @include breakpoints.xl-large {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  &__image {
+    & > h2 {
+      font-size: 28px;
+      font-family: typography.$typography60;
+      text-align: center;
+      // text-transform: uppercase;
+      color: colors.$primary;
+      @include breakpoints.xl-large {
+        font-size: 23px;
+      }
+    }
+    & > div {
+      margin-top: 2rem;
+    }
+  }
+}

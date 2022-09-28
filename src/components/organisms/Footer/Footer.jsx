@@ -2,14 +2,22 @@ import React from "react";
 import { Copyright } from "./components/Copyright/Copyright";
 import Image from "next/image";
 import classes from "./footer.module.scss";
+import { animateScroll as scroll } from "react-scroll";
 
 export const Footer = () => {
+  const toggleHome = () => {
+    scroll.scrollToTop();
+  };
+
   return (
     <>
       <footer className={classes.footer}>
         <div className={classes.footer__container}>
           <div className={classes.footer__description}>
-            <div className={classes.footer__descriptionImage}>
+            <div
+              className={classes.footer__descriptionImage}
+              onClick={toggleHome}
+            >
               <Image
                 src="/svg/renian-logo-white.svg"
                 layout="responsive"

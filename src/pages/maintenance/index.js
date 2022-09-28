@@ -1,5 +1,5 @@
 import { MaintenanceView } from "../../components";
 
-export default function Maintenance() {
+export default function MaintenanceMain() {
   return <MaintenanceView />;
 }

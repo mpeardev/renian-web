@@ -16,6 +16,7 @@
     margin: 0 auto;
     @include utilities.renian-flexbox-param(flex, auto, space-between);
     gap: 2rem;
+    padding: 0 2%;
 
     & > div {
       width: 100%;
@@ -26,6 +27,7 @@
   &__description {
     &Image {
       max-width: 18rem;
+      cursor: pointer;
     }
     & > p {
       margin-top: 1rem;

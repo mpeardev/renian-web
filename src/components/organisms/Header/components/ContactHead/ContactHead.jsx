@@ -21,11 +21,11 @@ export const ContactHead = () => {
               src="https://cdn.lordicon.com/gwklwoti.json"
               trigger={hoverDir ? "loop" : "none"}
               colors="primary:#000000,secondary:#dd0000"
-              style={{ width: "30px", height: "30px" }}
+              // style={{ width: "30px", height: "30px" }}
             ></lord-icon>
             <p>Av. Mariategui 1030, Jesús María</p>
           </div>
-          <div ref={targetHours} w>
+          <div ref={targetHours}>
             <lord-icon
               src="https://cdn.lordicon.com/uutnmngi.json"
               trigger={hoverHours ? "loop" : "none"}

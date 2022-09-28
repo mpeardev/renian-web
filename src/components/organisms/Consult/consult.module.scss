@@ -1,0 +1,247 @@
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/typography" as typography;
+
+.background {
+  width: 100%;
+  height: auto;
+  background: colors.$gray10;
+  position: relative;
+  overflow: hidden;
+  &__decorate {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    &Footprints {
+      width: 100%;
+      height: 100%;
+      @include utilities.renian-flexbox-param(flex, auto, space-between);
+      opacity: 0.7;
+      & > div {
+        width: 100%;
+        max-width: 40rem;
+        position: relative;
+        &:first-child {
+          transform: scaleX(-1);
+        }
+      }
+    }
+  }
+  &__container {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    max-width: breakpoints.$screen-max;
+    margin: 0 auto;
+    position: relative;
+    z-index: 100;
+    padding: 5% 2%;
+    @include utilities.renian-flexbox-param(flex, center, center);
+  }
+}
+
+.consult {
+  width: 100%;
+  height: 100%;
+  &__card {
+    width: 100%;
+    height: 100%;
+    min-height: 80vh;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background: colors.$white;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  &__header {
+    width: 100%;
+    height: 4rem;
+    @include utilities.renian-flexbox-param(flex, center, space-between);
+    background: colors.$gray10;
+    padding: 0 4%;
+    & > div {
+      @include utilities.renian-flexbox-param(flex, center, auto);
+      gap: 0.5rem;
+      cursor: pointer;
+      & > p {
+        font-family: typography.$typography50;
+        font-size: 14px;
+        color: colors.$gray60;
+      }
+    }
+  }
+
+  &__search {
+    width: 100%;
+    height: 4rem;
+    // background: rgba(221, 2, 2, 0.069);
+    @include utilities.renian-flexbox-param(flex, center, center);
+    gap: 2.5rem;
+    border-bottom: 1px solid colors.$gray20;
+    & > span {
+      font-family: typography.$typography50;
+      font-size: 16px;
+      color: colors.$primary;
+    }
+    &Camp {
+      @include utilities.renian-flexbox-param(flex, center, auto);
+      gap: 0.5rem;
+      & > input {
+        // border: 0;
+        width: 18rem;
+        outline: none;
+        border: 1px solid colors.$gray30;
+        border-radius: 15px;
+        font-family: typography.$typography40;
+        font-size: 18px;
+        padding: 0.3rem 0.8rem;
+        color: colors.$gray60;
+        &:focus {
+          font-family: typography.$typography50;
+          background: colors.$primary100;
+          background: rgba(221, 2, 2, 0.069);
+        }
+      }
+      & > div {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    min-height: 50rem;
+    position: relative;
+    padding: 4rem 0;
+
+    & > h1 {
+      font-family: typography.$typographyIndie;
+      font-size: 65px;
+      color: colors.$primary;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+    & > div:last-child {
+      padding: 2%;
+      width: 100%;
+      height: 100%;
+      @include utilities.renian-grid-param(grid, 0.8fr 1.2fr, auto, 4rem);
+      position: relative;
+      z-index: 10;
+    }
+    &Bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      background: url("/img/background4.jpg");
+      background-position: initial;
+      background-repeat: no-repeat;
+      background-size: cover;
+      filter: opacity(0.3);
+      z-index: 1;
+    }
+    &Img {
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      @include utilities.renian-flexbox-param(flex, center, center);
+      padding: 4rem;
+      backdrop-filter: blur(20px);
+
+      & > div {
+        width: 100%;
+        max-width: 25rem;
+        position: relative;
+      }
+    }
+
+    &Info {
+      &__cards {
+        @include utilities.renian-grid-param(
+          grid,
+          repeat(2, 1fr),
+          auto,
+          1.5rem
+        );
+        & > div {
+          width: 100%;
+          border-radius: 8px;
+          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+          padding: 2.5rem 25% 2.5rem 2.5rem;
+          position: relative;
+          overflow: hidden;
+          backdrop-filter: blur(20px);
+          &:hover {
+            color: colors.$primary !important;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          }
+        }
+        &Img {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          right: -50px;
+          @include utilities.renian-flexbox-param(flex, center, flex-end);
+        }
+        &Text {
+          & > h4 {
+            font-family: typography.$typographySecondary;
+            font-size: 20px;
+            text-transform: uppercase;
+            // color: colors.$gray80;
+            margin-bottom: 1rem;
+          }
+          & > span {
+            font-family: typography.$typography40;
+            font-size: 14px;
+            color: colors.$gray50;
+          }
+        }
+      }
+
+      &__general {
+        width: 100%;
+        margin-top: 4rem;
+
+        &Table {
+          @include utilities.renian-flexbox-param(flex, auto, auto);
+          flex-direction: column;
+          gap: 0.5rem;
+
+          & > div {
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            backdrop-filter: blur(20px);
+            @include utilities.renian-flexbox-param(flex, auto, auto);
+            border-radius: 4px;
+            padding: 0.8rem 2.5rem;
+            gap: 10%;
+            color: colors.$gray80;
+            transition: 0.3s;
+            &:hover {
+              color: colors.$primary;
+              box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            }
+            & > h5 {
+              width: 15rem;
+              font-family: typography.$typography60;
+              font-size: 15px;
+              text-transform: uppercase;
+            }
+            & > span {
+              font-family: typography.$typography40;
+              font-size: 13px;
+              color: colors.$gray60 !important;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+    }
+  }
+}

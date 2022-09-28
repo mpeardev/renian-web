@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   About,
   Advantage,
@@ -9,21 +7,43 @@ import {
   Mission,
   PlayVideo,
   Projection,
+  WelcomeAd,
+  SectionCards,
+  AboutSection,
+  Functionality,
+  Informative,
+  OurMission,
+  AboutUs,
+  News,
+  Partnerships,
+  Contact,
+  Back,
 } from "..";
 
 export const HomeView = () => {
   return (
-    <>
+    <div style={{ overflow: "hidden" }}>
       <Banner />
-      <CardSection />
-      <About />
-      <PlayVideo />
-      <Microchip />
-      <Advantage />
-      <Projection />
-      <Mission />
-      {/* LastNews */}
-      {/* Partners */}
-    </>
+      <WelcomeAd />
+      <SectionCards />
+      <AboutSection />
+      <Functionality />
+      <Informative>
+        <OurMission />
+        <Partnerships />
+        <AboutUs />
+      </Informative>
+      <News />
+      <Contact />
+      <Back />
+
+      {/* <CardSection /> */}
+      {/* <About /> */}
+      {/* <PlayVideo /> */}
+      {/* <Microchip /> */}
+      {/* <Advantage /> */}
+      {/* <Projection /> */}
+      {/* <Mission /> */}
+    </div>
   );
 };

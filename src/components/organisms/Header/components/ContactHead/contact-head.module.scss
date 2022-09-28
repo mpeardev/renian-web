@@ -7,14 +7,17 @@
   width: 100%;
   height: 2.5rem;
   // background: rgba(159, 158, 158, 0.108);
-  padding: 0 2%;
   @include utilities.renian-flexbox-param(flex, center, auto);
+  @include breakpoints.xl-large {
+    height: 2rem;
+  }
 
   &__container {
     width: 100%;
     max-width: breakpoints.$screen-max;
     margin: 0 auto;
     @include utilities.renian-flexbox-param(flex, center, space-between);
+    padding: 0 2%;
   }
 
   &__info {
