@@ -37,6 +37,9 @@
     position: relative;
     z-index: 100;
     padding: 0 2%;
+    @include breakpoints.medium {
+      padding: 0 8%;
+    }
   }
 }
 
@@ -78,6 +81,9 @@
     min-height: 15rem;
     margin-top: 4rem;
     @include utilities.renian-grid-param(grid, repeat(3, 1fr), auto, 3.5rem);
+    @include breakpoints.medium {
+      @include utilities.renian-grid-param(grid, 1fr, auto, auto);
+    }
   }
 
   &__card {
@@ -89,6 +95,13 @@
     &:hover {
       transform: scale(1.02);
     }
+    @include breakpoints.medium {
+      display: none;
+    }
+    &:first-child {
+      display: block;
+    }
+
     &Deg {
       position: absolute;
       width: 100%;
@@ -104,9 +117,10 @@
         flex-direction: column;
         & > p {
           font-family: typography.$typography60;
-          font-size: 16px;
+          font-size: 20px;
           color: colors.$gray10;
           text-shadow: 1px 1px 4px colors.$black;
+          user-select: none;
         }
       }
     }

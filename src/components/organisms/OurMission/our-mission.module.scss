@@ -36,15 +36,26 @@
     position: relative;
     z-index: 100;
     padding: 0 2%;
+    @include breakpoints.medium {
+      padding: 0 8%;
+    }
   }
 }
 
 .mission {
   @include utilities.renian-grid-param(grid, 0.4fr 1.6fr, auto, auto);
   padding: 4rem 0;
+  @include breakpoints.medium {
+    @include utilities.renian-grid-param(grid, 1fr, 4.5rem, auto);
+  }
 
   &__circles {
     @include utilities.renian-grid-param(grid, 1fr, 1.5rem, auto);
+    @include breakpoints.medium {
+      // @include utilities.renian-grid-param(grid, 1fr 1fr 1fr, 1.5rem, auto);
+      @include utilities.renian-flexbox-param(flex, center, center);
+      gap: 2rem;
+    }
     & > div {
       background: rgb(0, 0, 0);
       background: linear-gradient(
@@ -53,13 +64,31 @@
         rgba(191, 3, 3, 1) 45%
       );
       border-radius: 50%;
-      width: 9rem;
-      height: 9rem;
+      width: 8rem;
+      height: 8rem;
+      animation: ball 5s infinite;
+      @keyframes ball {
+        0% {
+          scale: calc(1);
+        }
+        50% {
+          scale: calc(1.08);
+        }
+        100% {
+          scale: calc(1);
+        }
+      }
+
       @include utilities.renian-flexbox-param(flex, center, center);
       @include breakpoints.xl-large {
         width: 7rem;
         height: 7rem;
       }
+      @include breakpoints.medium {
+        width: 5rem;
+        height: 5rem;
+      }
+
       & > div {
         text-align: center;
         color: colors.$white;
@@ -70,12 +99,18 @@
           @include breakpoints.xl-large {
             font-size: 28px;
           }
+          @include breakpoints.medium {
+            font-size: 18px;
+          }
         }
         & > p {
           font-family: typography.$typography40;
           font-size: 12px;
           @include breakpoints.xl-large {
             font-size: 10px;
+          }
+          @include breakpoints.xl-large {
+            font-size: 7px;
           }
         }
       }
@@ -114,6 +149,10 @@
       @include breakpoints.xl-large {
         margin-top: 3rem;
       }
+      @include breakpoints.medium {
+        flex-direction: column;
+        gap: 3.5rem;
+      }
       & h4 {
         // color: colors.$gray70;
         font-size: 25px;
@@ -122,12 +161,19 @@
         @include breakpoints.xl-large {
           font-size: 18px;
         }
+        @include breakpoints.medium {
+          font-size: 14px;
+        }
       }
       & > div {
         width: 100%;
         max-width: 30rem;
         @include breakpoints.xl-large {
           max-width: 23rem;
+        }
+        @include breakpoints.medium {
+          max-width: 15rem;
+          margin: 0 auto;
         }
 
         & > div {

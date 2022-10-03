@@ -4,6 +4,7 @@ import classes from "./news.module.scss";
 import redFootprints from "../../../../public/json/red-footprints.json";
 import { useRef } from "react";
 import useHover from "@react-hook/hover";
+import Zoom from "react-reveal/Zoom";
 
 const Background = ({ children }) => {
   const defaultOptions = {
@@ -62,15 +63,16 @@ export const News = () => {
   return (
     <Background>
       <section className={classes.news} id="news">
-        <div className={classes.news__text}>
-          <h2>Ultimas noticias</h2>
-          <p>
-            <span>Renian</span> es una institucion que tiene como principal
-            objetivo el registro nacional de los animales (consideradas mascotas
-            y no mascotas), que trabaja bajo un sistema de pla-
-          </p>
-        </div>
-
+        <Zoom cascade>
+          <div className={classes.news__text}>
+            <h2>Ultimas noticias</h2>
+            <p>
+              <span>Renian</span> es una institucion que tiene como principal
+              objetivo el registro nacional de los animales (consideradas
+              mascotas y no mascotas), que trabaja bajo un sistema de pla-
+            </p>
+          </div>
+        </Zoom>
         <div>
           <div className={classes.news__card} ref={target01}>
             <div
@@ -81,7 +83,7 @@ export const News = () => {
                 <lord-icon
                   src="https://cdn.lordicon.com/qdwegwcw.json"
                   trigger="loop"
-                  colors="primary:#F9BE2B,secondary:#F9BE2B"
+                  colors="primary:#ffdfae,secondary:#ffdfae"
                   style={{ width: "120px", height: "120px" }}
                 ></lord-icon>
                 <p>Leer Noticia</p>
@@ -125,7 +127,7 @@ export const News = () => {
                 <lord-icon
                   src="https://cdn.lordicon.com/qdwegwcw.json"
                   trigger="loop"
-                  colors="primary:#F9BE2B,secondary:#F9BE2B"
+                  colors="primary:#ffdfae,secondary:#ffdfae"
                   style={{ width: "120px", height: "120px" }}
                 ></lord-icon>
                 <p>Leer Noticia</p>
@@ -169,7 +171,7 @@ export const News = () => {
                 <lord-icon
                   src="https://cdn.lordicon.com/qdwegwcw.json"
                   trigger="loop"
-                  colors="primary:#F9BE2B,secondary:#F9BE2B"
+                  colors="primary:#ffdfae,secondary:#ffdfae"
                   style={{ width: "120px", height: "120px" }}
                 ></lord-icon>
                 <p>Leer Noticia</p>

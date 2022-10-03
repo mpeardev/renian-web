@@ -85,20 +85,29 @@ export const Consult = () => {
       <section className={classes.consult}>
         <div className={classes.consult__card}>
           <div className={classes.consult__header}>
-            <Image
+            {/* <Image
               src="/svg/renian-logo.svg"
               width={140}
               height={40}
               alt="renian-icon"
-            />
+            /> */}
             <div onClick={() => router.push("/")}>
               <lord-icon
                 src="https://cdn.lordicon.com/zfxxckbp.json"
                 trigger="loop"
-                colors="primary:#000000,secondary:#dd0000"
-                // style={{ width: "250px", height: "250px" }}
+                colors="primary:#e0dfdf,secondary:#f5f5f5"
               ></lord-icon>
               <p>Volver al Home</p>
+            </div>
+
+            <div>
+              <Image
+                src="/img/renian-img.png"
+                // layout="responsive"
+                width={80}
+                height={85}
+                alt="image"
+              />
             </div>
           </div>
 
@@ -106,7 +115,7 @@ export const Consult = () => {
             <span>Ingrese el codigo del microchip:</span>
 
             <div className={classes.consult__searchCamp}>
-              <input type="text" ref={inputValue} />
+              <input type="text" ref={inputValue} onKeyDown={getSearch} />
               <div onClick={getSearch}>
                 <lord-icon
                   src="https://cdn.lordicon.com/zniqnylq.json"
@@ -114,10 +123,13 @@ export const Consult = () => {
                   colors="primary:#000000,secondary:#dd0000"
                 ></lord-icon>
               </div>
+              <div>
+                <button>Connect Wallet</button>
+              </div>
             </div>
           </div>
 
-          {dataPet.ok != false && (
+          {dataPet.ok != false && dataPet && (
             <div className={classes.consult__content}>
               <div className={classes.consult__contentBg}></div>
               {dataPet.pet?.name != undefined && <h1>{dataPet.pet?.name}</h1>}
@@ -139,6 +151,18 @@ export const Consult = () => {
                       height={75}
                       href="image-dog"
                     />
+                  </div>
+                  <div>
+                    {dataPet.type == "RENIAN" && (
+                      <>
+                        <lord-icon
+                          src="https://cdn.lordicon.com/hgpfwhzk.json"
+                          colors="primary:#000000,secondary:#ffae00"
+                          trigger="loop"
+                        ></lord-icon>
+                        <p>Esta mascota debe actualizar sus datos.</p>
+                      </>
+                    )}
                   </div>
                 </div>
 

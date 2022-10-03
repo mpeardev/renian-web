@@ -4,7 +4,8 @@
 @use "/src/styles/base/typography" as typography;
 
 .welcome {
-  background: colors.$gray80;
+  background: #f3f0f0;
+  // background: black;
   width: 100%;
   height: 3.5rem;
   @include utilities.renian-flexbox-param(flex, center, center);
@@ -12,20 +13,26 @@
   @include breakpoints.xl-large {
     height: 2rem;
   }
+  @include breakpoints.medium {
+    display: none;
+  }
 
   &__container {
     // min-width: 80vw;
     width: 100%;
     max-width: breakpoints.$screen-max;
     margin: 0 auto;
+    padding: 0 2%;
   }
 
   &__slider {
-    color: colors.$white;
+    color: rgba(0, 186, 254, 0.489);
+    // color: #fff;
     width: 100%;
     height: 100%;
     overflow: hidden;
     margin: 0 auto;
+
     & > ul {
       list-style: none;
       height: 100%;
@@ -44,10 +51,27 @@
         @include utilities.renian-flexbox-param(flex, center, center);
         width: 30vw;
         flex-shrink: 0;
-        font-size: 30px;
+        font-size: 20px;
         white-space: nowrap;
-        font-family: typography.$typographySecondary;
-        font-size: 30px;
+        font-family: typography.$typography60;
+        font-weight: bolder;
+        // font-family: typography.$typographySecondary;
+        animation: neonEffect 5s infinite;
+        @keyframes neonEffect {
+          0%,
+          35%,
+          45%,
+          65%,
+          100% {
+            // text-shadow: white 0 0 12px, #effd6d 0 0 24px, #effd6d 0 0 36px;
+            text-shadow: white 0 0 5px, #7fd2ff 0 0 5px, #7fd2ff 0 0 5px;
+          }
+          40%,
+          60%,
+          80% {
+            text-shadow: none;
+          }
+        }
         @include breakpoints.xl-large {
           font-size: 18px;
         }

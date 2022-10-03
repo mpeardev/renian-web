@@ -1,5 +1,7 @@
 import Image from "next/image";
 import classes from "./our-mission.module.scss";
+import Bounce from "react-reveal/Bounce";
+import Zoom from "react-reveal/Zoom";
 
 const Background = ({ children }) => {
   return (
@@ -15,6 +17,7 @@ export const OurMission = () => {
   return (
     <Background>
       <section className={classes.mission}>
+        {/* <Bounce left cascade> */}
         <div className={classes.mission__circles}>
           <div>
             <div>
@@ -35,6 +38,7 @@ export const OurMission = () => {
             </div>
           </div>
         </div>
+        {/* </Bounce> */}
 
         <div className={classes.mission__content}>
           <h2>Nuestra Mision</h2>
@@ -46,30 +50,32 @@ export const OurMission = () => {
           </p>
 
           <div className={classes.mission__contentImages}>
-            <div>
-              <h4>Sin control adecuado</h4>
+            <Zoom left cascade>
               <div>
-                <Image
-                  src="/img/mission/projection.png"
-                  layout="responsive"
-                  width={120}
-                  height={60}
-                  alt="image"
-                />
+                <h4>Sin control adecuado</h4>
+                <div>
+                  <Image
+                    src="/img/mission/projection.png"
+                    layout="responsive"
+                    width={120}
+                    height={60}
+                    alt="image"
+                  />
+                </div>
               </div>
-            </div>
-            <div>
-              <h4>Control adecuado</h4>
               <div>
-                <Image
-                  src="/img/mission/our.png"
-                  layout="responsive"
-                  width={120}
-                  height={50}
-                  alt="image"
-                />
+                <h4>Control adecuado</h4>
+                <div>
+                  <Image
+                    src="/img/mission/our.png"
+                    layout="responsive"
+                    width={120}
+                    height={50}
+                    alt="image"
+                  />
+                </div>
               </div>
-            </div>
+            </Zoom>
           </div>
         </div>
       </section>

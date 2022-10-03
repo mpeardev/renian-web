@@ -15,6 +15,7 @@ export * from "./molecules/WelcomeAd/WelcomeAd";
 export * from "./molecules/SectionCards/SectionCards";
 export * from "./molecules/Partnerships/Partnerships";
 export * from "./molecules/Back/Back";
+export * from "./molecules/alerts/MainAlert";
 
 /* -----ORGANISMS----- */
 export * from "./organisms/Footer/Footer";

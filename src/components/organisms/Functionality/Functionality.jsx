@@ -1,5 +1,6 @@
 import Image from "next/image";
 import classes from "./functionality.module.scss";
+import { Bounce } from "react-reveal";
 
 const Background = ({ children }) => {
   return (
@@ -14,6 +15,21 @@ export const Functionality = () => {
   return (
     <Background>
       <section className={classes.functionality}>
+        <div className={classes.functionality__image}>
+          <h2>Busqueda de la mascota</h2>
+          <Bounce left>
+            <div>
+              <Image
+                src="/img/microchip-how.png"
+                layout="responsive"
+                width={60}
+                height={29}
+                alt="image"
+              />
+            </div>
+          </Bounce>
+        </div>
+
         <div className={classes.functionality__text}>
           <h2>Como funciona el Registro?</h2>
           <p>
@@ -34,19 +50,6 @@ export const Functionality = () => {
             <li>Es pasivo (no emite señal alguna).</li>
             <li>Es de por vida.</li>
           </ul>
-        </div>
-
-        <div className={classes.functionality__image}>
-          <h2>Busqueda de la mascota</h2>
-          <div>
-            <Image
-              src="/img/microchip-how.png"
-              layout="responsive"
-              width={60}
-              height={29}
-              alt="image"
-            />
-          </div>
         </div>
       </section>
     </Background>

@@ -6,11 +6,10 @@
 .background {
   width: 100%;
   height: auto;
-  min-height: 80vh;
   background: rgba(221, 2, 2, 0.069);
   // background: colors.$primary;
   position: relative;
-  padding: 4rem 2%;
+  padding: 5rem 0;
   &Decorate {
     position: absolute;
     width: 100%;
@@ -21,19 +20,37 @@
     height: 100%;
     max-width: breakpoints.$screen-max;
     margin: 0 auto;
+    padding: 0 2%;
+    @include breakpoints.medium {
+      padding: 0 8%;
+    }
   }
 }
 
 .contact {
-  @include utilities.renian-grid-param(grid, repeat(2, 1fr), auto, 2rem);
+  @include utilities.renian-grid-param(grid, 0.7fr 1.3fr, auto, 4rem);
   position: relative;
+  @include breakpoints.medium {
+    display: flex;
+  }
 
   &__form {
+    width: 100%;
+    max-width: 30rem;
     color: colors.$gray70;
+    @include breakpoints.xl-large {
+      max-width: 25rem;
+    }
+    @include breakpoints.medium {
+      max-width: none;
+    }
     & > h4 {
       font-size: 28px;
       font-family: typography.$typography50;
       text-align: center;
+      @include breakpoints.xl-large {
+        font-size: 20px;
+      }
     }
     & > h1 {
       font-size: 30px;
@@ -41,11 +58,139 @@
       text-align: center;
       text-transform: uppercase;
       color: colors.$black;
+      @include breakpoints.xl-large {
+        font-size: 25px;
+      }
+    }
+    & > div {
+      margin-top: 3rem;
+      & > form {
+        & > div {
+          @include utilities.renian-flexbox-param(flex, auto, auto);
+          flex-direction: column;
+          width: 100%;
+          height: 6rem;
+          @include breakpoints.xl-large {
+            height: 4.5rem;
+          }
+          & > span {
+            font-size: 16px;
+            font-family: typography.$typographySecondary;
+            margin: 0 0 0.4rem 0.4rem;
+            @include breakpoints.xl-large {
+              font-size: 13px;
+            }
+          }
+          & > input {
+            outline: none;
+            border: 1px solid colors.$gray30;
+            border-radius: 15px;
+            font-family: typography.$typography40;
+            font-size: 16px;
+            padding: 0.5rem 1rem;
+            color: colors.$gray60;
+            background: rgb(249, 248, 248);
+            &:focus {
+              font-family: typography.$typography50;
+              border-color: colors.$primary;
+            }
+            @include breakpoints.xl-large {
+              font-size: 10px;
+              padding: 0.4rem 0.7rem;
+            }
+          }
+          & > textarea {
+            outline: none;
+            border: 1px solid colors.$gray30;
+            border-radius: 15px;
+            font-family: typography.$typography40;
+            font-size: 16px;
+            padding: 0.5rem 1rem;
+            color: colors.$gray60;
+            resize: none;
+            background: rgb(249, 248, 248);
+            &:focus {
+              border: 1px solid colors.$primary;
+            }
+            @include breakpoints.xl-large {
+              font-size: 10px;
+            }
+          }
+          & button {
+            background-color: colors.$primary;
+            border: 0;
+            border-radius: 30px;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto,
+              Ubuntu, "Helvetica Neue", sans-serif;
+            font-size: 18px;
+            outline: 0;
+            padding: 16px 21px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            font-family: typography.$typographySecondary;
+            @include breakpoints.xl-large {
+              font-size: 15px;
+              padding: 10px 17px;
+            }
+
+            &:before {
+              background-color: initial;
+              background-image: linear-gradient(
+                #fff 0,
+                rgba(255, 255, 255, 0) 100%
+              );
+              border-radius: 125px;
+              height: 50%;
+              left: 4%;
+              opacity: 0.5;
+              position: absolute;
+              top: 0;
+              transition: all 0.3s;
+              width: 92%;
+            }
+
+            &:hover {
+              box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset,
+                rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
+              // transform: scale(1.05);
+            }
+          }
+        }
+      }
+    }
+    &Textarea {
+      height: 15rem !important;
+      @include breakpoints.xl-large {
+        height: 12rem !important;
+      }
+      & > textarea {
+        height: 10rem;
+        @include breakpoints.xl-large {
+          height: 8rem;
+        }
+      }
+    }
+    &Button {
+      max-width: 15rem;
+      margin: 0 auto;
     }
   }
 
   &__image {
     width: 100%;
     height: 100%;
+    @include utilities.renian-flexbox-param(flex, center, flex-end);
+    text-align: start;
+    @include breakpoints.medium {
+      display: none;
+    }
   }
 }

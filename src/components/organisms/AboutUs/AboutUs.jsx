@@ -1,20 +1,23 @@
 import Image from "next/image";
 import classes from "./about-us.module.scss";
+import Bounce from "react-reveal/Bounce";
 
 export const AboutUs = () => {
   return (
     <section className={classes.about} id="about">
       <div className={classes.about__container}>
         <div className={classes.about__image}>
-          <div>
-            <Image
-              src="/img/renian-about.jpg"
-              layout="responsive"
-              width={120}
-              height={80}
-              href="image"
-            />
-          </div>
+          <Bounce left>
+            <div>
+              <Image
+                src="/img/renian-about.jpg"
+                layout="responsive"
+                width={120}
+                height={80}
+                href="image"
+              />
+            </div>
+          </Bounce>
         </div>
 
         <div className={classes.about__text}>

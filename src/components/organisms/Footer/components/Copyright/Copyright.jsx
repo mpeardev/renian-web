@@ -6,7 +6,7 @@ export const Copyright = () => {
     <div className={classes.copyright}>
       <div className={classes.copyright__container}>
         <p>Copyright &copy;2022 | Todos los derechos reservados</p>
-        <p>Diseñado por Renian</p>
+        <p>Diseñado por Qolkrex Foundation</p>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import ReactPlayer from "react-player/lazy";
 import Image from "next/image";
 import whiteFootprints from "../../../../public/json/white-footprints.json";
 import Lottie from "react-lottie";
+import { Bounce } from "react-reveal";
 
 const Background = ({ children }) => {
   const defaultOptions = {
@@ -84,11 +85,11 @@ export const AboutSection = () => {
             <span>Renian</span> es una institucion que tiene como principal
             objetivo el registro nacional de los animales (consideradas mascotas
             y no mascotas), que trabaja bajo un sistema de plataforma
-            interinstitucional unificada, llamado con el nombre "SRM. Renian
-            trabaja dentro de un marco de Politicas Publicas de Proteccion y
-            Bienestar Animal y se encuentra incluido dentro de varios proyectos
-            nacionales priorizados por los ministerios de agricultura y de
-            salud.
+            interinstitucional unificada, llamado con el nombre &quot;SRM&quot;.
+            Renian trabaja dentro de un marco de Politicas Publicas de
+            Proteccion y Bienestar Animal y se encuentra incluido dentro de
+            varios proyectos nacionales priorizados por los ministerios de
+            agricultura y de salud.
             <br />
             <span>Renian</span> permite identificar, registrar y realizar un
             seguimiento a los animales de compañia y no de compañia que habitan
@@ -97,26 +98,28 @@ export const AboutSection = () => {
         </div>
 
         <div className={classes.about__player}>
-          <div className={classes.about__playerVideo}>
-            {stylesButton && (
-              <div
-                onClick={openVideo}
-                style={stylesButton}
-                className={classes.about__playerVideoPreview}
-              >
-                <lord-icon
-                  src="https://cdn.lordicon.com/ujphzprf.json"
-                  trigger="hover"
-                  colors="primary:#000000,secondary:#dd0000"
-                  style={{ width: "75px", height: "75px" }}
-                ></lord-icon>
-              </div>
-            )}
+          <Bounce right>
+            <div className={classes.about__playerVideo}>
+              {stylesButton && (
+                <div
+                  onClick={openVideo}
+                  style={stylesButton}
+                  className={classes.about__playerVideoPreview}
+                >
+                  <lord-icon
+                    src="https://cdn.lordicon.com/ujphzprf.json"
+                    trigger="loop-on-hover"
+                    colors="primary:#000000,secondary:#dd0000"
+                    style={{ width: "75px", height: "75px" }}
+                  ></lord-icon>
+                </div>
+              )}
 
-            {state === true && (
-              <ReactPlayer url="https://www.youtube.com/watch?v=W-yP0CYFSaU&feature=emb_title" />
-            )}
-          </div>
+              {state === true && (
+                <ReactPlayer url="https://www.youtube.com/watch?v=W-yP0CYFSaU&feature=emb_title" />
+              )}
+            </div>
+          </Bounce>
 
           <p>
             <span>Renian</span> permite identificar, registrar y realizar un

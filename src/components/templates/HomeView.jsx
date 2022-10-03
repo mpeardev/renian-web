@@ -20,23 +20,20 @@ import {
   Back,
 } from "..";
 
-export const HomeView = () => {
+export const HomeView = ({ setAlertActive }) => {
   return (
-    <div style={{ overflow: "hidden" }}>
+    <div style={{ overflow: "hidden", position: "relative" }}>
       <Banner />
       <WelcomeAd />
       <SectionCards />
       <AboutSection />
       <Functionality />
-      <Informative>
-        <OurMission />
-        <Partnerships />
-        <AboutUs />
-      </Informative>
+      <OurMission />
+      <Partnerships />
+      <AboutUs />
       <News />
-      <Contact />
+      <Contact setAlertActive={setAlertActive} />
       <Back />
-
       {/* <CardSection /> */}
       {/* <About /> */}
       {/* <PlayVideo /> */}

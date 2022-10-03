@@ -1,6 +1,12 @@
 import React from "react";
-import { Consult } from "../organisms/Consult/Consult";
+import { Consult, Header, Footer } from "../";
 
 export const ConsultView = () => {
-  return <Consult />;
+  return (
+    <>
+      <Header />
+      <Consult />
+      <Footer />
+    </>
+  );
 };

@@ -78,7 +78,7 @@ export const ComingSoon = () => {
         <div className={classes.coming__text}>
           <h3>
             Estamos reconstruyendo nuestra web y conectandonos a la red de{" "}
-            <span>"Moonriver".</span>
+            <span>&quot;Moonriver&quot;.</span>
           </h3>
 
           <div className={classes.coming__textImg}>

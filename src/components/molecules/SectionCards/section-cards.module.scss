@@ -6,7 +6,8 @@
 .cards {
   width: 100%;
   height: 13rem;
-  background: colors.$gray80;
+  background: #f3f0f0;
+  overflow: hidden;
   @include breakpoints.xl-large {
     height: 7rem;
   }
@@ -20,23 +21,29 @@
     margin: 0 auto;
     gap: 0.3rem;
     overflow: hidden;
+    padding: 0 2%;
+    @include breakpoints.medium {
+      overflow-x: scroll;
+    }
+    & > div:last-child {
+      overflow: hidden;
+    }
   }
 
   &__box {
+    // width: 20rem;
     width: 100%;
-    height: 11.5rem;
+    height: 13rem;
     cursor: pointer;
-    transition: 0.8s;
+    // transition: 0.8s;
     color: colors.$primary;
-    padding: 1rem 1.5rem;
+    // padding: 1rem 1.5rem;
     position: relative;
-    filter: grayscale(0.6);
+
     &:hover {
-      filter: grayscale(0);
+      color: colors.$gray10;
     }
-    @include breakpoints.xl-large {
-      padding: 1rem 2.3rem;
-    }
+
     &Bg {
       position: absolute;
       width: 114%;
@@ -49,6 +56,7 @@
       }
     }
     & > h4 {
+      padding-top: 1rem;
       font-size: 20px;
       font-family: typography.$typography70;
       text-transform: uppercase;
@@ -56,30 +64,144 @@
       position: relative;
       z-index: 10;
       @include breakpoints.xl-large {
-        font-size: 15px;
+        font-size: 12px;
+        padding-top: 0.5rem;
+      }
+      @include breakpoints.medium {
+        font-size: 10px;
       }
     }
 
     & > div {
       @include utilities.renian-grid-param(grid, repeat(2, 1fr), auto, 1rem);
+      @include breakpoints.medium {
+        @include utilities.renian-grid-param(grid, 1fr, auto, auto);
+      }
     }
 
     &Text {
       @include utilities.renian-flexbox-param(flex, center, center);
+      position: absolute;
+      text-align: end;
+      max-width: 12rem;
+      @include breakpoints.xl-large {
+        max-width: 8rem;
+      }
       & > p {
         font-size: 17px;
         font-family: typography.$typography40;
-        position: relative;
         z-index: 10;
         @include breakpoints.xl-large {
-          font-size: 11px;
+          font-size: 10px;
+        }
+        @include breakpoints.medium {
+          font-size: 10px;
+          margin-top: 0.5rem;
         }
       }
     }
     &Image {
-      max-width: 8.5rem;
+      width: 10rem;
       @include breakpoints.xl-large {
-        max-width: 5rem;
+        width: 5rem;
+      }
+      @include breakpoints.medium {
+        display: none;
+      }
+    }
+
+    &One {
+      & > div {
+        & > div:last-child {
+          top: 50%;
+          right: 5%;
+          @include breakpoints.xl-large {
+            top: 20%;
+          }
+        }
+        & > div:first-child {
+          margin-top: 7%;
+          @include breakpoints.xl-large {
+            margin-left: 5%;
+          }
+        }
+      }
+    }
+    &Two {
+      & > div {
+        & > div:last-child {
+          margin-top: 5%;
+          @include breakpoints.xl-large {
+            margin-left: 30%;
+          }
+        }
+        & > div:first-child {
+          top: 50%;
+          right: 5%;
+          @include breakpoints.xl-large {
+            top: 20%;
+          }
+        }
+      }
+    }
+    &Three {
+      & > div {
+        & > div:last-child {
+          margin-top: 8%;
+          margin-left: 2%;
+          @include breakpoints.xl-large {
+            margin-left: 25%;
+          }
+        }
+        & > div:first-child {
+          top: 50%;
+          right: 3%;
+          @include breakpoints.xl-large {
+            top: 20%;
+          }
+        }
+      }
+    }
+    &Four {
+      & > div {
+        & > div:last-child {
+          margin-top: 29%;
+          margin-left: 13%;
+          @include breakpoints.xl-large {
+            margin-left: 35%;
+            margin-top: 20%;
+          }
+        }
+        & > div:first-child {
+          top: 40%;
+          right: 8%;
+          @include breakpoints.xl-large {
+            top: 20%;
+          }
+          @include utilities.renian-flexbox-param(flex, flex-end, flex-end);
+          flex-direction: column;
+          & > p {
+            font-family: typography.$typographySecondary;
+            font-size: 20px;
+            @include breakpoints.xl-large {
+              font-size: 10px;
+            }
+          }
+          & > span {
+            margin-top: 10%;
+            font-size: 27px;
+            font-family: typography.$typographySecondary;
+            background: colors.$gray10;
+            color: colors.$gray80;
+            padding: 0.4rem 0.7rem;
+            border: colors.$gray20;
+            border-radius: 6px;
+            @include breakpoints.xl-large {
+              padding-top: 5%;
+              font-size: 17px;
+            }
+          }
+        }
       }
     }
   }

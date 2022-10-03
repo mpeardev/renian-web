@@ -128,7 +128,7 @@ $screen-max: 1440px;
 
 // Max viewport 1440
 @mixin max-large {
-  @media (max-width: #{screen-max}) {
+  @media (max-width: #{$screen-max}) {
     @content;
   }
 }
