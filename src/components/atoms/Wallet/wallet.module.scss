@@ -1,3 +1,26 @@
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/typography" as typography;
+
+.connect {
+  @include utilities.renian-flexbox-param(flex, auto, auto);
+  flex-direction: column;
+  gap: 1rem;
+
+  & h4 {
+    font-size: 20px;
+    font-family: typography.$typography50;
+    color: colors.$gray80;
+  }
+  & p {
+    margin-top: 0.5rem;
+    font-size: 14px;
+    font-family: typography.$typography30;
+    color: colors.$gray50;
+  }
+}
+
 .wallet {
   align-items: center;
   background-color: rgb(246, 246, 248);
@@ -12,6 +35,11 @@
   border-radius: 8px;
   border: 1px solid transparent;
   transition: 0.8s;
+  & > p {
+    font-size: 14px;
+    font-family: typography.$typography60;
+    color: colors.$gray50;
+  }
 }
 
 .wallet:hover {

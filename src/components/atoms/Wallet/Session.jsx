@@ -1,4 +1,4 @@
-import classes from "./wallet.module.css";
+import classes from "./wallet.module.scss";
 import { Informative } from "../Modal/Informative/Informative";
 import { useContext } from "react";
 import { Web3Context } from "../../../contexts/Web3/Web3Context";

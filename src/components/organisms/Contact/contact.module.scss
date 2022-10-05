@@ -140,6 +140,11 @@
               font-size: 15px;
               padding: 10px 17px;
             }
+            @include breakpoints.medium {
+              font-size: 17px;
+              padding: 14px 19px;
+              margin-top: 1rem;
+            }
 
             &:before {
               background-color: initial;
@@ -148,6 +153,7 @@
                 rgba(255, 255, 255, 0) 100%
               );
               border-radius: 125px;
+              content: "";
               height: 50%;
               left: 4%;
               opacity: 0.5;

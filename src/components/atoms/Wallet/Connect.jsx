@@ -1,4 +1,4 @@
-import classes from "./wallet.module.css";
+import classes from "./wallet.module.scss";
 import { Informative } from "../Modal/Informative/Informative";
 import Image from "next/image";
 import { useContext } from "react";
@@ -15,16 +15,18 @@ export const Connect = ({ handleClose }) => {
 
   return (
     <Informative handleClose={handleClose}>
-      <div>
-        <h4>Connect</h4>
-        <p>
-          Al conectar una billetera, acepta los Términos de servicio de Firulaix
-          Labs y reconoce que ha leído y entendido el Protocolo de exención de
-          responsabilidad.
-        </p>
+      <div className={classes.connect}>
+        <div>
+          <h4>Conectar</h4>
+          <p>
+            Al conectar una billetera, acepta los Términos de servicio de
+            Firulaix Labs y reconoce que ha leído y entendido el Protocolo de
+            exención de responsabilidad.
+          </p>
+        </div>
 
         <div className={classes.wallet} onClick={() => validate("metamask")}>
-          Metamask
+          <p>Metamask</p>
           <div style={{ width: "3rem" }}>
             <Image
               src="/svg/metamask-logo.svg"

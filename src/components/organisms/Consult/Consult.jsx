@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useRef } from "react";
+import { ConnectButton } from "../../";
 
 const Background = ({ children }) => {
   const defaultOptions = {
@@ -58,6 +59,8 @@ export const Consult = () => {
   const [dataPet, setdataPet] = useState(false);
 
   const inputValue = useRef();
+
+  const [open, setOpen] = useState(false);
 
   const getInfo = async (value) => {
     if (value) {
@@ -115,7 +118,13 @@ export const Consult = () => {
             <span>Ingrese el codigo del microchip:</span>
 
             <div className={classes.consult__searchCamp}>
-              <input type="text" ref={inputValue} onKeyDown={getSearch} />
+              <input
+                type="number"
+                ref={inputValue}
+                // onKeyDown={getSearch}
+                placeHolder="Cod. Microchip"
+                autoComplete={true}
+              />
               <div onClick={getSearch}>
                 <lord-icon
                   src="https://cdn.lordicon.com/zniqnylq.json"
@@ -123,11 +132,50 @@ export const Consult = () => {
                   colors="primary:#000000,secondary:#dd0000"
                 ></lord-icon>
               </div>
-              <div>
-                <button>Connect Wallet</button>
-              </div>
+            </div>
+
+            <div className={classes.consult__searchButton}>
+              {/* <button>Connect Wallet</button> */}
+              <ConnectButton open={open} setOpen={setOpen} />
             </div>
           </div>
+
+          {!dataPet && (
+            <div className={classes.consult__default}>
+              <div>
+                <Image
+                  src="/svg/renian-logo.svg"
+                  layout="responsive"
+                  width={120}
+                  height={80}
+                  href="renian-logo"
+                />
+              </div>
+              <div>
+                <Image
+                  src="/svg/war-logo.svg"
+                  layout="responsive"
+                  width={80}
+                  height={80}
+                  href="war-logo"
+                />
+              </div>
+            </div>
+          )}
+
+          {dataPet.ok === false && (
+            <div className={classes.consult__nochip}>
+              <div>
+                <Image
+                  src="/img/no-chip.png"
+                  layout="responsive"
+                  width={80}
+                  height={80}
+                />
+              </div>
+              <p>Numero de chip no encontrado</p>
+            </div>
+          )}
 
           {dataPet.ok != false && dataPet && (
             <div className={classes.consult__content}>
@@ -175,7 +223,11 @@ export const Consult = () => {
                             src="https://cdn.lordicon.com/sruywmtf.json"
                             trigger="loop"
                             colors="primary:#000000,secondary:#dd0000"
-                            style={{ width: "165px", height: "165px" }}
+                            style={{
+                              width: "165px",
+                              height: "165px",
+                              opacity: ".7",
+                            }}
                           ></lord-icon>
                         </div>
                       </div>
@@ -198,7 +250,11 @@ export const Consult = () => {
                             src="https://cdn.lordicon.com/zkzytvcr.json"
                             trigger="loop"
                             colors="primary:#000000,secondary:#dd0000"
-                            style={{ width: "165px", height: "165px" }}
+                            style={{
+                              width: "165px",
+                              height: "165px",
+                              opacity: ".7",
+                            }}
                           ></lord-icon>
                         </div>
                       </div>

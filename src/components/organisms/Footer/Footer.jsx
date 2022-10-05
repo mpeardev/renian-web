@@ -37,6 +37,7 @@ export const Footer = () => {
             <h3>Contactanos</h3>
             <ul>
               <li>
+                <p>Av. Mariategui 1030, Jesus Maria</p>
                 <div>
                   <lord-icon
                     src="https://cdn.lordicon.com/gwklwoti.json"
@@ -44,10 +45,10 @@ export const Footer = () => {
                     colors="primary:#929292,secondary:#929292"
                   ></lord-icon>
                 </div>
-                <p>Av. Mariategui 1030, Jesus Maria</p>
               </li>
 
               <li>
+                <p>(+51) 759-4451</p>
                 <div>
                   <lord-icon
                     src="https://cdn.lordicon.com/iguuenru.json"
@@ -55,10 +56,10 @@ export const Footer = () => {
                     colors="primary:#929292,secondary:#929292"
                   ></lord-icon>
                 </div>
-                <p>(+51) 759-4451</p>
               </li>
 
               <li>
+                <p>info@renian.org</p>
                 <div>
                   <lord-icon
                     src="https://cdn.lordicon.com/egpbfgcp.json"
@@ -66,10 +67,10 @@ export const Footer = () => {
                     colors="primary:#929292,secondary:#929292"
                   ></lord-icon>
                 </div>
-                <p>info@renian.org</p>
               </li>
 
               <li>
+                <p>Lun-Vie 09:00 am | 6:00 pm</p>
                 <div>
                   <lord-icon
                     src="https://cdn.lordicon.com/uutnmngi.json"
@@ -78,7 +79,6 @@ export const Footer = () => {
                     style={{ width: "22px", height: "22px" }}
                   ></lord-icon>
                 </div>
-                <p>Lun-Vie 09:00 am | 6:00 pm</p>
               </li>
             </ul>
           </div>

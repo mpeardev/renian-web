@@ -10,29 +10,9 @@ export const ConnectButton = ({ open, setOpen }) => {
 
   return (
     <>
-      <div className={classes.containerConnect} onClick={() => setOpen(true)}>
-        {web3.account && `${web3.account.substring(0, 10)}...`}
-        {!web3.account && (
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <div style={{ width: "3rem" }}>
-              <Image
-                src="/svg/metamask-logo.svg"
-                layout="responsive"
-                width={30}
-                height={30}
-                style={{ opacity: "10" }}
-                alt="image"
-              />
-            </div>
-            <p style={{ margin: "0" }}>Metamask</p>
-          </div>
-        )}
+      <div className={classes.button} onClick={() => setOpen(true)}>
+        {web3.account && <button>{web3.account.substring(0, 10)}...</button>}
+        {!web3.account && <button>Connect Wallet</button>}
       </div>
       {open && !web3.account && <Connect handleClose={() => setOpen(false)} />}
 

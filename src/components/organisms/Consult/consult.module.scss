@@ -37,8 +37,11 @@
     margin: 0 auto;
     position: relative;
     z-index: 100;
-    padding: 5% 2%;
+    padding: 6% 2%;
     @include utilities.renian-flexbox-param(flex, center, center);
+    @include breakpoints.medium {
+      padding: 15% 2%;
+    }
   }
 }
 
@@ -53,6 +56,7 @@
     background: colors.$white;
     border-radius: 15px;
     overflow: hidden;
+    position: relative;
   }
 
   &__header {
@@ -86,14 +90,32 @@
     @include utilities.renian-flexbox-param(flex, center, center);
     gap: 2.5rem;
     border-bottom: 1px solid colors.$gray20;
+    position: relative;
+    z-index: 10;
+    @include breakpoints.xl-large {
+      gap: 1.5rem;
+    }
+    @include breakpoints.medium {
+      justify-content: space-between;
+      padding: 0 2%;
+    }
     & > span {
       font-family: typography.$typography50;
       font-size: 16px;
       color: colors.$primary;
+      @include breakpoints.xl-large {
+        font-size: 13px;
+      }
+      @include breakpoints.medium {
+        display: none;
+      }
     }
     &Camp {
       @include utilities.renian-flexbox-param(flex, center, auto);
       gap: 0.5rem;
+      @include breakpoints.medium {
+        gap: 0.2rem;
+      }
       & > input {
         // border: 0;
         width: 18rem;
@@ -104,6 +126,9 @@
         font-size: 14px;
         padding: 0.3rem 0.8rem;
         color: colors.$gray60;
+        @include breakpoints.medium {
+          width: 12rem;
+        }
         &:focus {
           font-family: typography.$typography50;
           background: colors.$primary100;
@@ -113,60 +138,58 @@
       & > div {
         cursor: pointer;
       }
-      & > div:last-child {
-        margin-left: 8rem;
-        & > button {
-          background-color: rgb(255, 191, 0);
-          border: 0;
-          border-radius: 30px;
-          color: #fff;
-          cursor: pointer;
-          display: inline-block;
-          font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto,
-            Ubuntu, "Helvetica Neue", sans-serif;
-          font-size: 18px;
-          outline: 0;
-          padding: 10px 21px;
-          position: relative;
-          text-align: center;
-          text-decoration: none;
+    }
+    &Button {
+      & > button {
+        background-color: rgb(255, 191, 0);
+        border: 0;
+        border-radius: 30px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto,
+          Ubuntu, "Helvetica Neue", sans-serif;
+        font-size: 18px;
+        outline: 0;
+        padding: 10px 21px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.3s;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        font-family: typography.$typographySecondary;
+        @include breakpoints.xl-large {
+          font-size: 15px;
+          padding: 10px 17px;
+        }
+        @include breakpoints.medium {
+          font-size: 14px;
+          padding: 8px 19px;
+        }
+
+        &:before {
+          background-color: initial;
+          background-image: linear-gradient(
+            #fff 0,
+            rgba(255, 255, 255, 0) 100%
+          );
+          border-radius: 125px;
+          content: "";
+          height: 50%;
+          left: 4%;
+          opacity: 0.5;
+          position: absolute;
+          top: 0;
           transition: all 0.3s;
-          user-select: none;
-          -webkit-user-select: none;
-          touch-action: manipulation;
-          font-family: typography.$typographySecondary;
-          @include breakpoints.xl-large {
-            font-size: 15px;
-            padding: 10px 17px;
-          }
-          @include breakpoints.medium {
-            font-size: 17px;
-            padding: 14px 19px;
-            margin-top: 1rem;
-          }
+          width: 92%;
+        }
 
-          &:before {
-            background-color: initial;
-            background-image: linear-gradient(
-              #fff 0,
-              rgba(255, 255, 255, 0) 100%
-            );
-            border-radius: 125px;
-            content: "";
-            height: 50%;
-            left: 4%;
-            opacity: 0.5;
-            position: absolute;
-            top: 0;
-            transition: all 0.3s;
-            width: 92%;
-          }
-
-          &:hover {
-            box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset,
-              rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
-            // transform: scale(1.05);
-          }
+        &:hover {
+          box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset,
+            rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
+          // transform: scale(1.05);
         }
       }
     }
@@ -194,6 +217,9 @@
       @include utilities.renian-grid-param(grid, 0.8fr 1.2fr, auto, 4rem);
       position: relative;
       z-index: 10;
+      @include breakpoints.m-large {
+        @include utilities.renian-grid-param(grid, 1fr, 4rem, auto);
+      }
     }
     &Bg {
       position: absolute;
@@ -215,11 +241,19 @@
       flex-direction: column;
       padding: 4rem;
       backdrop-filter: blur(20px);
+      @include breakpoints.m-large {
+        box-shadow: none;
+        backdrop-filter: blur(0);
+        padding: 2rem;
+      }
 
       & > div {
         width: 100%;
         max-width: 25rem;
         position: relative;
+        @include breakpoints.m-large {
+          max-width: 15rem;
+        }
       }
       & > div:last-child {
         margin-top: 0.8rem;
@@ -269,6 +303,8 @@
             text-transform: uppercase;
             // color: colors.$gray80;
             margin-bottom: 1rem;
+            position: relative;
+            z-index: 100;
           }
           & > span {
             font-family: typography.$typography40;
@@ -314,6 +350,63 @@
             }
           }
         }
+      }
+    }
+  }
+
+  &__default {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0.2;
+    filter: grayscale(0.8);
+    @include utilities.renian-flexbox-param(flex, center, center);
+    gap: 4rem;
+    & > div {
+      position: relative;
+      width: 100%;
+      max-width: 20rem;
+      @include breakpoints.medium {
+        max-width: 15rem;
+      }
+      &:last-child {
+        width: 100%;
+        max-width: 12rem;
+        @include breakpoints.medium {
+          max-width: 9rem;
+        }
+      }
+    }
+  }
+
+  &__nochip {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0.5;
+    filter: grayscale(0.8);
+    @include utilities.renian-flexbox-param(flex, center, center);
+    flex-direction: column;
+    gap: 2rem;
+    & > div {
+      width: 100%;
+      max-width: 20rem;
+      @include breakpoints.medium {
+        max-width: 14rem;
+      }
+    }
+    & > p {
+      font-size: 25px;
+      font-family: typography.$typography40;
+      color: colors.$gray40;
+      font-style: italic;
+      max-width: 20rem;
+      text-align: center;
+      @include breakpoints.medium {
+        font-size: 18px;
+        max-width: 15rem;
       }
     }
   }

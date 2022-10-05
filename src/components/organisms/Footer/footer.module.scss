@@ -38,17 +38,21 @@
   }
 
   &__contact {
-    & h3 {
+    @include utilities.renian-flexbox-param(flex, flex-end, auto);
+    flex-direction: column;
+    & > h3 {
       font-family: typography.$typography60;
       color: #dd000090;
       font-size: 24px;
     }
     & > ul {
       margin-top: 1rem;
+      @include utilities.renian-flexbox-param(flex, flex-end, flex-end);
+      flex-direction: column;
       & > li {
-        // border-bottom: 1px solid colors.$gray10;
+        gap: 1rem;
         padding: 0.2rem 0;
-        & div {
+        & > div {
           width: 30px;
           height: 30px;
           @include utilities.renian-flexbox-param(flex, center, center);
@@ -56,7 +60,6 @@
 
         @include utilities.renian-flexbox-param(flex, center, auto);
         & > p {
-          margin-left: 0.5rem;
           font-family: typography.$typography30;
           color: colors.$gray50;
           font-size: 13px;
