@@ -70,11 +70,11 @@ export const Consult = () => {
 
   const [onLoad, setOnLoad] = useLoader();
 
-  useEffect(() => {
-    if (web3) {
-      UseAdopterPet(web3.account);
-    }
-  }, [web3]);
+  // useEffect(() => {
+  //   if (web3) {
+  //     UseAdopterPet(web3.account);
+  //   }
+  // }, [web3]);
 
   const getInfo = async (value) => {
     if (value) {
