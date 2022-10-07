@@ -1,6 +1,7 @@
 /* -----ATOMS----- */
 export * from "./atoms/brackground";
 export * from "./atoms/ConnectButton/ConnectButton";
+export * from "./atoms/Loader/Loader";
 
 /* -----MOLECULES----- */
 export * from "./molecules/About/About";

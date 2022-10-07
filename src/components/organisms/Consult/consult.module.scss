@@ -68,6 +68,8 @@
     padding: 0 4%;
     border-bottom: 1px solid colors.$gray20;
     overflow: hidden;
+    position: relative;
+    z-index: 100;
     & > div {
       @include utilities.renian-flexbox-param(flex, center, auto);
       gap: 0.5rem;
@@ -91,7 +93,7 @@
     gap: 2.5rem;
     border-bottom: 1px solid colors.$gray20;
     position: relative;
-    z-index: 10;
+    z-index: 100;
     @include breakpoints.xl-large {
       gap: 1.5rem;
     }
@@ -102,7 +104,7 @@
     & > span {
       font-family: typography.$typography50;
       font-size: 16px;
-      color: colors.$primary;
+      color: colors.$gray80;
       @include breakpoints.xl-large {
         font-size: 13px;
       }
@@ -126,13 +128,16 @@
         font-size: 14px;
         padding: 0.3rem 0.8rem;
         color: colors.$gray60;
+        font-style: italic;
         @include breakpoints.medium {
           width: 12rem;
         }
         &:focus {
           font-family: typography.$typography50;
-          background: colors.$primary100;
-          background: rgba(221, 2, 2, 0.069);
+          font-style: normal;
+          // background: colors.$primary100;
+          // background: rgba(221, 2, 2, 0.069);
+          border: 1px solid colors.$primary;
         }
       }
       & > div {
@@ -241,6 +246,7 @@
       flex-direction: column;
       padding: 4rem;
       backdrop-filter: blur(20px);
+      opacity: 0.85;
       @include breakpoints.m-large {
         box-shadow: none;
         backdrop-filter: blur(0);
@@ -295,6 +301,9 @@
           top: 0;
           right: -50px;
           @include utilities.renian-flexbox-param(flex, center, flex-end);
+          @include breakpoints.medium {
+            opacity: 0.5;
+          }
         }
         &Text {
           & > h4 {
@@ -336,17 +345,31 @@
               color: colors.$primary;
               box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             }
+            @include breakpoints.medium {
+              padding: 0.8rem 1rem;
+            }
             & > h5 {
               width: 15rem;
               font-family: typography.$typography60;
               font-size: 15px;
               text-transform: uppercase;
+              @include breakpoints.xl-large {
+                width: 12.5rem;
+              }
+              @include breakpoints.medium {
+                width: 7rem;
+                font-size: 10px;
+              }
             }
             & > span {
               font-family: typography.$typography40;
               font-size: 13px;
               color: colors.$gray60 !important;
               text-transform: uppercase;
+              @include breakpoints.medium {
+                font-size: 9px;
+                @include utilities.renian-truncate-lines(1);
+              }
             }
           }
         }

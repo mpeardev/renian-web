@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Lottie from "react-lottie";
 import classes from "./consult.module.scss";
 import redFootprints from "../../../../public/json/red-footprints.json";
@@ -6,7 +6,11 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useRef } from "react";
-import { ConnectButton } from "../../";
+import { ConnectButton, Loader } from "../../";
+import { UseAdopterPet } from "../../../hook/useAdopterPet";
+import { useLoader } from "../../../hook/useLoader";
+import { Web3Context } from "../../../contexts/Web3/Web3Context";
+import { useEffect } from "react";
 
 const Background = ({ children }) => {
   const defaultOptions = {
@@ -56,11 +60,21 @@ const Background = ({ children }) => {
 export const Consult = () => {
   const router = useRouter();
 
+  const { web3 } = useContext(Web3Context);
+
   const [dataPet, setdataPet] = useState(false);
 
   const inputValue = useRef();
 
   const [open, setOpen] = useState(false);
+
+  const [onLoad, setOnLoad] = useLoader();
+
+  useEffect(() => {
+    if (web3) {
+      UseAdopterPet(web3.account);
+    }
+  }, [web3]);
 
   const getInfo = async (value) => {
     if (value) {
@@ -71,9 +85,11 @@ export const Consult = () => {
         const data = await rsp.json();
 
         setdataPet(data);
+        setOnLoad(false);
       } catch (err) {
         console.error(err);
         setdataPet(false);
+        setOnLoad(false);
       }
     }
   };
@@ -81,6 +97,13 @@ export const Consult = () => {
   const getSearch = () => {
     const value = inputValue.current.value;
     getInfo(value);
+    setOnLoad(true);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      getSearch();
+    }
   };
 
   return (
@@ -121,9 +144,9 @@ export const Consult = () => {
               <input
                 type="number"
                 ref={inputValue}
-                // onKeyDown={getSearch}
-                placeHolder="Cod. Microchip"
-                autoComplete={true}
+                onKeyDown={handleKeyDown}
+                placeholder="Cod. Microchip"
+                autoComplete="true"
               />
               <div onClick={getSearch}>
                 <lord-icon
@@ -135,12 +158,11 @@ export const Consult = () => {
             </div>
 
             <div className={classes.consult__searchButton}>
-              {/* <button>Connect Wallet</button> */}
               <ConnectButton open={open} setOpen={setOpen} />
             </div>
           </div>
 
-          {!dataPet && (
+          {!dataPet && !onLoad && (
             <div className={classes.consult__default}>
               <div>
                 <Image
@@ -163,7 +185,9 @@ export const Consult = () => {
             </div>
           )}
 
-          {dataPet.ok === false && (
+          {onLoad && <Loader />}
+
+          {dataPet.ok === false && !onLoad && (
             <div className={classes.consult__nochip}>
               <div>
                 <Image

@@ -16,7 +16,7 @@
     margin: 0 auto;
     @include utilities.renian-flexbox-param(flex, auto, space-between);
     gap: 2rem;
-    padding: 0 2%;
+    padding: 0 3%;
 
     & > div {
       width: 100%;

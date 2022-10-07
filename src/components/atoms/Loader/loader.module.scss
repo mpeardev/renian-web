@@ -1,0 +1,24 @@
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/typography" as typography;
+
+.loader {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  @include utilities.renian-flexbox-param(flex, center, center);
+  backdrop-filter: blur(6px);
+  z-index: 99;
+  & > div {
+    @include utilities.renian-flexbox-param(flex, center, center);
+    flex-direction: column;
+    gap: 0.6rem;
+    & > h3 {
+      font-size: 25px;
+      font-family: typography.$typography30;
+      color: colors.$gray60;
+    }
+  }
+}

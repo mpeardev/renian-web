@@ -10,8 +10,6 @@ import { useRouter } from "next/router";
 export const Header = ({ show, setShow, isOpen, setOpen }) => {
   const router = useRouter();
 
-  console.log(router.asPath);
-
   const toggleHome = () => {
     scroll.scrollToTop();
   };
@@ -122,20 +120,22 @@ export const Header = ({ show, setShow, isOpen, setOpen }) => {
               priority
             />
           </div>
-          <div
-            className={classes.header__burguer}
-            onClick={() => setShow(!show)}
-          >
-            <div>
-              <Hamburger
-                direction="right"
-                color="#bf0303"
-                size={20}
-                toggled={isOpen}
-                toggle={setOpen}
-              />
+          {router.asPath == "/" && (
+            <div
+              className={classes.header__burguer}
+              onClick={() => setShow(!show)}
+            >
+              <div>
+                <Hamburger
+                  direction="right"
+                  color="#bf0303"
+                  size={20}
+                  toggled={isOpen}
+                  toggle={setOpen}
+                />
+              </div>
             </div>
-          </div>
+          )}
 
           {router.asPath == "/" && (
             <nav className={classes.header__links}>
