@@ -1,17 +1,24 @@
 import classes from "./connect-button.module.scss";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Connect } from "../Wallet/Connect";
 // import { Session } from "../Wallet/Session";
 import { Web3Context } from "../../../contexts/Web3/Web3Context";
+import { web3Provider } from "../../../utils/web3";
 
 export const ConnectButton = ({ open, setOpen }) => {
-  const { web3 } = useContext(Web3Context);
+  const { web3, handleWeb3 } = useContext(Web3Context);
+
+  const validate = async (providerString) => {
+    web3Provider(handleWeb3, providerString);
+  };
+
+  useEffect(() => {
+    validate("metamask");
+  }, [web3.account]);
 
   return (
     <>
       <div className={classes.button} onClick={() => setOpen(true)}>
-        {/* {web3.account && <button>{web3.account.substring(0, 10)}...</button>} */}
-        {/* {!web3.account && <button>Connect Wallet</button>} */}
         <button>
           {web3.account
             ? `${web3.account.substring(0, 10)}...`

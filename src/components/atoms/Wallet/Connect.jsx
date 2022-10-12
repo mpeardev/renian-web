@@ -36,31 +36,7 @@ export const Connect = ({ handleClose }) => {
               alt="image"
             />
           </div>
-          {/* <div>
-						<div className="relative">
-							<Image
-								src="/img/icons/metamask.png"
-								layout="fill"
-								objectFit="contain"
-								alt="metamask"
-							/>
-						</div>
-					</div> */}
         </div>
-        {/* <div className={classes.wallet}
-					onClick={() => validate("walletconnect")}>
-					WalletConnect
-					<div>
-						<div className="relative">
-							<Image
-								src="/img/icons/walletconnect.png"
-								layout="fill"
-								objectFit="contain"
-								alt="WalletConnect"
-							/>
-						</div>
-					</div>
-				</div> */}
       </div>
     </Informative>
   );

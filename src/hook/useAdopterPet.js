@@ -4,7 +4,7 @@ import { get } from "../utils/post";
 import { registeringEntity } from "../utils/war/RegisteringEntities";
 import { getInfoStatus, getSearchOwner } from "../utils/war/bridge";
 
-export const UseAdopterPet = () => {
+export const useAdopterPet = () => {
   const [pets, setPets] = useState([]);
   const [status, setStatus] = useState([]);
   const [entityRegister, setEntityRegister] = useState([]);
@@ -17,16 +17,17 @@ export const UseAdopterPet = () => {
 
   const getSearch = (web3, account) => {
     reset();
-    console.log(account);
+    // console.log(account);
     const contractSpecies = [];
     Object.keys(CONTRACTS_SPECIES).map((c) =>
       contractSpecies.push(CONTRACTS_SPECIES)
     );
-    console.log(contractSpecies);
+    // console.log(contractSpecies);
     getSearchOwner(web3, contractSpecies, account)
       .then((resolve) => {
-        if (resolve.length > 0) {
-          for (let i = 0; i < resolve.length; i++) {
+        // console.log(web3, contractSpecies, account);
+        if (resolve?.length > 0) {
+          for (let i = 0; i < resolve?.length; i++) {
             get(resolve[i])
               .then((resolve2) => {
                 getInfoStatus(web3, resolve2.chip)

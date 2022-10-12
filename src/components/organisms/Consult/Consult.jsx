@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Lottie from "react-lottie";
 import classes from "./consult.module.scss";
 import redFootprints from "../../../../public/json/red-footprints.json";
@@ -7,10 +7,9 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useRef } from "react";
 import { ConnectButton, Loader } from "../../";
-import { UseAdopterPet } from "../../../hook/useAdopterPet";
 import { useLoader } from "../../../hook/useLoader";
 import { Web3Context } from "../../../contexts/Web3/Web3Context";
-import { useEffect } from "react";
+import { useAdopterPet } from "../../../hook/useAdopterPet";
 
 const Background = ({ children }) => {
   const defaultOptions = {
@@ -70,11 +69,11 @@ export const Consult = () => {
 
   const [onLoad, setOnLoad] = useLoader();
 
+  // const { pets, getSearch } = useAdopterPet();
+
   // useEffect(() => {
-  //   if (web3) {
-  //     UseAdopterPet(web3.account);
-  //   }
-  // }, [web3]);
+  //   getSearch(web3.wallet, "0x6EcFa11C3a47d1434e3b7E4c543708376ee1e21A");
+  // }, [web3.wallet]);
 
   const getInfo = async (value) => {
     if (value) {
@@ -94,7 +93,7 @@ export const Consult = () => {
     }
   };
 
-  const getSearch = () => {
+  const toSearch = () => {
     const value = inputValue.current.value;
     getInfo(value);
     setOnLoad(true);
@@ -102,7 +101,7 @@ export const Consult = () => {
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      getSearch();
+      toSearch();
     }
   };
 
@@ -148,7 +147,7 @@ export const Consult = () => {
                 placeholder="Cod. Microchip"
                 autoComplete="true"
               />
-              <div onClick={getSearch}>
+              <div onClick={toSearch}>
                 <lord-icon
                   src="https://cdn.lordicon.com/zniqnylq.json"
                   trigger="loop"
