@@ -2,38 +2,22 @@
 @use "/src/styles/base/colors" as colors;
 @use "/src/styles/base/utilities" as utilities;
 @use "/src/styles/base/typography" as typography;
+@use "/src/styles/base/positions" as positions;
 
-.background {
+.contact {
   width: 100%;
-  height: auto;
-  background: rgba(221, 2, 2, 0.069);
-  // background: colors.$primary;
   position: relative;
+  overflow: hidden;
+  background: rgba(221, 2, 2, 0.069);
   padding: 5rem 0;
-  &Decorate {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
   &__container {
     width: 100%;
     height: 100%;
-    max-width: breakpoints.$screen-max;
-    margin: 0 auto;
-    padding: 0 2%;
+    @include utilities.renian-grid-param(grid, 0.7fr 1.3fr, auto, 4rem);
     @include breakpoints.medium {
-      padding: 0 8%;
+      display: flex;
     }
   }
-}
-
-.contact {
-  @include utilities.renian-grid-param(grid, 0.7fr 1.3fr, auto, 4rem);
-  position: relative;
-  @include breakpoints.medium {
-    display: flex;
-  }
-
   &__form {
     width: 100%;
     max-width: 30rem;
@@ -116,6 +100,9 @@
               font-size: 10px;
             }
           }
+          & > small {
+            color: rgb(244, 0, 0);
+          }
           & button {
             background-color: colors.$primary;
             border: 0;
@@ -145,7 +132,6 @@
               padding: 14px 19px;
               margin-top: 1rem;
             }
-
             &:before {
               background-color: initial;
               background-image: linear-gradient(
@@ -162,7 +148,6 @@
               transition: all 0.3s;
               width: 92%;
             }
-
             &:hover {
               box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset,
                 rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
@@ -189,7 +174,6 @@
       margin: 0 auto;
     }
   }
-
   &__image {
     width: 100%;
     height: 100%;

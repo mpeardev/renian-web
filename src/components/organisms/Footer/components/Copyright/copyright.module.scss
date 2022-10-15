@@ -2,6 +2,7 @@
 @use "/src/styles/base/colors" as colors;
 @use "/src/styles/base/utilities" as utilities;
 @use "/src/styles/base/typography" as typography;
+@use "/src/styles/base/positions" as positions;
 
 .copyright {
   width: 100%;
@@ -10,12 +11,9 @@
 
   &__container {
     width: 100%;
-    max-width: breakpoints.$screen-max;
-    margin: 0 auto;
+    height: 100%;
     @include utilities.renian-flexbox-param(flex, center, space-between);
-    padding: 0 2%;
-
-    & p {
+    & > p {
       font-family: typography.$typography60;
       font-size: 10px;
       line-height: 20px;

@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import styles from "./contact-head.module.scss";
 import Image from "next/image";
 import useHover from "@react-hook/hover";
+import { MainContainer } from "../../../../";
 
 export const ContactHead = () => {
   const targetDir = useRef(null);
@@ -14,65 +15,66 @@ export const ContactHead = () => {
 
   return (
     <div className={styles.contact}>
-      <main className={styles.contact__container}>
-        <div className={styles.contact__info}>
-          <div ref={targetDir}>
-            <lord-icon
-              src="https://cdn.lordicon.com/gwklwoti.json"
-              trigger={hoverDir ? "loop" : "none"}
-              colors="primary:#000000,secondary:#dd0000"
-              // style={{ width: "30px", height: "30px" }}
-            ></lord-icon>
-            <p>Av. Mariategui 1030, Jesús María</p>
+      <MainContainer>
+        <div className={styles.contact__container}>
+          <div className={styles.contact__info}>
+            <div ref={targetDir}>
+              <lord-icon
+                src="https://cdn.lordicon.com/gwklwoti.json"
+                trigger={hoverDir ? "loop" : "none"}
+                colors="primary:#000000,secondary:#dd0000"
+              ></lord-icon>
+              <p>Av. Mariategui 1030, Jesús María</p>
+            </div>
+            <div ref={targetHours}>
+              <lord-icon
+                src="https://cdn.lordicon.com/uutnmngi.json"
+                trigger={hoverHours ? "loop" : "none"}
+                colors="primary:#000000,secondary:#dd0000"
+                style={{ width: "25px", height: "25px" }}
+              ></lord-icon>
+              <p>Lun-Vie 09:00 am | 6:00 pm</p>
+            </div>
+            <div ref={targetNumb}>
+              <lord-icon
+                src="https://cdn.lordicon.com/iguuenru.json"
+                trigger={hoverNumb ? "loop" : "none"}
+                colors="primary:#000000,secondary:#dd0000"
+                style={{ width: "30px", height: "30px" }}
+              ></lord-icon>
+              <p>(+51) 759-4451</p>
+            </div>
           </div>
-          <div ref={targetHours}>
-            <lord-icon
-              src="https://cdn.lordicon.com/uutnmngi.json"
-              trigger={hoverHours ? "loop" : "none"}
-              colors="primary:#000000,secondary:#dd0000"
-              style={{ width: "25px", height: "25px" }}
-            ></lord-icon>
-            <p>Lun-Vie 09:00 am | 6:00 pm</p>
-          </div>
-          <div ref={targetNumb}>
-            <lord-icon
-              src="https://cdn.lordicon.com/iguuenru.json"
-              trigger={hoverNumb ? "loop" : "none"}
-              colors="primary:#000000,secondary:#dd0000"
-              style={{ width: "30px", height: "30px" }}
-            ></lord-icon>
-            <p>(+51) 759-4451</p>
+          <div className={styles.contact__networks}>
+            <a
+              href="https://www.facebook.com/RenianPeru/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <Image
+                src="/svg/networks/facebook-icon.svg"
+                width={28}
+                height={28}
+                alt="fb-icon"
+                priority
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/renian_peru/?hl=es-la"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <Image
+                src="/svg/networks/instagram-icon.svg"
+                width={28}
+                height={28}
+                alt="ins-icon"
+                priority
+              />
+            </a>
           </div>
         </div>
-        <div className={styles.contact__networks}>
-          <a
-            href="https://www.facebook.com/RenianPeru/"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <Image
-              src="/svg/networks/facebook-icon.svg"
-              width={28}
-              height={28}
-              alt="fb-icon"
-              priority
-            />
-          </a>
-          <a
-            href="https://www.instagram.com/renian_peru/?hl=es-la"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <Image
-              src="/svg/networks/instagram-icon.svg"
-              width={28}
-              height={28}
-              alt="ins-icon"
-              priority
-            />
-          </a>
-        </div>
-      </main>
+      </MainContainer>
     </div>
   );
 };

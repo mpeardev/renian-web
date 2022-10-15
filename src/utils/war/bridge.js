@@ -22,6 +22,7 @@ export const getInfoStatus = async (web3, cod) => {
 };
 
 export const getSearchOwner = async (web3, contractBridge, address) => {
+  // console.log(web3);
   try {
     const contract = new web3.eth.Contract(ABISPECIES, CONTRACTS_WAR.Bridge);
     const response = await contract.methods

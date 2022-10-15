@@ -1,7 +1,7 @@
 import classes from "./wallet.module.scss";
-import { Informative } from "../Modal/Informative/Informative";
 import { useContext } from "react";
 import { Web3Context } from "../../../contexts/Web3/Web3Context";
+import { Informative } from "../../";
 
 export const Session = ({ handleClose }) => {
   const { web3, handleAccount, handleWeb3 } = useContext(Web3Context);

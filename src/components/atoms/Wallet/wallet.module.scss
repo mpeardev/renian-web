@@ -2,6 +2,7 @@
 @use "/src/styles/base/colors" as colors;
 @use "/src/styles/base/utilities" as utilities;
 @use "/src/styles/base/typography" as typography;
+@use "/src/styles/base/positions" as positions;
 
 .connect {
   @include utilities.renian-flexbox-param(flex, auto, auto);

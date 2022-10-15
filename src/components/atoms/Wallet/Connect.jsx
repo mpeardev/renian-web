@@ -1,9 +1,9 @@
 import classes from "./wallet.module.scss";
-import { Informative } from "../Modal/Informative/Informative";
 import Image from "next/image";
 import { useContext } from "react";
 import { Web3Context } from "../../../contexts/Web3/Web3Context";
 import { web3Provider } from "../../../utils/web3";
+import { Informative } from "../../";
 
 export const Connect = ({ handleClose }) => {
   const { handleWeb3 } = useContext(Web3Context);

@@ -1,0 +1,55 @@
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/typography" as typography;
+@use "/src/styles/base/positions" as positions;
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: positions.$z-modal;
+  &__background {
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  &__container {
+    @include utilities.renian-flexbox-param(flex, center, center);
+    width: 100vw;
+    height: 100vh;
+  }
+  &__content {
+    background: colors.$white;
+    border-radius: 10px;
+    padding: 2rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    max-width: 70%;
+    min-height: 20rem;
+    max-height: 80vh;
+    &Decorate {
+      width: 100%;
+      max-width: 14rem;
+      position: absolute;
+      bottom: -16%;
+      right: 0;
+      opacity: 0.15;
+    }
+    & > h1 {
+      font-family: typography.$typography70;
+      font-style: italic;
+      max-width: 15rem;
+      font-size: 40px;
+      color: colors.$gray80;
+      & > span {
+        color: colors.$primary;
+      }
+    }
+  }
+}

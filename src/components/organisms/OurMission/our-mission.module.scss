@@ -2,67 +2,31 @@
 @use "/src/styles/base/colors" as colors;
 @use "/src/styles/base/utilities" as utilities;
 @use "/src/styles/base/typography" as typography;
+@use "/src/styles/base/positions" as positions;
 
-.background {
+.mission {
   width: 100%;
-  height: auto;
   position: relative;
   overflow: hidden;
-  &__decorate {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    &Footprints {
-      width: 100%;
-      @include utilities.renian-flexbox-param(flex, auto, space-between);
-      opacity: 0.4;
-      backdrop-filter: blur(4px);
-      & > div {
-        width: 100%;
-        max-width: 40rem;
-        position: relative;
-        &:last-child {
-          transform: scaleX(-1);
-        }
-      }
-    }
-  }
+  padding: 4rem 0;
+  background: colors.$white;
   &__container {
     width: 100%;
     height: 100%;
-    max-width: breakpoints.$screen-max;
-    margin: 0 auto;
-    position: relative;
-    z-index: 100;
-    padding: 0 2%;
+    @include utilities.renian-grid-param(grid, 0.4fr 1.6fr, auto, auto);
     @include breakpoints.medium {
-      padding: 0 8%;
+      @include utilities.renian-grid-param(grid, 1fr, 4.5rem, auto);
     }
   }
-}
-
-.mission {
-  @include utilities.renian-grid-param(grid, 0.4fr 1.6fr, auto, auto);
-  padding: 4rem 0;
-  @include breakpoints.medium {
-    @include utilities.renian-grid-param(grid, 1fr, 4.5rem, auto);
-  }
-
   &__circles {
     @include utilities.renian-grid-param(grid, 1fr, 1.5rem, auto);
     @include breakpoints.medium {
-      // @include utilities.renian-grid-param(grid, 1fr 1fr 1fr, 1.5rem, auto);
       @include utilities.renian-flexbox-param(flex, center, center);
       gap: 2rem;
     }
     & > div {
-      background: rgb(0, 0, 0);
-      background: linear-gradient(
-        45deg,
-        rgba(0, 0, 0, 1) 0%,
-        rgba(191, 3, 3, 1) 45%
-      );
+      background: colors.$black;
+      background: linear-gradient(45deg, colors.$black 0%, colors.$primary 45%);
       border-radius: 50%;
       width: 8rem;
       height: 8rem;
@@ -78,7 +42,6 @@
           scale: calc(1);
         }
       }
-
       @include utilities.renian-flexbox-param(flex, center, center);
       @include breakpoints.xl-large {
         width: 7rem;
@@ -88,7 +51,6 @@
         width: 5rem;
         height: 5rem;
       }
-
       & > div {
         text-align: center;
         color: colors.$white;
@@ -116,7 +78,6 @@
       }
     }
   }
-
   &__content {
     text-align: center;
     color: colors.$gray70;
@@ -154,7 +115,6 @@
         gap: 3.5rem;
       }
       & h4 {
-        // color: colors.$gray70;
         font-size: 25px;
         font-family: typography.$typography60;
         text-align: center;
@@ -175,7 +135,6 @@
           max-width: 15rem;
           margin: 0 auto;
         }
-
         & > div {
           margin-top: 2.5rem;
         }

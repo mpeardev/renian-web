@@ -16,18 +16,19 @@ export const useAdopterPet = () => {
   };
 
   const getSearch = (web3, account) => {
-    reset();
+    // reset();
     // console.log(account);
     const contractSpecies = [];
     Object.keys(CONTRACTS_SPECIES).map((c) =>
-      contractSpecies.push(CONTRACTS_SPECIES)
+      contractSpecies.push(CONTRACTS_SPECIES[c])
     );
     // console.log(contractSpecies);
     getSearchOwner(web3, contractSpecies, account)
       .then((resolve) => {
-        // console.log(web3, contractSpecies, account);
+        console.log(resolve);
         if (resolve?.length > 0) {
           for (let i = 0; i < resolve?.length; i++) {
+            console.log(i);
             get(resolve[i])
               .then((resolve2) => {
                 getInfoStatus(web3, resolve2.chip)
@@ -69,5 +70,6 @@ export const useAdopterPet = () => {
     entityRegister,
     loading,
     getSearch,
+    reset,
   };
 };

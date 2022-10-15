@@ -1,17 +1,9 @@
 import {
-  About,
-  Advantage,
   Banner,
-  CardSection,
-  Microchip,
-  Mission,
-  PlayVideo,
-  Projection,
   WelcomeAd,
   SectionCards,
   AboutSection,
   Functionality,
-  Informative,
   OurMission,
   AboutUs,
   News,
@@ -20,7 +12,7 @@ import {
   Back,
 } from "..";
 
-export const HomeView = ({ setAlertActive }) => {
+export const HomeView = () => {
   return (
     <div style={{ overflow: "hidden", position: "relative" }}>
       <Banner />
@@ -32,15 +24,8 @@ export const HomeView = ({ setAlertActive }) => {
       <Partnerships />
       <AboutUs />
       <News />
-      <Contact setAlertActive={setAlertActive} />
+      <Contact />
       <Back />
-      {/* <CardSection /> */}
-      {/* <About /> */}
-      {/* <PlayVideo /> */}
-      {/* <Microchip /> */}
-      {/* <Advantage /> */}
-      {/* <Projection /> */}
-      {/* <Mission /> */}
     </div>
   );
 };

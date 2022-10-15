@@ -2,23 +2,36 @@
 @use "/src/styles/base/colors" as colors;
 @use "/src/styles/base/utilities" as utilities;
 @use "/src/styles/base/typography" as typography;
+@use "/src/styles/base/positions" as positions;
 
 .loader {
-  width: 100%;
-  height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
-  @include utilities.renian-flexbox-param(flex, center, center);
-  backdrop-filter: blur(6px);
-  z-index: 99;
-  & > div {
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: positions.$z-modal;
+  &__background {
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  &__container {
+    @include utilities.renian-flexbox-param(flex, center, center);
+    width: 100vw;
+    height: 100vh;
+  }
+  &__content {
     @include utilities.renian-flexbox-param(flex, center, center);
     flex-direction: column;
     gap: 0.6rem;
     & > h3 {
-      font-size: 25px;
+      font-size: 18px;
       font-family: typography.$typography30;
-      color: colors.$gray60;
+      color: colors.$gray50;
     }
   }
 }
