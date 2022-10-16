@@ -8,7 +8,7 @@ import { Informative } from "../../";
 export const Connect = ({ handleClose }) => {
   const { handleWeb3 } = useContext(Web3Context);
 
-  const validate = async (providerString) => {
+  const validate = (providerString) => {
     web3Provider(handleWeb3, providerString);
     handleClose();
   };

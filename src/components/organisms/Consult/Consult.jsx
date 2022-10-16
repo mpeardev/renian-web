@@ -8,16 +8,25 @@ import { ConnectButton, Loader, MainContainer } from "../../";
 import { useLoader } from "../../../hook/useLoader";
 import { Web3Context } from "../../../contexts/Web3/Web3Context";
 import { useAdopterPet } from "../../../hook/useAdopterPet";
+import { web3Provider } from "../../../utils/web3";
 
 export const Consult = () => {
   const router = useRouter();
-  const { web3 } = useContext(Web3Context);
+  const { web3, handleWeb3 } = useContext(Web3Context);
   const [dataPet, setdataPet] = useState(false);
   const inputValue = useRef();
   const [open, setOpen] = useState(false);
   const [onLoad, setOnLoad] = useLoader();
 
   const { pets, getSearch, reset } = useAdopterPet();
+
+  const validate = (providerString) => {
+    web3Provider(handleWeb3, providerString);
+  };
+
+  // useEffect(() => {
+  //   validate("metamask");
+  // }, [web3]);
 
   useEffect(() => {
     if (web3.account) {
