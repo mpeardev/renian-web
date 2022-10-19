@@ -35,7 +35,7 @@ export const Connect = ({ setOpenModal }) => {
             />
           </div>
         </div>
-        <div onClick={() => validate("metamask")}>
+        {/* <div onClick={() => validate("metamask")}>
           <p>Metamask</p>
           <div style={{ width: "3rem" }}>
             <Image
@@ -46,7 +46,7 @@ export const Connect = ({ setOpenModal }) => {
               alt="metamask-logo"
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </DefaultModal>
   );
