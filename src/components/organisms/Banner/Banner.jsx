@@ -7,7 +7,7 @@ import { Autoplay, Navigation } from "swiper";
 import Image from "next/image";
 import { Link } from "react-scroll";
 import { Flip } from "react-reveal";
-import { MainContainer } from "../../";
+import { MainContainer, DefaultButton } from "../../";
 
 export const Banner = () => {
   return (
@@ -117,7 +117,7 @@ export const Banner = () => {
                         </h3>
                       </div>
 
-                      <div className={classes.banner__thirdButton}>
+                      <div>
                         <Link
                           to="contact"
                           smooth={true}
@@ -126,7 +126,7 @@ export const Banner = () => {
                           exact="true"
                           offset={-80}
                         >
-                          <button>Contactanos</button>
+                          <DefaultButton type={"button"} name={"contactanos"} />
                         </Link>
                       </div>
                     </div>

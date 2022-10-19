@@ -1,40 +1,47 @@
 import React, { useContext, useEffect } from "react";
 import classes from "./consult.module.scss";
+import modalClasses from "../../containers/modals/DefaultModal/default-modal.module.scss";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useRef } from "react";
-import { ConnectButton, Loader, MainContainer } from "../../";
+import { ConnectButton, Loader, MainContainer, DefaultModal } from "../../";
 import { useLoader } from "../../../hook/useLoader";
 import { Web3Context } from "../../../contexts/Web3/Web3Context";
 import { useAdopterPet } from "../../../hook/useAdopterPet";
 import { web3Provider } from "../../../utils/web3";
+import { Default } from "../../molecules/consult/Default";
+import { NotFound } from "../../molecules/consult/NotFound";
+import {
+  ContentMongoPet,
+  ContentWeb3Pet,
+} from "../../molecules/consult/DataContent";
+// import { ListPreview } from "../../molecules/consult/ListPreview";
 
 export const Consult = () => {
   const router = useRouter();
   const { web3, handleWeb3 } = useContext(Web3Context);
   const [dataPet, setdataPet] = useState(false);
   const inputValue = useRef();
-  const [open, setOpen] = useState(false);
+  const { pets, getSearch, openModal, setOpenModal } = useAdopterPet();
   const [onLoad, setOnLoad] = useLoader();
 
-  const { pets, getSearch, reset } = useAdopterPet();
+  const [showDataPetWeb3, setShowDataPetWeb3] = useState();
+  // const [showListPreview, setShowListPreview] = useState();
 
-  const validate = (providerString) => {
-    web3Provider(handleWeb3, providerString);
-  };
+  // const validate = (providerString) => {
+  //   web3Provider(handleWeb3, providerString);
+  // };
 
   // useEffect(() => {
   //   validate("metamask");
-  // }, [web3]);
+  // }, []);
 
   useEffect(() => {
     if (web3.account) {
-      reset();
-      // getSearch(web3.wallet, "0x3dD85B618Cf7a86e06D2a390e85E8fb183fd56f5");
-      setTimeout(() => {
-        getSearch(web3.wallet, "0x4415B2Bfc4445b33C17c1A0b0D10cC18e9F928D0");
-      }, 5000);
+      getSearch(web3.wallet, "0x3dD85B618Cf7a86e06D2a390e85E8fb183fd56f5");
+      // getSearch(web3.wallet, "0x4415B2Bfc4445b33C17c1A0b0D10cC18e9F928D0");
+      // getSearch(web3.wallet, "0xb69EC01E4FFB2669669fBEbB9f5224C5B66145CE");
     }
   }, [web3.account]);
 
@@ -48,10 +55,12 @@ export const Consult = () => {
 
         setdataPet(data);
         setOnLoad(false);
+        setShowDataPetWeb3(false);
       } catch (err) {
         console.error(err);
         setdataPet(false);
         setOnLoad(false);
+        setShowDataPetWeb3(false);
       }
     }
   };
@@ -71,10 +80,10 @@ export const Consult = () => {
   };
 
   return (
-    <section className={classes.consult}>
-      <MainContainer>
-        <div className={classes.consult__container}>
-          <div className={classes.consult__card}>
+    <>
+      <section className={classes.consult}>
+        <MainContainer>
+          <ConsultCard>
             <div className={classes.consult__header}>
               <div onClick={() => router.push("/")}>
                 <lord-icon
@@ -117,251 +126,81 @@ export const Consult = () => {
               </div>
 
               <div className={classes.consult__searchButton}>
-                <ConnectButton open={open} setOpen={setOpen} />
+                <ConnectButton
+                  pets={pets}
+                  openModal={openModal}
+                  setOpenModal={setOpenModal}
+                />
               </div>
             </div>
 
-            {!dataPet && !onLoad && (
-              <div className={classes.consult__default}>
-                <div>
-                  <Image
-                    src="/svg/renian-logo.svg"
-                    layout="responsive"
-                    width={120}
-                    height={80}
-                    href="renian-logo"
-                  />
-                </div>
-                <div>
-                  <Image
-                    src="/svg/war-logo.svg"
-                    layout="responsive"
-                    width={80}
-                    height={80}
-                    href="war-logo"
-                  />
-                </div>
-              </div>
-            )}
+            {/* <ContentWeb3Pet /> */}
+
+            {!dataPet && !showDataPetWeb3 && !onLoad && <Default />}
 
             {onLoad && <Loader />}
 
-            {dataPet.ok === false && !onLoad && (
-              <div className={classes.consult__nochip}>
-                <div>
-                  <Image
-                    src="/img/no-chip.png"
-                    layout="responsive"
-                    width={80}
-                    height={80}
-                  />
-                </div>
-                <p>Numero de chip no encontrado</p>
-              </div>
+            {dataPet && dataPet.ok === false && !onLoad && <NotFound />}
+
+            {dataPet && dataPet.ok != false && !onLoad && !showDataPetWeb3 && (
+              <ContentMongoPet dataPet={dataPet} />
             )}
 
-            {dataPet.ok != false && dataPet && (
-              <div className={classes.consult__content}>
-                <div className={classes.consult__contentBg}></div>
-                {dataPet.pet?.name != undefined && <h1>{dataPet.pet?.name}</h1>}
-                {dataPet.pet?.usuario_empresa != undefined && (
-                  <h1>{dataPet.pet?.usuario_empresa}</h1>
-                )}
+            {pets && !onLoad && showDataPetWeb3 && (
+              <ContentWeb3Pet pets={pets} />
+            )}
 
-                <div>
-                  <div className={classes.consult__contentImg}>
-                    <div>
-                      <Image
-                        src={
-                          dataPet.pet?.chip != undefined
-                            ? `https://firu.alejandroaguilar.dev/public/images/image/${dataPet.pet?.chip}.jpg`
-                            : "/img/img-nofound.png"
-                        }
-                        layout="responsive"
-                        width={60}
-                        height={75}
-                        href="image-dog"
-                      />
-                    </div>
-                    <div>
-                      {dataPet.type == "RENIAN" && (
-                        <>
-                          <lord-icon
-                            src="https://cdn.lordicon.com/hgpfwhzk.json"
-                            colors="primary:#000000,secondary:#ffae00"
-                            trigger="loop"
-                          ></lord-icon>
-                          <p>Esta mascota debe actualizar sus datos.</p>
-                        </>
-                      )}
-                    </div>
-                  </div>
+            {/* {pets && !onLoad && !showDataPetWeb3 && showListPreview && <ListPreview />} */}
+          </ConsultCard>
+        </MainContainer>
+      </section>
 
-                  <div className={classes.consult__contentInfo}>
-                    <div className={classes.consult__contentInfo__cards}>
-                      <div>
-                        <div className={classes.consult__contentInfo__cardsImg}>
-                          <div>
-                            <lord-icon
-                              src="https://cdn.lordicon.com/sruywmtf.json"
-                              trigger="loop"
-                              colors="primary:#000000,secondary:#dd0000"
-                              style={{
-                                width: "165px",
-                                height: "165px",
-                                opacity: ".7",
-                              }}
-                            ></lord-icon>
-                          </div>
-                        </div>
+      {openModal && web3.account && pets && (
+        <DefaultModal setOpenModal={setOpenModal}>
+          {pets.length > 0 && (
+            <>
+              <h2>
+                Usted tiene {pets.length <= 9 ? "0" : ""}
+                {pets.length} mascota{pets.length > 1 ? "s" : " "}
+                registrada{pets.length > 1 ? "s" : ""}.
+              </h2>
 
-                        <div
-                          className={classes.consult__contentInfo__cardsText}
-                        >
-                          <h4>Microchip:</h4>
-                          {dataPet.pet?.chip != undefined && (
-                            <span>{dataPet.pet?.chip}</span>
-                          )}
-                          {dataPet.pet?.usuario_cargo != undefined && (
-                            <span>{dataPet.pet?.usuario_cargo}</span>
-                          )}
-                        </div>
-                      </div>
-
-                      <div>
-                        <div className={classes.consult__contentInfo__cardsImg}>
-                          <div>
-                            <lord-icon
-                              src="https://cdn.lordicon.com/zkzytvcr.json"
-                              trigger="loop"
-                              colors="primary:#000000,secondary:#dd0000"
-                              style={{
-                                width: "165px",
-                                height: "165px",
-                                opacity: ".7",
-                              }}
-                            ></lord-icon>
-                          </div>
-                        </div>
-
-                        <div
-                          className={classes.consult__contentInfo__cardsText}
-                        >
-                          <h4>Registrado por:</h4>
-                          {dataPet.pet?.userAddress != undefined && (
-                            <span>{dataPet.pet?.userAddress}</span>
-                          )}
-                          {!dataPet.pet?.userAddress && (
-                            <span>No definido</span>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className={classes.consult__contentInfo__general}>
-                      <div
-                        className={classes.consult__contentInfo__generalTable}
-                      >
-                        <div>
-                          <h5>Propietario:</h5>
-                          {dataPet.pet?.adopterName &&
-                            dataPet.pet?.adopterLastName != undefined && (
-                              <span>
-                                {dataPet.pet?.adopterName}{" "}
-                                {dataPet.pet?.adopterLastName}
-                              </span>
-                            )}
-                          {dataPet.pet?.usuario_nombre &&
-                            dataPet.pet?.usuario_apellidos != undefined && (
-                              <span>
-                                {dataPet.pet?.usuario_nombre}{" "}
-                                {dataPet.pet?.usuario_apellidos}
-                              </span>
-                            )}
-                        </div>
-
-                        <div>
-                          <h5>Raza:</h5>
-                          {dataPet.pet?.race != undefined && (
-                            <span>{dataPet.pet?.race}</span>
-                          )}
-                          {dataPet.pet?.usuario_telefax != undefined && (
-                            <span>{dataPet.pet?.usuario_telefax}</span>
-                          )}
-                        </div>
-
-                        <div>
-                          <h5>Nacimiento:</h5>
-                          {dataPet.pet?.date != undefined && (
-                            <span>{dataPet.pet?.date}</span>
-                          )}
-                          {dataPet.pet?.usuario_empresa_sector != undefined && (
-                            <span>{dataPet.pet?.usuario_empresa_sector}</span>
-                          )}
-                        </div>
-
-                        <div>
-                          <h5>Fecha de adopcion:</h5>
-                          {dataPet.pet?.date != undefined && (
-                            <span>{dataPet.pet?.date}</span>
-                          )}
-                          {dataPet.pet?.usuario_registrado != undefined && (
-                            <span>{dataPet.pet?.usuario_registrado}</span>
-                          )}
-                        </div>
-
-                        <div>
-                          <h5>Pais:</h5>
-                          {dataPet.pet?.country != undefined && (
-                            <span>{dataPet.pet?.country}</span>
-                          )}
-                          {dataPet.pet?.usuario_ciudad != undefined && (
-                            <span>{dataPet.pet?.usuario_ciudad}</span>
-                          )}
-                        </div>
-
-                        <div>
-                          <h5>Sexo:</h5>
-                          {dataPet.pet?.gender != undefined && (
-                            <span>{dataPet.pet?.gender}</span>
-                          )}
-                          {dataPet.pet?.usuario_url != undefined && (
-                            <span>{dataPet.pet?.usuario_url}</span>
-                          )}
-                        </div>
-
-                        <div>
-                          <h5>Color:</h5>
-                          {dataPet.pet?.colour != undefined && (
-                            <span>{dataPet.pet?.colour}</span>
-                          )}
-                          {dataPet.pet?.usuario_interes != undefined && (
-                            <span>{dataPet.pet?.usuario_interes}</span>
-                          )}
-                        </div>
-
-                        <div>
-                          <h5>Esterilizado:</h5>
-                          {dataPet.pet?.sterilized != undefined && (
-                            <span>{dataPet.pet?.sterilized}</span>
-                          )}
-                          {dataPet.pet?.usuario_esteril != undefined && (
-                            <span>
-                              {dataPet.pet?.usuario_esteril == "ESTERILIZADO"
-                                ? "SI"
-                                : "NO"}
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    </div>
+              {pets.length > 1 && (
+                <div className={modalClasses.modal__contentBoxlist}>
+                  <div>
+                    <lord-icon
+                      src="https://cdn.lordicon.com/cqqydgge.json"
+                      trigger="none"
+                      colors="primary:#000000,secondary:#dd0000"
+                      style={{ width: "55px", height: "55px", opacity: ".7" }}
+                    ></lord-icon>
+                    {/* <p>Ver mis mascotas</p> */}
+                    <p>Proximamente</p>
                   </div>
                 </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </MainContainer>
-    </section>
+              )}
+              {pets.length == 1 && (
+                <div className={modalClasses.modal__contentBoxlist}>
+                  <div onClick={() => setShowDataPetWeb3(true)}>
+                    <lord-icon
+                      src="https://cdn.lordicon.com/cqqydgge.json"
+                      trigger="none"
+                      colors="primary:#000000,secondary:#dd0000"
+                      style={{ width: "55px", height: "55px", opacity: ".7" }}
+                    ></lord-icon>
+                    <p>Ver mi mascota</p>
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+          {pets.length == 0 && <h1>No tienes mascotas registradas</h1>}
+        </DefaultModal>
+      )}
+    </>
   );
+};
+
+const ConsultCard = ({ children }) => {
+  return <div className={classes.consult__card}>{children}</div>;
 };

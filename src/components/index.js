@@ -1,6 +1,7 @@
 /* -----ATOMS----- */
-export * from "./atoms/ConnectButton/ConnectButton";
 export * from "./atoms/Loader/Loader";
+export * from "./atoms/DefaultButton/DefaultButton";
+export * from "./atoms/ConnectButton";
 
 /* -----MOLECULES----- */
 export * from "./molecules/WelcomeAd/WelcomeAd";
@@ -27,6 +28,5 @@ export * from "./templates/MaintenanceView";
 export * from "./templates/ConsultView";
 
 /* -----CONTAINERS----- */
-export * from "./containers/modals/Informative/Informative";
 export * from "./containers/modals/DefaultModal/DefaultModal";
 export * from "./containers/MainContainer/MainContainer";

@@ -110,57 +110,6 @@
         cursor: pointer;
       }
     }
-    &Button {
-      & > button {
-        background-color: rgb(255, 191, 0);
-        border: 0;
-        border-radius: 30px;
-        color: #fff;
-        cursor: pointer;
-        display: inline-block;
-        font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto,
-          Ubuntu, "Helvetica Neue", sans-serif;
-        font-size: 18px;
-        outline: 0;
-        padding: 10px 21px;
-        position: relative;
-        text-align: center;
-        text-decoration: none;
-        transition: all 0.3s;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        font-family: typography.$typographySecondary;
-        @include breakpoints.xl-large {
-          font-size: 15px;
-          padding: 10px 17px;
-        }
-        @include breakpoints.medium {
-          font-size: 14px;
-          padding: 8px 19px;
-        }
-        &:before {
-          background-color: initial;
-          background-image: linear-gradient(
-            #fff 0,
-            rgba(255, 255, 255, 0) 100%
-          );
-          border-radius: 125px;
-          content: "";
-          height: 50%;
-          left: 4%;
-          opacity: 0.5;
-          position: absolute;
-          top: 0;
-          transition: all 0.3s;
-          width: 92%;
-        }
-        &:hover {
-          box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset,
-            rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
-        }
-      }
-    }
   }
   &__content {
     width: 100%;
@@ -245,10 +194,10 @@
           position: relative;
           overflow: hidden;
           backdrop-filter: blur(20px);
-          &:hover {
-            color: colors.$primary !important;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-          }
+          // &:hover {
+          //   color: colors.$primary !important;
+          //   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          // }
         }
         &Img {
           width: 100%;
@@ -294,10 +243,10 @@
             gap: 10%;
             color: colors.$gray80;
             transition: 0.3s;
-            &:hover {
-              color: colors.$primary;
-              box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            }
+            // &:hover {
+            //   color: colors.$primary;
+            //   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            // }
             @include breakpoints.medium {
               padding: 0.8rem 1rem;
             }

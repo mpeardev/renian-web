@@ -3,6 +3,7 @@ import { CONTRACTS_SPECIES } from "../config";
 import { get } from "../utils/post";
 import { registeringEntity } from "../utils/war/RegisteringEntities";
 import { getInfoStatus, getSearchOwner } from "../utils/war/bridge";
+import { useModal } from "./useModal";
 
 export const useAdopterPet = () => {
   const [pets, setPets] = useState([]);
@@ -10,13 +11,15 @@ export const useAdopterPet = () => {
   const [entityRegister, setEntityRegister] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const { openModal, setOpenModal } = useModal();
+
   const reset = () => {
     setPets([]);
     setEntityRegister([]);
   };
 
   const getSearch = (web3, account) => {
-    // reset();
+    reset();
     // console.log(account);
     const contractSpecies = [];
     Object.keys(CONTRACTS_SPECIES).map((c) =>
@@ -25,10 +28,10 @@ export const useAdopterPet = () => {
     // console.log(contractSpecies);
     getSearchOwner(web3, contractSpecies, account)
       .then((resolve) => {
-        console.log(resolve);
+        // console.log(resolve);
         if (resolve?.length > 0) {
           for (let i = 0; i < resolve?.length; i++) {
-            console.log(i);
+            // console.log(i);
             get(resolve[i])
               .then((resolve2) => {
                 getInfoStatus(web3, resolve2.chip)
@@ -40,6 +43,7 @@ export const useAdopterPet = () => {
                 resolve2.image = resolve2.image.replace("ipfs://", "");
                 resolve2.pedigree = resolve2.pedigree.replace("ipfs://", "");
                 setPets((p) => [...p, resolve2]);
+                setOpenModal(true);
                 registeringEntity(web3, resolve2.addressEr)
                   .then((resolve3) => {
                     if (resolve3)
@@ -59,6 +63,8 @@ export const useAdopterPet = () => {
           setLoading(false);
         } else {
           setLoading(false);
+          setOpenModal(true);
+          setPets([]);
         }
       })
       .catch((e) => console.log(e));
@@ -70,6 +76,7 @@ export const useAdopterPet = () => {
     entityRegister,
     loading,
     getSearch,
-    reset,
+    openModal,
+    setOpenModal,
   };
 };

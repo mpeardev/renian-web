@@ -31,7 +31,7 @@
     position: relative;
     overflow: hidden;
     max-width: 70%;
-    min-height: 20rem;
+    min-height: 18rem;
     max-height: 80vh;
     &Decorate {
       width: 100%;
@@ -40,16 +40,64 @@
       bottom: -16%;
       right: 0;
       opacity: 0.15;
+      z-index: 0;
+    }
+    &Boxlist {
+      @include utilities.renian-flexbox-param(flex, auto, auto);
+      flex-direction: column;
+      gap: 0.6rem;
+      position: relative;
+      z-index: 1;
+      margin-top: 1.5rem;
+      & > div {
+        align-items: center;
+        background: colors.$white;
+        cursor: pointer;
+        @include utilities.renian-flexbox-param(flex, auto, space-between);
+        padding: 0.2rem 1rem;
+        border-radius: 8px;
+        border: 1px solid colors.$gray10;
+        transition: 0.4s;
+        opacity: 0.85;
+        filter: brightness(95%);
+        &:hover {
+          border-color: colors.$gray30;
+          opacity: 1;
+          filter: brightness(100%);
+          // transform: scale(1.02);
+        }
+        & > p {
+          font-family: typography.$typography30;
+          font-size: 14px;
+          color: colors.$gray50;
+        }
+      }
     }
     & > h1 {
+      font-size: 40px;
       font-family: typography.$typography70;
       font-style: italic;
       max-width: 15rem;
-      font-size: 40px;
       color: colors.$gray80;
       & > span {
         color: colors.$primary;
       }
+    }
+    & > h2 {
+      font-size: 32px;
+      font-family: typography.$typography60;
+      font-style: italic;
+    }
+    & > h3 {
+      font-size: 20px;
+      font-family: typography.$typography50;
+      color: colors.$gray80;
+    }
+    & > p {
+      margin-top: 0.5rem;
+      font-size: 14px;
+      font-family: typography.$typography30;
+      color: colors.$gray50;
     }
   }
 }

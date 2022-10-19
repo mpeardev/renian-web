@@ -1,9 +1,8 @@
-import { useState } from "react";
 import Lottie from "react-lottie";
 import classes from "./contact.module.scss";
 import map from "../../../../public/json/map.json";
 import Bounce from "react-reveal/Bounce";
-import { DefaultModal, MainContainer } from "../../";
+import { DefaultModal, MainContainer, DefaultButton } from "../../";
 import { useModal } from "../../../hook/useModal";
 import { useForm } from "react-hook-form";
 import { useSendForm } from "../../../hook/useSendForm";
@@ -126,10 +125,7 @@ export const Contact = () => {
                   </div>
 
                   <div className={classes.contact__formButton}>
-                    {/* <button type="button" onClick={() => setOpenModal(true)}>
-                      Enviar Mensaje
-                    </button> */}
-                    <button type="submit">Enviar Mensaje</button>
+                    <DefaultButton type={"submit"} name={"enviar mensaje"} />
                   </div>
                 </form>
               </div>
@@ -141,12 +137,9 @@ export const Contact = () => {
                   <Lottie
                     isClickToPauseDisabled={true}
                     style={{
-                      // position: "absolute",
                       width: "100%",
                       minHeight: "25rem",
-                      // opacity: ".4",
                       filter: "brightness(.5)",
-                      // filter: "invert(5%)",
                     }}
                     options={{
                       animationData: map,
