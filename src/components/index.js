@@ -5,8 +5,6 @@ export * from "./atoms/buttons/Cardsbutton/CardsButton";
 export * from "./atoms/ConnectButton";
 
 /* -----MOLECULES----- */
-export * from "./molecules/WelcomeAd/WelcomeAd";
-export * from "./molecules/Partnerships/Partnerships";
 export * from "./molecules/Back/Back";
 export * from "./molecules/MobileLinksFrame/MobileLinksFrame";
 
@@ -14,7 +12,6 @@ export * from "./molecules/MobileLinksFrame/MobileLinksFrame";
 export * from "./organisms/Header/Header";
 export * from "./organisms/MainHomeSection/MainHomeSection";
 export * from "./organisms/Banner/Banner";
-export * from "./organisms/SectionCards/SectionCards";
 export * from "./organisms/CardsSection/CardsSection";
 export * from "./organisms/AboutSection/AboutSection";
 export * from "./organisms/Functionality/Functionality";
