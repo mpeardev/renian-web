@@ -22,7 +22,7 @@
       width: 100%;
       padding: 0.5rem 0;
       & > p {
-        font-family: typography.$typography30;
+        font-family: typography.$quicksand50;
         font-size: 30px;
         text-align: center;
         @include utilities.renian-flexbox-param(flex, center, center);

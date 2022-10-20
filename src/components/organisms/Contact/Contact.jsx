@@ -139,7 +139,7 @@ export const Contact = () => {
                     style={{
                       width: "100%",
                       minHeight: "25rem",
-                      filter: "brightness(.5)",
+                      // filter: "brightness(.5)",
                     }}
                     options={{
                       animationData: map,

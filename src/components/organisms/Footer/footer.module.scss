@@ -7,14 +7,20 @@
 .footer {
   width: 100%;
   padding: 2rem 0 6rem;
-  background: colors.$gray100;
+  background: colors.$black;
   position: relative;
+  overflow: hidden;
+  @include breakpoints.medium {
+    padding: 2rem 0;
+  }
   &__container {
     width: 100%;
     height: 100%;
     @include utilities.renian-flexbox-param(flex, auto, space-between);
     gap: 2rem;
-
+    @include breakpoints.medium {
+      gap: 0;
+    }
     & > div {
       width: 100%;
       max-width: 30rem;
@@ -27,18 +33,24 @@
     }
     & > p {
       margin-top: 1rem;
-      font-family: typography.$typography30;
+      font-family: typography.$roboto30;
       color: colors.$gray50;
-      font-size: 13px;
+      font-size: 15px;
+      @include breakpoints.medium {
+        font-size: 11px;
+      }
     }
   }
   &__contact {
     @include utilities.renian-flexbox-param(flex, flex-end, auto);
     flex-direction: column;
     & > h3 {
-      font-family: typography.$typography60;
+      font-family: typography.$quicksand50;
       color: #dd000090;
       font-size: 24px;
+      @include breakpoints.medium {
+        font-size: 17px;
+      }
     }
     & > ul {
       margin-top: 1rem;
@@ -47,6 +59,10 @@
       & > li {
         gap: 1rem;
         padding: 0.2rem 0;
+        text-align: end;
+        @include breakpoints.medium {
+          gap: 0.3rem;
+        }
         & > div {
           width: 30px;
           height: 30px;
@@ -54,10 +70,99 @@
         }
         @include utilities.renian-flexbox-param(flex, center, auto);
         & > p {
-          font-family: typography.$typography30;
+          font-family: typography.$roboto20;
           color: colors.$gray50;
           font-size: 13px;
+          @include breakpoints.medium {
+            font-size: 10px;
+          }
         }
+      }
+    }
+  }
+}
+
+.controls {
+  width: 100%;
+  padding: 2rem 0;
+  background: colors.$secondary;
+  position: relative;
+  overflow: hidden;
+  &__container {
+    width: 100%;
+    height: 100%;
+    @include utilities.renian-flexbox-param(flex, center, space-between);
+    @include breakpoints.medium {
+      @include utilities.renian-flexbox-param(flex, center, center);
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+  }
+  &__links {
+    @include utilities.renian-flexbox-param(flex, auto, auto);
+    gap: 1.5rem;
+    @include breakpoints.x-small {
+      flex-direction: column;
+      text-align: start;
+    }
+    & > a {
+      color: colors.$gray10;
+      font-family: typography.$roboto40;
+      transition: 0.3s;
+      font-size: 16px;
+      @include breakpoints.medium {
+        font-size: 13px;
+      }
+      cursor: pointer;
+      &:hover {
+        color: colors.$primary;
+      }
+    }
+  }
+  &__social {
+    @include utilities.renian-flexbox-param(flex, center, flex-end);
+    gap: 1.5rem;
+    @include breakpoints.x-small {
+      gap: 0.5rem;
+    }
+    & > h5 {
+      color: colors.$white;
+      font-family: typography.$roboto30;
+      font-size: 13px;
+      @include breakpoints.medium {
+        font-size: 10px;
+      }
+    }
+    & > div {
+      @include utilities.renian-flexbox-param(flex, center, auto);
+      gap: 0.5rem;
+      & img {
+        transition: 0.4s;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+.copyright {
+  width: 100%;
+  padding: 0.6rem 0;
+  background: colors.$primary100;
+  @include breakpoints.medium {
+    padding: 0.3rem 0;
+  }
+  &__container {
+    width: 100%;
+    height: 100%;
+    @include utilities.renian-flexbox-param(flex, center, space-between);
+    & > p {
+      font-family: typography.$roboto20;
+      font-size: 12px;
+      color: colors.$gray10;
+      @include breakpoints.medium {
+        font-size: 9px;
       }
     }
   }

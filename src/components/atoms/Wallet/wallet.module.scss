@@ -11,13 +11,13 @@
   & > div {
     & > h4 {
       font-size: 20px;
-      font-family: typography.$typography50;
+      // font-family: typography.$typography50;
       color: colors.$gray80;
     }
     & > p {
       margin-top: 0.5rem;
       font-size: 14px;
-      font-family: typography.$typography30;
+      // font-family: typography.$typography30;
       color: colors.$gray50;
     }
   }
@@ -39,7 +39,7 @@
   transition: 0.4s;
   & > p {
     font-size: 14px;
-    font-family: typography.$typography60;
+    // font-family: typography.$typography60;
     color: colors.$gray50;
   }
 }

@@ -18,16 +18,14 @@ export const News = () => {
 
   return (
     <section className={classes.news} id="news">
-      <Decorate />
       <MainContainer>
         <div className={classes.news__container}>
           <Zoom cascade>
             <div className={classes.news__text}>
               <h2>Ultimas noticias</h2>
               <p>
-                <span>Renian</span> es una institucion que tiene como principal
-                objetivo el registro nacional de los animales (consideradas
-                mascotas y no mascotas), que trabaja bajo un sistema de pla-
+                ¿Qué está pasando actualmente? Entérate de los últimos
+                acontecimientos en relación al mundo animal
               </p>
             </div>
           </Zoom>
@@ -41,7 +39,7 @@ export const News = () => {
                   <lord-icon
                     src="https://cdn.lordicon.com/qdwegwcw.json"
                     trigger="loop"
-                    colors="primary:#ffdfae,secondary:#ffdfae"
+                    colors="primary:#bf002a,secondary:#bf002a"
                     style={{ width: "120px", height: "120px" }}
                   ></lord-icon>
                   <p>Leer Noticia</p>
@@ -85,7 +83,7 @@ export const News = () => {
                   <lord-icon
                     src="https://cdn.lordicon.com/qdwegwcw.json"
                     trigger="loop"
-                    colors="primary:#ffdfae,secondary:#ffdfae"
+                    colors="primary:#bf002a,secondary:#bf002a"
                     style={{ width: "120px", height: "120px" }}
                   ></lord-icon>
                   <p>Leer Noticia</p>
@@ -129,7 +127,7 @@ export const News = () => {
                   <lord-icon
                     src="https://cdn.lordicon.com/qdwegwcw.json"
                     trigger="loop"
-                    colors="primary:#ffdfae,secondary:#ffdfae"
+                    colors="primary:#bf002a,secondary:#bf002a"
                     style={{ width: "120px", height: "120px" }}
                   ></lord-icon>
                   <p>Leer Noticia</p>
@@ -167,46 +165,5 @@ export const News = () => {
         </div>
       </MainContainer>
     </section>
-  );
-};
-
-const Decorate = () => {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
-  return (
-    <div className={classes.news__decorate}>
-      <div className={classes.news__decorateFootprints}>
-        <div>
-          <Lottie
-            isClickToPauseDisabled={true}
-            style={{
-              width: "100%",
-            }}
-            options={{
-              animationData: redFootprints,
-              defaultOptions,
-            }}
-          />
-        </div>
-        <div>
-          <Lottie
-            isClickToPauseDisabled={true}
-            style={{
-              width: "100%",
-            }}
-            options={{
-              animationData: redFootprints,
-              defaultOptions,
-            }}
-          />
-        </div>
-      </div>
-    </div>
   );
 };

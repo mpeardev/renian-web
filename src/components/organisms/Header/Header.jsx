@@ -6,12 +6,14 @@ import { Link } from "react-scroll";
 import { animateScroll as scroll } from "react-scroll";
 import Hamburger from "hamburger-react";
 import { useRouter } from "next/router";
-import { MobileLinksFrame, MainContainer } from "../../";
+import { MobileLinksFrame, MainContainer, DefaultModal } from "../../";
+import { useModal } from "../../../hook/useModal";
 
 export const Header = () => {
   const [show, setShow] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const router = useRouter();
+  const { openModal, setOpenModal } = useModal();
 
   const toggleHome = () => {
     scroll.scrollToTop();
@@ -26,12 +28,13 @@ export const Header = () => {
         if (ubic < onUbic && onUbic > 100) {
           test.style.position = "fixed";
           test.style.top = "0";
-          test.style.background = "rgba(196, 150, 150, 0.7)";
+          test.style.background = "rgba(255, 255, 255, 0.7)";
           test.style.backdropFilter = "blur(0.8rem)";
         } else if (ubic > onUbic && onUbic < 100) {
           test.style.position = "absolute";
           test.style.top = "auto";
-          test.style.background = "transparent";
+          test.style.backdropFilter = "blur(0)";
+          test.style.background = "#ffffff";
         }
       }
       ubic = onUbic;
@@ -40,12 +43,21 @@ export const Header = () => {
 
   return (
     <>
+      {openModal && (
+        <DefaultModal setOpenModal={setOpenModal}>
+          <h1>
+            Proximamente en <span>Renian</span>
+          </h1>
+        </DefaultModal>
+      )}
+
       <ContactHead />
       <MobileLinksFrame
         show={show}
         setShow={setShow}
         isOpen={isOpen}
         setOpen={setOpen}
+        setOpenModal={setOpenModal}
       />
 
       <header className={classes.header} id="navbar">
@@ -81,23 +93,6 @@ export const Header = () => {
             {router.asPath == "/" && (
               <nav className={classes.header__links}>
                 <div>
-                  <a
-                    href="http://registro.firulaixcoin.finance/"
-                    target="_blank"
-                    rel="noreferrer noShower"
-                  >
-                    registro mundial
-                  </a>
-                  <Link
-                    to="news"
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    exact="true"
-                    // offset={-80}
-                  >
-                    noticias
-                  </Link>
                   <Link
                     to="about"
                     smooth={true}
@@ -106,8 +101,30 @@ export const Header = () => {
                     exact="true"
                     // offset={-80}
                   >
-                    nosotros
+                    ¿qué es renian?
                   </Link>
+                  <Link
+                    to="microchip"
+                    smooth={true}
+                    duration={500}
+                    spy={true}
+                    exact="true"
+                    offset={-80}
+                  >
+                    el microchip
+                  </Link>
+                  <Link
+                    to="mission"
+                    smooth={true}
+                    duration={500}
+                    spy={true}
+                    exact="true"
+                    offset={-80}
+                  >
+                    nuestra mision
+                  </Link>
+                  <a onClick={() => setOpenModal(true)}>intranet</a>
+                  <a onClick={() => setOpenModal(true)}>preguntas frecuentes</a>
                   <Link
                     to="contact"
                     smooth={true}
@@ -116,7 +133,7 @@ export const Header = () => {
                     exact="true"
                     offset={-80}
                   >
-                    contacto
+                    contáctanos
                   </Link>
                 </div>
               </nav>

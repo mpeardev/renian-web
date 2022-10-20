@@ -5,40 +5,70 @@ import { MainContainer } from "../../";
 
 export const Functionality = () => {
   return (
-    <section className={classes.functionality}>
-      <MainContainer>
-        <div className={classes.functionality__container}>
-          <div className={classes.functionality__image}>
-            <h2>Busqueda de la mascota</h2>
-            <Bounce left>
-              <div>
-                <Image
-                  src="/img/microchip-how.png"
-                  layout="responsive"
-                  width={60}
-                  height={29}
-                  alt="image"
-                />
+    <>
+      <section className={classes.functionality} id="microchip">
+        <MainContainer>
+          <div className={classes.functionality__container}>
+            <h2>¿Cómo es el proceso de registro?</h2>
+            <div>
+              <div className={classes.functionality__text}>
+                <span>¡El proceso es bastante simple y rápido!</span>
+                <p>
+                  Primero insertamos el microchip de identificación permanente
+                  en el lomo de la mascotita, este dispositivo cuenta con un
+                  número único a nivel mundial.
+                </p>
+                <p>
+                  Este número es detectado por un lector de microchip, es
+                  ingresado a nuestro &quot;SRM&quot; anexando las
+                  características de las mascotas, su información sanitaria y
+                  datos del propietario legal.
+                </p>
               </div>
-            </Bounce>
+
+              <div className={classes.functionality__image}>
+                <Bounce right>
+                  <div>
+                    <Image
+                      src="/img/microchip-how.png"
+                      layout="responsive"
+                      width={60}
+                      height={29}
+                      alt="image"
+                    />
+                  </div>
+                </Bounce>
+              </div>
+            </div>
           </div>
+        </MainContainer>
+      </section>
+      <Chip />
+    </>
+  );
+};
 
-          <div className={classes.functionality__text}>
-            <h2>Como funciona el Registro?</h2>
-            <p>
-              El proceso es simple y rapido, se inserta un microchip de
-              identificacion permanente dentro del cuerpo del animal, este
-              dispositivo es un numero unico a nivel mundial, no es un GPS, es
-              biocompatible y no causa nungun daño a su salud. Este numero
-              esdetectado por el lector de microchip y luego es ingresado al
-              sistema enaxando las caracteristicas del anuimal y los datos del
-              propietario legal.
-            </p>
-
-            <p>El microhip es un dispositivo de identificacion animal.</p>
+const Chip = () => {
+  return (
+    <section className={classes.chip}>
+      <MainContainer>
+        <div className={classes.chip__container}>
+          <Bounce left>
+            <div className={classes.chip__image}>
+              <Image
+                src="/img/chip-important.jpg"
+                layout="responsive"
+                width={150}
+                height={65}
+              />
+            </div>
+          </Bounce>
+          <div className={classes.chip__detail}>
+            <span>El Microchip</span>{" "}
+            <p>Es un dispositivo de identificación animal:</p>
             <ul>
               <li>Es biocompatible.</li>
-              <li>Es del tamaño de un grano de arroz.</li>
+              <li>Del tamaño de un grano de arroz.</li>
               <li>Va debajo de la piel del animal.</li>
               <li>Es pasivo (no emite señal alguna).</li>
               <li>Es de por vida.</li>

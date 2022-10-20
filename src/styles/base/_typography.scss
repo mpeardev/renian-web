@@ -1,103 +1,67 @@
 /*
-  Typography
+  roboto
   ==========================================================================
 */
 
-/* ----INCONSOLATA---- */
-// $typography80: "Inconsolata-Black";
-// $typography70: "Inconsolata-ExtraBold";
-// $typography60: "Inconsolata-Bold";
-// $typography50: "Inconsolata-SemiBold";
-// $typography40: "Inconsolata-Medium";
-// $typography30: "Inconsolata-Regular";
-// $typography20: "Inconsolata-Light";
-// $typography10: "Inconsolata-Extralight";
+/* ----ROBOTO--- */
+$roboto60: "Roboto-Black";
+$roboto50: "Roboto-Bold";
+$roboto40: "Roboto-Medium";
+$roboto30: "Roboto-Regular";
+$roboto20: "Roboto-Light";
+$roboto10: "Roboto-Thin";
 
-// @font-face {
-//   font-family: $typography80;
-//   src: url("../fonts/Inconsolata/Inconsolata-Black.ttf");
-// }
-// @font-face {
-//   font-family: $typography70;
-//   src: url("../fonts/Inconsolata/Inconsolata-ExtraBold.ttf");
-// }
-// @font-face {
-//   font-family: $typography60;
-//   src: url("../fonts/Inconsolata/Inconsolata-Bold.ttf");
-// }
-// @font-face {
-//   font-family: $typography50;
-//   src: url("../fonts/Inconsolata/Inconsolata-SemiBold.ttf");
-// }
-// @font-face {
-//   font-family: $typography40;
-//   src: url("../fonts/Inconsolata/Inconsolata-Medium.ttf");
-// }
-// @font-face {
-//   font-family: $typography30;
-//   src: url("../fonts/Inconsolata/Inconsolata-Regular.ttf");
-// }
-// @font-face {
-//   font-family: $typography20;
-//   src: url("../fonts/Inconsolata/Inconsolata-Light.ttf");
-// }
-// @font-face {
-//   font-family: $typography10;
-//   src: url("../fonts/Inconsolata/Inconsolata-Extralight.ttf");
-// }
+@font-face {
+  @font-face {
+    font-family: $roboto60;
+    src: url("../fonts/Roboto/Roboto-Black.ttf");
+  }
+  font-family: $roboto50;
+  src: url("../fonts/Roboto/Roboto-Bold.ttf");
+}
+@font-face {
+  font-family: $roboto40;
+  src: url("../fonts/Roboto/Roboto-Medium.ttf");
+}
+@font-face {
+  font-family: $roboto30;
+  src: url("../fonts/Roboto/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: $roboto20;
+  src: url("../fonts/Roboto/Roboto-Light.ttf");
+}
+@font-face {
+  font-family: $roboto10;
+  src: url("../fonts/Roboto/Roboto-Thin.ttf");
+}
 
 /* ============================================= */
 
-/* ----INTER---- */
-$typography70: "Inter-ExtraBold";
-$typography60: "Inter-Bold";
-$typography50: "Inter-SemiBold";
-$typography40: "Inter-Medium";
-$typography30: "Inter-Regular";
-$typography20: "Inter-Light";
-$typography10: "Inter-ExtraLight";
+/* ----QUICKSAND--- */
+$quicksand50: "Quicksand-Bold";
+$quicksand40: "Quicksand-SemiBold";
+$quicksand30: "Quicksand-Medium";
+$quicksand20: "Quicksand-Regular";
+$quicksand10: "Quicksand-Light";
 
 @font-face {
-  font-family: $typography70;
-  src: url("../fonts/Inter/Inter-ExtraBold.ttf");
+  font-family: $quicksand50;
+  src: url("../fonts/Quicksand/Quicksand-Bold.ttf");
 }
 @font-face {
-  font-family: $typography60;
-  src: url("../fonts/Inter/Inter-Bold.ttf");
+  font-family: $quicksand40;
+  src: url("../fonts/Quicksand/Quicksand-SemiBold.ttf");
 }
 @font-face {
-  font-family: $typography50;
-  src: url("../fonts/Inter/Inter-SemiBold.ttf");
+  font-family: $quicksand30;
+  src: url("../fonts/Quicksand/Quicksand-Medium.ttf");
 }
 @font-face {
-  font-family: $typography40;
-  src: url("../fonts/Inter/Inter-Medium.ttf");
+  font-family: $quicksand20;
+  src: url("../fonts/Quicksand/Quicksand-Regular.ttf");
 }
 @font-face {
-  font-family: $typography30;
-  src: url("../fonts/Inter/Inter-Regular.ttf");
-}
-@font-face {
-  font-family: $typography20;
-  src: url("../fonts/Inter/Inter-Light.ttf");
-}
-@font-face {
-  font-family: $typography10;
-  src: url("../fonts/Inter/Inter-ExtraLight.ttf");
-}
-
-/* ----WWDIGITAL---- */
-$typographySecondary: "WW-Digital";
-
-@font-face {
-  font-family: $typographySecondary;
-  src: url("../fonts/WWDigital/WWDigital.ttf");
-}
-
-/* ----INDIE_FLOWER---- */
-$typographyIndie: "IndieFlower";
-
-@font-face {
-  font-family: $typographyIndie;
-  src: url("../fonts/Indie_Flower/IndieFlower-Regular.ttf");
+  font-family: $quicksand10;
+  src: url("../fonts/Quicksand/Quicksand-Light.ttf");
 }

@@ -9,7 +9,7 @@
   height: 2.5rem;
   position: relative;
   overflow: hidden;
-  background: colors.$white;
+  background: colors.$tertiary;
   @include utilities.renian-flexbox-param(flex, center, auto);
   @include breakpoints.xl-large {
     height: 2rem;
@@ -35,7 +35,7 @@
         height: 100%;
         display: flex;
         align-items: flex-end;
-        font-family: typography.$typography60;
+        font-family: typography.$roboto30;
         font-size: 10px;
         line-height: 20px;
         margin-left: 2px;

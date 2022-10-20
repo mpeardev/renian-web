@@ -32,13 +32,13 @@
     text-align: center;
     margin-top: 1rem;
     & > h3 {
-      font-family: typography.$typography50;
+      // font-family: typography.$typography50;
       font-size: 25px;
       margin: 0.5rem 0;
       color: colors.$gray80;
       text-shadow: 1px 1px white;
       & > span {
-        font-family: typography.$typography70;
+        // font-family: typography.$typography70;
       }
     }
     &Img {
@@ -100,12 +100,12 @@
         }
       }
       & > p {
-        font-family: typography.$typography50;
+        // font-family: typography.$typography50;
         font-size: 22px;
         color: colors.$gray10;
         text-align: center;
         & > span {
-          font-family: typography.$typography70;
+          // font-family: typography.$typography70;
           text-transform: uppercase;
         }
       }

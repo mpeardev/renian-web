@@ -22,7 +22,7 @@
     @include utilities.renian-flexbox-param(flex, center, auto);
     & > h2 {
       font-size: 23px;
-      font-family: typography.$typography60;
+      // font-family: typography.$typography60;
       text-align: center;
       text-transform: uppercase;
       color: colors.$primary;

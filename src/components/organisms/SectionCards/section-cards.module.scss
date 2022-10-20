@@ -55,7 +55,7 @@
     & > h4 {
       padding-top: 1rem;
       font-size: 20px;
-      font-family: typography.$typography70;
+      // font-family: typography.$typography70;
       text-transform: uppercase;
       text-align: center;
       position: relative;
@@ -83,7 +83,7 @@
       }
       & > p {
         font-size: 17px;
-        font-family: typography.$typography40;
+        // font-family: typography.$typography40;
         @include breakpoints.xl-large {
           font-size: 10px;
         }
@@ -173,7 +173,7 @@
           @include utilities.renian-flexbox-param(flex, flex-end, flex-end);
           flex-direction: column;
           & > p {
-            font-family: typography.$typographySecondary;
+            // font-family: typography.$typographySecondary;
             font-size: 20px;
             @include breakpoints.xl-large {
               font-size: 10px;
@@ -182,7 +182,7 @@
           & > span {
             margin-top: 10%;
             font-size: 27px;
-            font-family: typography.$typographySecondary;
+            // font-family: typography.$typographySecondary;
             background: colors.$gray10;
             color: colors.$gray80;
             padding: 0.4rem 0.7rem;

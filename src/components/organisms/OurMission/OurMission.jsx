@@ -5,43 +5,29 @@ import { MainContainer } from "../../";
 
 export const OurMission = () => {
   return (
-    <section className={classes.mission}>
+    <section className={classes.mission} id="mission">
       <MainContainer>
         <div className={classes.mission__container}>
-          <div className={classes.mission__circles}>
-            <div>
-              <div>
-                <h2>37k</h2>
-                <p>Mascotas Registradas</p>
-              </div>
-            </div>
-            <div>
-              <div>
-                <h2>325+</h2>
-                <p>Veterinarias Afiliadas</p>
-              </div>
-            </div>
-            <div>
-              <div>
-                <h2>15+</h2>
-                <p>Municipalidades</p>
-              </div>
-            </div>
-          </div>
-
           <div className={classes.mission__content}>
             <h2>Nuestra Mision</h2>
             <p>
-              <span>Renian</span> es una institucion que tiene como principal
-              objetivo el registro nacional de los animales (consideradas
-              mascotas y no mascotas), que trabaja bajo un sistema de plataforma
-              interinstitucional.
+              Reducir significativamente la población de animales callejeros y
+              en estado de abandono, trabajando junto a entidades municipales y
+              regionales, así como con organizaciones que buscan y trabajan por
+              el bienestar animal.
+            </p>
+            <p>
+              Promover la tenencia responsable en todo el Perú, esto mediante la
+              identificación oficial de las mascotas y sus propietarios legales.
             </p>
 
             <div className={classes.mission__contentImages}>
               <Zoom left cascade>
                 <div>
-                  <h4>Sin control adecuado</h4>
+                  <h4>
+                    Proyección a mediano plazo sin un control adecuado de la
+                    población de animales domésticos
+                  </h4>
                   <div>
                     <Image
                       src="/img/mission/projection.png"
@@ -53,7 +39,7 @@ export const OurMission = () => {
                   </div>
                 </div>
                 <div>
-                  <h4>Control adecuado</h4>
+                  <h4>Teniendo un control adecuado</h4>
                   <div>
                     <Image
                       src="/img/mission/our.png"

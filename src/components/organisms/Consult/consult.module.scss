@@ -45,7 +45,7 @@
       gap: 0.5rem;
       cursor: pointer;
       & > p {
-        font-family: typography.$typography50;
+        // font-family: typography.$typography50;
         font-size: 14px;
         color: colors.$gray10;
       }
@@ -71,7 +71,7 @@
       padding: 0 2%;
     }
     & > span {
-      font-family: typography.$typography50;
+      // font-family: typography.$typography50;
       font-size: 16px;
       color: colors.$gray80;
       @include breakpoints.xl-large {
@@ -92,7 +92,7 @@
         outline: none;
         border: 1px solid colors.$gray30;
         border-radius: 15px;
-        font-family: typography.$typography40;
+        // font-family: typography.$typography40;
         font-size: 14px;
         padding: 0.3rem 0.8rem;
         color: colors.$gray60;
@@ -101,7 +101,7 @@
           width: 12rem;
         }
         &:focus {
-          font-family: typography.$typography50;
+          // font-family: typography.$typography50;
           font-style: normal;
           border: 1px solid colors.$primary;
         }
@@ -118,7 +118,7 @@
     position: relative;
     padding: 4rem 0;
     & > h1 {
-      font-family: typography.$typographyIndie;
+      // font-family: typography.$typographyIndie;
       font-size: 65px;
       color: colors.$primary;
       text-align: center;
@@ -172,7 +172,7 @@
         @include utilities.renian-flexbox-param(flex, center, auto);
         gap: 0.5rem;
         & > p {
-          font-family: typography.$typography40;
+          // font-family: typography.$typography40;
           font-size: 14px;
           color: #ffae00;
         }
@@ -212,14 +212,14 @@
         }
         &Text {
           & > h4 {
-            font-family: typography.$typographySecondary;
+            // font-family: typography.$typographySecondary;
             font-size: 20px;
             text-transform: uppercase;
             margin-bottom: 1rem;
             position: relative;
           }
           & > span {
-            font-family: typography.$typography40;
+            // font-family: typography.$typography40;
             font-size: 14px;
             color: colors.$gray50;
           }
@@ -252,7 +252,7 @@
             }
             & > h5 {
               width: 15rem;
-              font-family: typography.$typography60;
+              // font-family: typography.$typography60;
               font-size: 15px;
               text-transform: uppercase;
               @include breakpoints.xl-large {
@@ -264,7 +264,7 @@
               }
             }
             & > span {
-              font-family: typography.$typography40;
+              // font-family: typography.$typography40;
               font-size: 13px;
               color: colors.$gray60 !important;
               text-transform: uppercase;
@@ -323,7 +323,7 @@
     }
     & > p {
       font-size: 25px;
-      font-family: typography.$typography40;
+      // font-family: typography.$typography40;
       color: colors.$gray40;
       font-style: italic;
       max-width: 20rem;

@@ -1,10 +1,21 @@
 import { Link } from "react-scroll";
 import classes from "./mobile-links-frame.module.scss";
 
-export const MobileLinksFrame = ({ show, setShow, isOpen, setOpen }) => {
+export const MobileLinksFrame = ({
+  show,
+  setShow,
+  isOpen,
+  setOpen,
+  setOpenModal,
+}) => {
   const linkClicked = () => {
     setShow(!show);
     setOpen(!isOpen);
+  };
+
+  const linkComing = () => {
+    linkClicked();
+    setOpenModal(true);
   };
 
   return (
@@ -15,33 +26,6 @@ export const MobileLinksFrame = ({ show, setShow, isOpen, setOpen }) => {
       <section>
         <div>
           <p>
-            <a
-              onClick={linkClicked}
-              href="http://registro.firulaixcoin.finance/"
-              target="_blank"
-              rel="noreferrer noShower"
-            >
-              Registro mundial
-            </a>
-          </p>
-        </div>
-        <div>
-          <p>
-            <Link
-              onClick={linkClicked}
-              to="news"
-              smooth={true}
-              duration={500}
-              spy={true}
-              exact="true"
-              // offset={-80}
-            >
-              noticias
-            </Link>
-          </p>
-        </div>
-        <div>
-          <p>
             <Link
               onClick={linkClicked}
               to="about"
@@ -49,10 +33,50 @@ export const MobileLinksFrame = ({ show, setShow, isOpen, setOpen }) => {
               duration={500}
               spy={true}
               exact="true"
+              // offset={-80}
+            >
+              ¿qué es renian?
+            </Link>
+          </p>
+        </div>
+        <div>
+          <p>
+            <Link
+              onClick={linkClicked}
+              to="microchip"
+              smooth={true}
+              duration={500}
+              spy={true}
+              exact="true"
               offset={-80}
             >
-              nosotros
+              el microchip
             </Link>
+          </p>
+        </div>
+        <div>
+          <p>
+            <Link
+              onClick={linkClicked}
+              to="mission"
+              smooth={true}
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
+            >
+              nuestra mision
+            </Link>
+          </p>
+        </div>
+        <div>
+          <p>
+            <a onClick={linkComing}>intranet</a>
+          </p>
+        </div>
+        <div>
+          <p>
+            <a onClick={linkComing}>preguntas frecuentes</a>
           </p>
         </div>
         <div>
@@ -66,7 +90,7 @@ export const MobileLinksFrame = ({ show, setShow, isOpen, setOpen }) => {
               exact="true"
               offset={-80}
             >
-              contacto
+              contáctanos
             </Link>
           </p>
         </div>

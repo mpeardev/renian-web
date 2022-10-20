@@ -1,9 +1,11 @@
 import React from "react";
-import { Copyright } from "./components/Copyright/Copyright";
 import Image from "next/image";
 import classes from "./footer.module.scss";
+import { Link } from "react-scroll";
 import { animateScroll as scroll } from "react-scroll";
-import { MainContainer } from "../../";
+import { MainContainer, DefaultModal } from "../../";
+import { useModal } from "../../../hook/useModal";
+import { Bounce } from "react-reveal";
 
 export const Footer = () => {
   const toggleHome = () => {
@@ -12,6 +14,7 @@ export const Footer = () => {
 
   return (
     <>
+      <Controls />
       <footer className={classes.footer}>
         <MainContainer>
           <div className={classes.footer__container}>
@@ -89,5 +92,97 @@ export const Footer = () => {
       </footer>
       <Copyright />
     </>
+  );
+};
+
+export const Controls = () => {
+  const { openModal, setOpenModal } = useModal();
+
+  return (
+    <>
+      {openModal && (
+        <DefaultModal setOpenModal={setOpenModal}>
+          <h1>
+            Proximamente en <span>Renian</span>
+          </h1>
+        </DefaultModal>
+      )}
+      <section className={classes.controls}>
+        <MainContainer>
+          <div className={classes.controls__container}>
+            <div className={classes.controls__links}>
+              <a onClick={() => setOpenModal(true)}>FAQs</a>
+              <a>Soy Veterinaria</a>
+              <Link
+                to="contact"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                // offset={-80}
+              >
+                Soy una Municipalidad
+              </Link>
+            </div>
+            <div className={classes.controls__social}>
+              <h5>Siguenos en:</h5>
+              <Bounce right cascade>
+                <div>
+                  <a
+                    href="https://www.facebook.com/RenianPeru/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <Image
+                      src="/svg/networks/fb-icon.svg"
+                      width={28}
+                      height={28}
+                      alt="fb-icon"
+                    />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/renian_peru/?hl=es-la"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <Image
+                      src="/svg/networks/inst-icon.svg"
+                      width={28}
+                      height={28}
+                      alt="inst-icon"
+                    />
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@renian.peru?lang=en"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <Image
+                      src="/svg/networks/tik-icon.svg"
+                      width={28}
+                      height={28}
+                      alt="tiktok-icon"
+                    />
+                  </a>
+                </div>
+              </Bounce>
+            </div>
+          </div>
+        </MainContainer>
+      </section>
+    </>
+  );
+};
+
+export const Copyright = () => {
+  return (
+    <section className={classes.copyright}>
+      <MainContainer>
+        <div className={classes.copyright__container}>
+          <p>Copyright &copy;2022 | Todos los derechos reservados</p>
+          <p>Diseñado por Qolkrex Foundation</p>
+        </div>
+      </MainContainer>
+    </section>
   );
 };

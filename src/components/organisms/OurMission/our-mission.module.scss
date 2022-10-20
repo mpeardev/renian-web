@@ -9,98 +9,38 @@
   position: relative;
   overflow: hidden;
   padding: 4rem 0;
-  background: colors.$white;
+  background: colors.$secondary;
   &__container {
     width: 100%;
     height: 100%;
-    @include utilities.renian-grid-param(grid, 0.4fr 1.6fr, auto, auto);
-    @include breakpoints.medium {
-      @include utilities.renian-grid-param(grid, 1fr, 4.5rem, auto);
-    }
-  }
-  &__circles {
-    @include utilities.renian-grid-param(grid, 1fr, 1.5rem, auto);
-    @include breakpoints.medium {
-      @include utilities.renian-flexbox-param(flex, center, center);
-      gap: 2rem;
-    }
-    & > div {
-      background: colors.$black;
-      background: linear-gradient(45deg, colors.$black 0%, colors.$primary 45%);
-      border-radius: 50%;
-      width: 8rem;
-      height: 8rem;
-      animation: ball 5s infinite;
-      @keyframes ball {
-        0% {
-          scale: calc(1);
-        }
-        50% {
-          scale: calc(1.08);
-        }
-        100% {
-          scale: calc(1);
-        }
-      }
-      @include utilities.renian-flexbox-param(flex, center, center);
-      @include breakpoints.xl-large {
-        width: 7rem;
-        height: 7rem;
-      }
-      @include breakpoints.medium {
-        width: 5rem;
-        height: 5rem;
-      }
-      & > div {
-        text-align: center;
-        color: colors.$white;
-        padding: 0 1.5rem;
-        & > h2 {
-          font-family: typography.$typography70;
-          font-size: 38px;
-          @include breakpoints.xl-large {
-            font-size: 28px;
-          }
-          @include breakpoints.medium {
-            font-size: 18px;
-          }
-        }
-        & > p {
-          font-family: typography.$typography40;
-          font-size: 12px;
-          @include breakpoints.xl-large {
-            font-size: 10px;
-          }
-          @include breakpoints.xl-large {
-            font-size: 7px;
-          }
-        }
-      }
-    }
   }
   &__content {
     text-align: center;
-    color: colors.$gray70;
-    & > h2 {
+    color: colors.$gray20;
+    & h2 {
+      color: colors.$white;
       font-size: 28px;
-      font-family: typography.$typography60;
+      font-family: typography.$quicksand50;
       text-align: center;
-      text-transform: uppercase;
-      color: colors.$black;
+      margin-bottom: 1.5rem;
+      text-align: center;
       @include breakpoints.xl-large {
-        font-size: 23px;
+        font-size: 24px;
+      }
+      & > span {
+        text-transform: uppercase;
+        color: colors.$primary;
       }
     }
-    & > p {
-      margin: 1.5rem auto 0 auto;
+    & p {
+      margin: 1rem auto 0 auto;
       font-size: 18px;
-      font-family: typography.$typography30;
-      line-height: 28px;
       max-width: 60rem;
+      font-family: typography.$roboto20;
+      line-height: 28px;
       @include breakpoints.xl-large {
         font-size: 14px;
         line-height: 22px;
-        max-width: 40rem;
       }
     }
     &Images {
@@ -115,14 +55,16 @@
         gap: 3.5rem;
       }
       & h4 {
-        font-size: 25px;
-        font-family: typography.$typography60;
+        font-size: 20px;
+        font-family: typography.$quicksand20;
         text-align: center;
+        color: colors.$primary;
+        text-shadow: 1px 1px black;
         @include breakpoints.xl-large {
           font-size: 18px;
         }
         @include breakpoints.medium {
-          font-size: 14px;
+          font-size: 16px;
         }
       }
       & > div {
@@ -132,7 +74,6 @@
           max-width: 23rem;
         }
         @include breakpoints.medium {
-          max-width: 15rem;
           margin: 0 auto;
         }
         & > div {
@@ -140,7 +81,6 @@
         }
         & img {
           margin-top: 4rem;
-          filter: invert(25%);
         }
       }
     }

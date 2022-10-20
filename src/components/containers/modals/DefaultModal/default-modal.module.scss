@@ -33,6 +33,7 @@
     max-width: 70%;
     min-height: 18rem;
     max-height: 80vh;
+    user-select: none;
     &Decorate {
       width: 100%;
       max-width: 14rem;
@@ -64,10 +65,9 @@
           border-color: colors.$gray30;
           opacity: 1;
           filter: brightness(100%);
-          // transform: scale(1.02);
         }
         & > p {
-          font-family: typography.$typography30;
+          font-family: typography.$roboto20;
           font-size: 14px;
           color: colors.$gray50;
         }
@@ -75,28 +75,31 @@
     }
     & > h1 {
       font-size: 40px;
-      font-family: typography.$typography70;
+      font-family: typography.$quicksand50;
       font-style: italic;
       max-width: 15rem;
       color: colors.$gray80;
+      @include breakpoints.medium {
+        font-size: 30px;
+      }
       & > span {
         color: colors.$primary;
       }
     }
     & > h2 {
       font-size: 32px;
-      font-family: typography.$typography60;
+      font-family: typography.$quicksand40;
       font-style: italic;
     }
     & > h3 {
       font-size: 20px;
-      font-family: typography.$typography50;
+      font-family: typography.$quicksand30;
       color: colors.$gray80;
     }
     & > p {
       margin-top: 0.5rem;
       font-size: 14px;
-      font-family: typography.$typography30;
+      font-family: typography.$roboto20;
       color: colors.$gray50;
     }
   }

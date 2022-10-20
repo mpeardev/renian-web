@@ -22,7 +22,7 @@ export const ContactHead = () => {
               <lord-icon
                 src="https://cdn.lordicon.com/gwklwoti.json"
                 trigger={hoverDir ? "loop" : "none"}
-                colors="primary:#000000,secondary:#dd0000"
+                colors="primary:#bf002a,secondary:#bf002a"
               ></lord-icon>
               <p>Av. Mariategui 1030, Jesús María</p>
             </div>
@@ -30,19 +30,19 @@ export const ContactHead = () => {
               <lord-icon
                 src="https://cdn.lordicon.com/uutnmngi.json"
                 trigger={hoverHours ? "loop" : "none"}
-                colors="primary:#000000,secondary:#dd0000"
+                colors="primary:#bf002a,secondary:#bf002a"
                 style={{ width: "25px", height: "25px" }}
               ></lord-icon>
-              <p>Lun-Vie 09:00 am | 6:00 pm</p>
+              <p>Lun - Vie: 9:00am a 6:00pm | Sáb: 9:00am a 3:00pm</p>
             </div>
             <div ref={targetNumb}>
               <lord-icon
                 src="https://cdn.lordicon.com/iguuenru.json"
                 trigger={hoverNumb ? "loop" : "none"}
-                colors="primary:#000000,secondary:#dd0000"
+                colors="primary:#bf002a,secondary:#bf002a"
                 style={{ width: "30px", height: "30px" }}
               ></lord-icon>
-              <p>(+51) 759-4451</p>
+              <p>(+51) 923-683-933</p>
             </div>
           </div>
           <div className={styles.contact__networks}>
@@ -68,7 +68,20 @@ export const ContactHead = () => {
                 src="/svg/networks/instagram-icon.svg"
                 width={28}
                 height={28}
-                alt="ins-icon"
+                alt="inst-icon"
+                priority
+              />
+            </a>
+            <a
+              href="https://www.tiktok.com/@renian.peru?lang=en"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <Image
+                src="/svg/networks/tiktok-icon.svg"
+                width={28}
+                height={28}
+                alt="tiktok-icon"
                 priority
               />
             </a>

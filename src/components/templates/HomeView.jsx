@@ -2,10 +2,11 @@ import {
   Banner,
   WelcomeAd,
   SectionCards,
+  MainHomeSection,
   AboutSection,
   Functionality,
   OurMission,
-  AboutUs,
+  Advantage,
   News,
   Partnerships,
   Contact,
@@ -15,17 +16,18 @@ import {
 export const HomeView = () => {
   return (
     <div style={{ overflow: "hidden", position: "relative" }}>
-      <Banner />
-      <WelcomeAd />
-      <SectionCards />
-      <AboutSection />
+      <MainHomeSection />
+      {/* <Banner /> */}
+      {/* <WelcomeAd /> */}
+      {/* <SectionCards /> */}
+      {/* <AboutSection /> */}
       <Functionality />
       <OurMission />
-      <Partnerships />
-      <AboutUs />
+      <Advantage />
+      <Back />
       <News />
       <Contact />
-      <Back />
+      {/* <Partnerships /> */}
     </div>
   );
 };

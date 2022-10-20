@@ -1,0 +1,93 @@
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/typography" as typography;
+@use "/src/styles/base/positions" as positions;
+
+.advantage {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+  background: colors.$tertiary;
+  &__container {
+    width: 100%;
+    height: 100%;
+    @include utilities.renian-grid-param(grid, repeat(2, 1fr), auto, 1.5rem);
+    @include breakpoints.medium {
+      @include utilities.renian-grid-param(grid, 1fr, 4rem, auto);
+    }
+  }
+  &__image {
+    @include utilities.renian-flexbox-param(flex, center, auto);
+    & > div {
+      width: 100%;
+      max-width: 35rem;
+      border-radius: 15px;
+      overflow: hidden;
+      @include breakpoints.xl-large {
+        max-width: 30rem;
+      }
+      @include breakpoints.medium {
+        max-width: 25rem;
+        margin: 0 auto;
+      }
+    }
+  }
+  &__text {
+    text-align: justify;
+    width: 100%;
+    text-align: end;
+    & h2 {
+      color: colors.$black;
+      font-size: 28px;
+      font-family: typography.$quicksand50;
+      margin-bottom: 1.5rem;
+      @include breakpoints.xl-large {
+        font-size: 24px;
+      }
+      @include breakpoints.medium {
+        text-align: center;
+      }
+      & > span {
+        text-transform: uppercase;
+        color: colors.$primary;
+      }
+    }
+    & p {
+      margin-top: 0.5rem;
+      font-size: 18px;
+      font-family: typography.$roboto20;
+      line-height: 28px;
+      @include breakpoints.xl-large {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+    & > ul {
+      margin-top: 2rem;
+      @include breakpoints.medium {
+        padding: 0;
+      }
+      & li {
+        @include utilities.renian-flexbox-param(flex, center, auto);
+        border-bottom: 1px solid colors.$gray40;
+        padding: 0.8rem 0;
+        @include breakpoints.medium {
+          padding: 0.5rem 0;
+        }
+
+        & p {
+          font-size: 18px;
+          font-family: typography.$roboto20;
+          line-height: 28px;
+          text-align: start;
+          @include breakpoints.xl-large {
+            font-size: 14px;
+            line-height: 22px;
+          }
+        }
+      }
+    }
+  }
+}

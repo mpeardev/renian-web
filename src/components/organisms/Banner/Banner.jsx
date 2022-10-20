@@ -28,95 +28,12 @@ export const Banner = () => {
             <SwiperSlide>
               <div className={classes.banner__first}>
                 <MainContainer>
-                  <main>
-                    <div className={classes.banner__firstWar}>
-                      <div>
-                        <Image
-                          src="/svg/war-logo.svg"
-                          layout="responsive"
-                          width={60}
-                          height={45}
-                          href="war-logo"
-                          // priority
-                        />
-                      </div>
-                    </div>
-
-                    <div className={classes.banner__firstText}>
-                      <h1>Ahora pertenecemos al W.A.R.!</h1>
-                      <div>
-                        <h3>Que es W.A.R.?</h3>
-                        <h5>
-                          Asociacion formada por entidades de registro civil de
-                          mascotas.
-                        </h5>
-                      </div>
-                    </div>
-
-                    <div className={classes.banner__firstImage}>
-                      <div>
-                        <Image
-                          src="/img/slides/cat.png"
-                          layout="responsive"
-                          width={42}
-                          height={60}
-                          href="image"
-                          // priority
-                        />
-                      </div>
-                    </div>
-                  </main>
-                </MainContainer>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <div className={classes.banner__second}>
-                <MainContainer>
-                  <main>
-                    <div className={classes.banner__secondImage}>
-                      <div>
-                        <Image
-                          src="/img/slides/paw.png"
-                          layout="responsive"
-                          width={70}
-                          height={65}
-                          href="image"
-                          // priority
-                        />
-                      </div>
-                    </div>
-
-                    <div className={classes.banner__secondText}>
-                      <h2>Beneficios de ser identificado a nivel mundial</h2>
-                      <div>
-                        <h5>
-                          Con los registros podemos fomentar la adopcion y
-                          donaciones internacionales, evitamos en un 60% las
-                          perdidas y robos de nuestras mascotas, ademas podran
-                          viajar a cualquier parte del mundo sin necesidad de
-                          registrarse nuevamente en otros paises.
-                        </h5>
-                      </div>
-                    </div>
-                  </main>
-                </MainContainer>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <div className={classes.banner__third}>
-                <MainContainer>
-                  <main>
-                    <div className={classes.banner__thirdText}>
-                      <h5>Al servicio del cuidado de las mascotas</h5>
-                      <div>
-                        <h3>
-                          Ellos tambien tienen derecho a una identificacion,
-                          protejamoslos. (Ley 30407)
-                        </h3>
-                      </div>
-
+                  <div className={classes.banner__slide}>
+                    <div className={classes.banner__slideDetail}>
+                      <h4>Al servicio del cuidado de las mascotas</h4>
+                      <h1>
+                        Nunca fue tan fácil ser parte de esta comunidad RENIAN
+                      </h1>
                       <div>
                         <Link
                           to="contact"
@@ -124,26 +41,43 @@ export const Banner = () => {
                           duration={500}
                           spy={true}
                           exact="true"
-                          offset={-80}
+                          // offset={-80}
                         >
-                          <DefaultButton type={"button"} name={"contactanos"} />
+                          <DefaultButton name="contáctanos" />
                         </Link>
+                        <p>(+51) 923-683-933</p>
                       </div>
                     </div>
+                  </div>
+                </MainContainer>
+              </div>
+            </SwiperSlide>
 
-                    <div className={classes.banner__thirdImage}>
+            <SwiperSlide>
+              <div className={classes.banner__second}>
+                <MainContainer>
+                  <div className={classes.banner__slide}>
+                    <div className={classes.banner__slideDetail}>
+                      <h4>Al servicio del cuidado de las mascotas</h4>
+                      <h1>
+                        Ellos también tienen derecho a una identificación,
+                        protejámoslos (Ley 30407)
+                      </h1>
                       <div>
-                        <Image
-                          src="/img/slides/dog.png"
-                          layout="responsive"
-                          width={50}
-                          height={65}
-                          href="image"
-                          // priority
-                        />
+                        <Link
+                          to="contact"
+                          smooth={true}
+                          duration={500}
+                          spy={true}
+                          exact="true"
+                          // offset={-80}
+                        >
+                          <DefaultButton name="contáctanos" />
+                        </Link>
+                        <p>(+51) 923-683-933</p>
                       </div>
                     </div>
-                  </main>
+                  </div>
                 </MainContainer>
               </div>
             </SwiperSlide>
