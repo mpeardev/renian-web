@@ -9,7 +9,6 @@
   position: absolute;
   bottom: -16.5rem;
   z-index: 2;
-  overflow: hidden;
   @include breakpoints.xl-large {
     bottom: -12rem;
   }

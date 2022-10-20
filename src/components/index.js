@@ -1,7 +1,7 @@
 /* -----ATOMS----- */
 export * from "./atoms/Loader/Loader";
 export * from "./atoms/buttons/DefaultButton/DefaultButton";
-export * from "./atoms/buttons/Cardsbutton/CardsButton";
+export * from "./atoms/buttons/CardsButton/CardsButton";
 export * from "./atoms/ConnectButton";
 
 /* -----MOLECULES----- */
