@@ -21,9 +21,9 @@ export const CardsSection = () => {
         <MainContainer>
           <div className={classes.cards__container}>
             <div className={`${classes.cards__card} ${classes.cardsOne}`}>
-              <h3>Consultar</h3>
-              <div>
-                <div className={classes.cards__cardImg}>
+              <div className={classes.cards__cardTitle}>
+                <h3>Consultar</h3>
+                <div>
                   <Image
                     src="/img/cards/image_01.png"
                     layout="responsive"
@@ -32,18 +32,20 @@ export const CardsSection = () => {
                     href="image"
                   />
                 </div>
+              </div>
+              <div>
                 <div className={classes.cards__cardDetail}>
-                  <p>Consulta el registro de tu mascota</p>
+                  <p>Revisa los datos de cualquier mascota</p>
                   <div onClick={() => router.push("/consult")}>
-                    <CardsButton name="consultar" />
+                    <CardsButton name="aqui" />
                   </div>
                 </div>
               </div>
             </div>
             <div className={`${classes.cards__card} ${classes.cardsTwo}`}>
-              <h3>Registrar</h3>
-              <div>
-                <div className={classes.cards__cardImg}>
+              <div className={classes.cards__cardTitle}>
+                <h3>Solicitud de Registro</h3>
+                <div>
                   <Image
                     src="/img/cards/image_02.png"
                     layout="responsive"
@@ -52,18 +54,23 @@ export const CardsSection = () => {
                     href="image"
                   />
                 </div>
+              </div>
+              <div>
                 <div className={classes.cards__cardDetail}>
-                  <p>Registra a tu mascota en RENIAN Jesús María</p>
+                  <p>
+                    Pre registra los datos y asiste a nuestro local para la
+                    aplicación de microchip
+                  </p>
                   <div onClick={() => setOpenModal(true)}>
-                    <CardsButton name="registrar" />
+                    <CardsButton name="completar" />
                   </div>
                 </div>
               </div>
             </div>
             <div className={`${classes.cards__card} ${classes.cardsThree}`}>
-              <h3>Solicitud de Registro</h3>
-              <div>
-                <div className={classes.cards__cardImg}>
+              <div className={classes.cards__cardTitle}>
+                <h3>Centros de Registro</h3>
+                <div>
                   <Image
                     src="/img/cards/image_03.png"
                     layout="responsive"
@@ -72,18 +79,20 @@ export const CardsSection = () => {
                     href="image"
                   />
                 </div>
+              </div>
+              <div>
                 <div className={classes.cards__cardDetail}>
-                  <p>Desde cualquier parte del mundo</p>
+                  <p>Conoce nuestros centros de registro en todo el Perú</p>
                   <div onClick={() => setOpenModal(true)}>
-                    <CardsButton name="solicitar" />
+                    <CardsButton name="ver mapa" />
                   </div>
                 </div>
               </div>
             </div>
             <div className={`${classes.cards__card} ${classes.cardsFour}`}>
-              <h3>Mis Mascotas</h3>
-              <div>
-                <div className={classes.cards__cardImg}>
+              <div className={classes.cards__cardTitle}>
+                <h3>Mis Mascotas</h3>
+                <div>
                   <Image
                     src="/img/cards/image_04.png"
                     layout="responsive"
@@ -92,10 +101,12 @@ export const CardsSection = () => {
                     href="image"
                   />
                 </div>
+              </div>
+              <div>
                 <div className={classes.cards__cardDetail}>
-                  <p>Lorem Ipsu Lorem Ipsu</p>
+                  <p>Consulta y edita los datos de tus mascotas</p>
                   <div onClick={() => setOpenModal(true)}>
-                    <CardsButton name="ver" />
+                    <CardsButton name="ingresar" />
                   </div>
                 </div>
               </div>

@@ -9,12 +9,14 @@ export const OurMission = () => {
       <MainContainer>
         <div className={classes.mission__container}>
           <div className={classes.mission__content}>
-            <h2>Nuestra Mision</h2>
+            <h1>Nuestra Misión</h1>
             <p>
               Reducir significativamente la población de animales callejeros y
-              en estado de abandono, trabajando junto a entidades municipales y
-              regionales, así como con organizaciones que buscan y trabajan por
-              el bienestar animal.
+              en estado de abandono, a través de un resgistro único, rápido y
+              eficaz ( Web 3 - Blockchain), trabajando con entidades
+              municipales, regionales y organizaciones privadas, dentro de un
+              marco de políticas públicas de protección, bienestar animal y
+              tenencia responsable.
             </p>
             <p>
               Promover la tenencia responsable en todo el Perú, esto mediante la
@@ -33,7 +35,7 @@ export const OurMission = () => {
                       src="/img/mission/projection.png"
                       layout="responsive"
                       width={120}
-                      height={60}
+                      height={70}
                       alt="image"
                     />
                   </div>
@@ -45,7 +47,7 @@ export const OurMission = () => {
                       src="/img/mission/our.png"
                       layout="responsive"
                       width={120}
-                      height={50}
+                      height={58}
                       alt="image"
                     />
                   </div>

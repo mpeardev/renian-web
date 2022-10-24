@@ -14,32 +14,53 @@ export const Header = () => {
   const [isOpen, setOpen] = useState(false);
   const router = useRouter();
   const { openModal, setOpenModal } = useModal();
+  const [initialBackground, setInitialBackground] = useState();
+  // const [path, setPath] = useState();
 
   const toggleHome = () => {
     scroll.scrollToTop();
   };
 
   useEffect(() => {
+    if (router.asPath == "/") {
+      setInitialBackground({ background: "white" });
+    } else {
+      setInitialBackground({ background: "transparent" });
+    }
+  }, [router]);
+
+  useEffect;
+
+  useEffect(() => {
     let ubic = window.pageYOffset;
+    const header = document.getElementById("navbar");
+    if (ubic == 0) {
+      header.style.position = "absolute";
+      header.style.top = "auto";
+      header.style.backdropFilter = "blur(0)";
+    }
     window.onscroll = function () {
       const onUbic = window.pageYOffset;
-      const test = document.getElementById("navbar");
-      if (test) {
-        if (ubic < onUbic && onUbic > 100) {
-          test.style.position = "fixed";
-          test.style.top = "0";
-          test.style.background = "rgba(255, 255, 255, 0.7)";
-          test.style.backdropFilter = "blur(0.8rem)";
-        } else if (ubic > onUbic && onUbic < 100) {
-          test.style.position = "absolute";
-          test.style.top = "auto";
-          test.style.backdropFilter = "blur(0)";
-          test.style.background = "#ffffff";
+      if (header) {
+        if (ubic < onUbic && onUbic > 115) {
+          header.style.position = "fixed";
+          header.style.top = "0";
+          header.style.background = "rgba(255, 255, 255, 0.7)";
+          header.style.backdropFilter = "blur(0.8rem)";
+        } else if (ubic > onUbic && onUbic < 115) {
+          header.style.position = "absolute";
+          header.style.top = "auto";
+          header.style.backdropFilter = "blur(0)";
+          if (router.asPath == "/") {
+            header.style.background = "#fff";
+          } else {
+            header.style.background = "transparent";
+          }
         }
       }
       ubic = onUbic;
     };
-  }, []);
+  }, [router]);
 
   return (
     <>
@@ -60,19 +81,24 @@ export const Header = () => {
         setOpenModal={setOpenModal}
       />
 
-      <header className={classes.header} id="navbar">
+      <header className={classes.header} id="navbar" style={initialBackground}>
         <MainContainer>
           <div className={classes.header__container}>
-            <div onClick={toggleHome}>
-              <Image
-                src="/svg/renian-logo.svg"
-                width={160}
-                height={50}
-                layout="responsive"
-                alt="renian-icon"
-                priority
-              />
-            </div>
+            <a href={router.asPath == "/" ? null : "/"}>
+              <div
+                className={classes.header__containerLogo}
+                onClick={router.asPath == "/" ? toggleHome : null}
+              >
+                <Image
+                  src="/svg/renian-logo.svg"
+                  width={160}
+                  height={50}
+                  layout="responsive"
+                  alt="renian-icon"
+                  priority
+                />
+              </div>
+            </a>
             {router.asPath == "/" && (
               <div
                 className={classes.header__burguer}
@@ -121,10 +147,18 @@ export const Header = () => {
                     exact="true"
                     offset={-80}
                   >
-                    nuestra mision
+                    nuestra misión
                   </Link>
-                  <a onClick={() => setOpenModal(true)}>intranet</a>
-                  <a onClick={() => setOpenModal(true)}>preguntas frecuentes</a>
+                  <a
+                    href="https://registro.firulaixcoin.finance/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    registro
+                  </a>
+                  <a onClick={() => router.push("/faq")}>
+                    preguntas frecuentes
+                  </a>
                   <Link
                     to="contact"
                     smooth={true}

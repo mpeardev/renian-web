@@ -14,15 +14,15 @@ export const Functionality = () => {
               <div className={classes.functionality__text}>
                 <span>¡El proceso es bastante simple y rápido!</span>
                 <p>
-                  Primero insertamos el microchip de identificación permanente
-                  en el lomo de la mascotita, este dispositivo cuenta con un
-                  número único a nivel mundial.
+                  Primero verificamos que la mascota no cuente con una
+                  identificación, luego insertamos el microchip …
                 </p>
                 <p>
                   Este número es detectado por un lector de microchip, es
-                  ingresado a nuestro &quot;SRM&quot; anexando las
-                  características de las mascotas, su información sanitaria y
-                  datos del propietario legal.
+                  Ingresando a nuestro Sistema de Registro de Mascotas en la
+                  Web3 (Blockchain) anexando las características de las
+                  mascotas, su información sanitaria y datos del propietario
+                  legal.
                 </p>
               </div>
 
@@ -34,7 +34,7 @@ export const Functionality = () => {
                       layout="responsive"
                       width={60}
                       height={29}
-                      alt="image"
+                      alt="microchip-how"
                     />
                   </div>
                 </Bounce>
@@ -51,31 +51,29 @@ export const Functionality = () => {
 const Chip = () => {
   return (
     <section className={classes.chip}>
-      <MainContainer>
-        <div className={classes.chip__container}>
-          <Bounce left>
-            <div className={classes.chip__image}>
-              <Image
-                src="/img/chip-important.jpg"
-                layout="responsive"
-                width={150}
-                height={65}
-              />
-            </div>
-          </Bounce>
-          <div className={classes.chip__detail}>
-            <span>El Microchip</span>{" "}
-            <p>Es un dispositivo de identificación animal:</p>
-            <ul>
-              <li>Es biocompatible.</li>
-              <li>Del tamaño de un grano de arroz.</li>
-              <li>Va debajo de la piel del animal.</li>
-              <li>Es pasivo (no emite señal alguna).</li>
-              <li>Es de por vida.</li>
-            </ul>
+      <div className={classes.chip__container}>
+        <Bounce left>
+          <div className={classes.chip__image}>
+            <Image
+              src="/img/chip-important.png"
+              layout="responsive"
+              width={150}
+              height={65}
+            />
           </div>
+        </Bounce>
+        <div className={classes.chip__detail}>
+          <span>El Microchip</span>{" "}
+          <p>Es un dispositivo de identificación animal:</p>
+          <ul>
+            <li>Es biocompatible.</li>
+            <li>Del tamaño de un grano de arroz.</li>
+            <li>Va debajo de la piel del animal.</li>
+            <li>Es pasivo (no emite señal alguna).</li>
+            <li>Es de por vida.</li>
+          </ul>
         </div>
-      </MainContainer>
+      </div>
     </section>
   );
 };

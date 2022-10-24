@@ -27,27 +27,22 @@
     column-gap: 1.5rem;
     & > div {
       @include utilities.renian-flexbox-param(flex, center, auto);
-      &:hover {
-        color: colors.$primary !important;
-        cursor: default;
-      }
-      > p {
+      cursor: default;
+      > a {
         height: 100%;
         display: flex;
         align-items: flex-end;
         font-family: typography.$roboto30;
         font-size: 10px;
         line-height: 20px;
-        margin-left: 2px;
         transition-duration: 0.4s;
-        // color: colors.$gray60;
         @include utilities.renian-flexbox-param(flex, center, auto);
       }
     }
   }
   &__networks {
     @include utilities.renian-flexbox-param(flex, center, auto);
-    column-gap: 0.5rem;
+    column-gap: 0.2rem;
     & > a {
       transition-duration: 0.4s;
       &:hover {

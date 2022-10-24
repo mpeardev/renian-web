@@ -6,6 +6,7 @@ import { animateScroll as scroll } from "react-scroll";
 import { MainContainer, DefaultModal } from "../../";
 import { useModal } from "../../../hook/useModal";
 import { Bounce } from "react-reveal";
+import { useRouter } from "next/router";
 
 export const Footer = () => {
   const toggleHome = () => {
@@ -32,17 +33,17 @@ export const Footer = () => {
                 />
               </div>
               <p>
-                Somos una fundacion procupada por la proteccion y defensa del
+                Somos una fundación procupada por la protección y defensa del
                 bienestar animal. Identificamos, registramos y contribuimos a la
-                localizacion de mascotas en el territorio Peruano.
+                localización de mascotas en el territorio Peruano.
               </p>
             </div>
 
             <div className={classes.footer__contact}>
-              <h3>Contactanos</h3>
+              <h3>Contáctanos</h3>
               <ul>
                 <li>
-                  <p>Av. Mariategui 1030, Jesus Maria</p>
+                  <p>Av. Mariategui 1030, Jesús María</p>
                   <div>
                     <lord-icon
                       src="https://cdn.lordicon.com/gwklwoti.json"
@@ -53,7 +54,7 @@ export const Footer = () => {
                 </li>
 
                 <li>
-                  <p>(+51) 759-4451</p>
+                  <p>(+51) 923-683-933</p>
                   <div>
                     <lord-icon
                       src="https://cdn.lordicon.com/iguuenru.json"
@@ -75,7 +76,7 @@ export const Footer = () => {
                 </li>
 
                 <li>
-                  <p>Lun-Vie 09:00 am | 6:00 pm</p>
+                  <p>Lun - Vie: 9:00am a 6:00pm | Sáb: 9:00am a 3:00pm</p>
                   <div>
                     <lord-icon
                       src="https://cdn.lordicon.com/uutnmngi.json"
@@ -97,13 +98,14 @@ export const Footer = () => {
 
 export const Controls = () => {
   const { openModal, setOpenModal } = useModal();
+  const router = useRouter();
 
   return (
     <>
       {openModal && (
         <DefaultModal setOpenModal={setOpenModal}>
           <h1>
-            Proximamente en <span>Renian</span>
+            Próximamente en <span>Renian</span>
           </h1>
         </DefaultModal>
       )}
@@ -111,8 +113,14 @@ export const Controls = () => {
         <MainContainer>
           <div className={classes.controls__container}>
             <div className={classes.controls__links}>
-              <a onClick={() => setOpenModal(true)}>FAQs</a>
-              <a>Soy Veterinaria</a>
+              <a onClick={() => router.push("/faq")}>FAQs</a>
+              <a
+                href="https://bit.ly/Informacion_RENIAN"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Soy Veterinaria
+              </a>
               <Link
                 to="contact"
                 smooth={true}
@@ -125,7 +133,7 @@ export const Controls = () => {
               </Link>
             </div>
             <div className={classes.controls__social}>
-              <h5>Siguenos en:</h5>
+              <h5>Síguenos en:</h5>
               <Bounce right cascade>
                 <div>
                   <a

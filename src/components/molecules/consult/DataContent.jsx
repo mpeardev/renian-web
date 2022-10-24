@@ -31,8 +31,8 @@ export const ContentMongoPet = ({ dataPet }) => {
               <>
                 <lord-icon
                   src="https://cdn.lordicon.com/hgpfwhzk.json"
-                  colors="primary:#000000,secondary:#ffae00"
-                  trigger="none"
+                  colors="primary:#ffae00,secondary:#ffae00"
+                  trigger="loop"
                 ></lord-icon>
                 <p>Esta mascota debe actualizar sus datos.</p>
               </>

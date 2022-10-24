@@ -12,7 +12,7 @@ export const NotFound = () => {
           height={80}
         />
       </div>
-      <p>Numero de chip no encontrado</p>
+      <p>Número de chip no encontrado</p>
     </div>
   );
 };

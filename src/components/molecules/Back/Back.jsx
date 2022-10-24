@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Fade } from "react-reveal";
-import { Link } from "react-scroll";
 import { MainContainer, DefaultButton } from "../../";
 import classes from "./back.module.scss";
 
@@ -170,16 +169,13 @@ const MoreInformation = () => {
               </div>
               <div>
                 <h1>¿Necesitas más información?</h1>
-                <Link
-                  to="contact"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
+                <a
+                  href="https://bit.ly/Informacion_RENIAN"
+                  target="_blank"
+                  rel="noreferrer noopener"
                 >
                   <DefaultButton name="¡Conversemos!" />
-                </Link>
+                </a>
               </div>
             </div>
           </div>

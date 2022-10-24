@@ -10,17 +10,11 @@
   position: absolute;
   overflow: hidden;
   z-index: positions.$z-header;
-  transition: 0.5s;
-  background: colors.$white;
+  // transition: 0.5s;
   @include utilities.renian-flexbox-param(flex, center, auto);
   @include breakpoints.xl-large {
     height: 4.5rem;
-    // background: rgba(255, 255, 255, 0.473);
   }
-  @include breakpoints.medium {
-    height: 4.5rem;
-  }
-
   &__container {
     width: 100%;
     height: 100%;
@@ -28,34 +22,42 @@
     align-items: center;
     justify-content: center;
 
-    & > div:first-child {
+    &Logo {
       width: 13rem;
+      cursor: pointer;
       @include breakpoints.medium {
         width: 10rem;
         margin-top: 5%;
-      }
-      & img {
-        cursor: pointer;
+        & img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
-
   &__burguer {
+    width: auto;
+    height: auto;
     display: none;
     position: absolute;
     z-index: positions.$z-header;
     right: 2%;
-    top: 0;
     @include breakpoints.medium {
       display: block;
     }
+    & > div {
+      height: 100%;
+      @include utilities.renian-flexbox-param(flex, center, center);
+    }
   }
-
   &__links {
     @include utilities.renian-flexbox-param(flex, center, flex-end);
     & > div {
       @include utilities.renian-flexbox-param(flex, center, auto);
       column-gap: 1.7rem;
+      @include breakpoints.large {
+        column-gap: 1rem;
+      }
       @include breakpoints.medium {
         display: none;
       }
@@ -66,10 +68,12 @@
         transition-duration: 0.4s;
         text-transform: capitalize;
         text-decoration: none !important;
-
         cursor: pointer;
         &:hover {
           color: colors.$primary;
+        }
+        @include breakpoints.large {
+          font-size: 11px;
         }
       }
     }

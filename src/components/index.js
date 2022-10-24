@@ -7,6 +7,7 @@ export * from "./atoms/ConnectButton";
 /* -----MOLECULES----- */
 export * from "./molecules/Back/Back";
 export * from "./molecules/MobileLinksFrame/MobileLinksFrame";
+export * from "./molecules/ExpandPanel/ExpandPanel";
 
 /* -----ORGANISMS----- */
 export * from "./organisms/Header/Header";
@@ -21,11 +22,13 @@ export * from "./organisms/News/News";
 export * from "./organisms/Contact/Contact";
 export * from "./organisms/Footer/Footer";
 export * from "./organisms/Consult/Consult";
+export * from "./organisms/Faq/Faq";
 
 /* -----TEMPLATES----- */
 export * from "./templates/HomeView";
 export * from "./templates/MaintenanceView";
 export * from "./templates/ConsultView";
+export * from "./templates/FaqView";
 
 /* -----CONTAINERS----- */
 export * from "./containers/modals/DefaultModal/DefaultModal";

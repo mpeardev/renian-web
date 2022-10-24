@@ -30,8 +30,9 @@
     gap: 0.6rem;
     & > h3 {
       font-size: 18px;
-      // font-family: typography.$typography30;
+      font-family: typography.$roboto30;
       color: colors.$gray50;
+      text-shadow: 1px 1px colors.$black;
     }
   }
 }

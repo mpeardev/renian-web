@@ -7,11 +7,11 @@
 .mobile {
   position: fixed;
   z-index: positions.$z-header;
-  background: colors.$gray10;
+  background: colors.$white;
   width: 100%;
   min-height: 100vh;
   top: -100%;
-  transition: 0.7s;
+  transition: 1s;
   @include utilities.renian-flexbox-param(flex, center, center);
   & > section {
     @include utilities.renian-flexbox-param(flex, center, center);

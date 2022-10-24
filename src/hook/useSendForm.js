@@ -6,7 +6,7 @@ export const useSendForm = () => {
 
   const dataSubmit = (data, setOpenModal, reset) => {
     helpHttp()
-      .post("https://formsubmit.co/ajax/mirkopb96@gmail.com", {
+      .post("https://formsubmit.co/ajax/contacto@renian.pe", {
         body: data,
         headers: {
           "Content-Type": "applitacion/json",

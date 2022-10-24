@@ -1,23 +1,17 @@
-import { useState } from "react";
 import classes from "./about-section.module.scss";
 import ReactPlayer from "react-player/lazy";
 import Image from "next/image";
 import { Bounce } from "react-reveal";
 import { MainContainer } from "../../";
 import CountUp from "react-countup";
+import { useEffect, useState } from "react";
 
 export const AboutSection = () => {
-  const [state, setState] = useState(false);
-  const [stylesButton, setStylesButton] = useState({
-    background: "auto",
-    color: "auto",
-    border: "auto",
-  });
+  const [loadVideo, setLoadVideo] = useState();
 
-  const openVideo = () => {
-    setState(true);
-    setStylesButton(null);
-  };
+  useEffect(() => {
+    setLoadVideo(true);
+  }, []);
 
   return (
     <section className={classes.about} id="about">
@@ -25,15 +19,17 @@ export const AboutSection = () => {
         <div className={classes.about__container}>
           <div className={classes.about__information}>
             <h1>
-              ¿Que es <span>Renian</span>?
+              ¿Qué es <span>Renian</span>?
             </h1>
             <p>
               Somos el Registro Nacional de Identidad Animal en el Perú, una
               institución que tiene como objetivo principal el registro de los
               animales (animales domésticos y silvestres){" "}
-              <span>almacenando</span> la información de los propietarios y la
-              data de los animales bajo un sistema Blockchain de almacenamiento
-              descentralizado con un resguardo único.
+              <span>
+                almacenando la información de los propietarios y la data de los
+                animales bajo un sistema Blockchain de almacenamiento
+                descentralizado con un resguardo único.
+              </span>
             </p>
             <p>
               En RENIAN trabajamos dentro de un marco de Políticas Públicas de
@@ -119,22 +115,7 @@ export const AboutSection = () => {
           <div className={classes.about__player}>
             <Bounce right>
               <div className={classes.about__playerVideo}>
-                {stylesButton && (
-                  <div
-                    onClick={openVideo}
-                    style={stylesButton}
-                    className={classes.about__playerVideoPreview}
-                  >
-                    <lord-icon
-                      src="https://cdn.lordicon.com/ujphzprf.json"
-                      trigger="loop-on-hover"
-                      colors="primary:#000000,secondary:#dd0000"
-                      style={{ width: "75px", height: "75px" }}
-                    ></lord-icon>
-                  </div>
-                )}
-
-                {state === true && (
+                {loadVideo && (
                   <ReactPlayer url="https://www.youtube.com/watch?v=W-yP0CYFSaU&feature=emb_title" />
                 )}
               </div>

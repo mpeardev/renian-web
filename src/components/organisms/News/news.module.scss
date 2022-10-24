@@ -26,14 +26,14 @@
     max-width: 38rem;
     margin: 0 auto;
     color: colors.$gray10;
-    & h2 {
+    & h1 {
       color: colors.$white;
-      font-size: 28px;
+      font-size: 32px;
       font-family: typography.$quicksand50;
       text-align: center;
       margin-bottom: 1.5rem;
       @include breakpoints.xl-large {
-        font-size: 24px;
+        font-size: 26px;
       }
       & > span {
         text-transform: uppercase;
@@ -75,6 +75,9 @@
     }
     &:first-child {
       display: block;
+      width: 100%;
+      max-width: 25rem;
+      margin: 0 auto;
     }
     &Deg {
       position: absolute;

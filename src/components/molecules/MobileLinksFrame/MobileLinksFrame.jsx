@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { Link } from "react-scroll";
 import classes from "./mobile-links-frame.module.scss";
 
@@ -8,20 +9,17 @@ export const MobileLinksFrame = ({
   setOpen,
   setOpenModal,
 }) => {
+  const router = useRouter();
+
   const linkClicked = () => {
     setShow(!show);
     setOpen(!isOpen);
   };
 
-  const linkComing = () => {
-    linkClicked();
-    setOpenModal(true);
-  };
-
   return (
     <div
       className={classes.mobile}
-      style={show ? { top: "0" } : { top: "-100%" }}
+      style={show ? { top: "0" } : { top: "-200%" }}
     >
       <section>
         <div>
@@ -71,12 +69,18 @@ export const MobileLinksFrame = ({
         </div>
         <div>
           <p>
-            <a onClick={linkComing}>intranet</a>
+            <a
+              href="https://registro.firulaixcoin.finance/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              registro
+            </a>
           </p>
         </div>
         <div>
           <p>
-            <a onClick={linkComing}>preguntas frecuentes</a>
+            <a onClick={() => router.push("/faq")}>preguntas frecuentes</a>
           </p>
         </div>
         <div>

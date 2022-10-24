@@ -17,15 +17,15 @@
   &__content {
     text-align: center;
     color: colors.$gray20;
-    & h2 {
+    & h1 {
       color: colors.$white;
-      font-size: 28px;
+      font-size: 32px;
       font-family: typography.$quicksand50;
       text-align: center;
       margin-bottom: 1.5rem;
       text-align: center;
       @include breakpoints.xl-large {
-        font-size: 24px;
+        font-size: 26px;
       }
       & > span {
         text-transform: uppercase;
@@ -55,16 +55,17 @@
         gap: 3.5rem;
       }
       & h4 {
+        min-height: 6rem;
         font-size: 20px;
-        font-family: typography.$quicksand20;
+        font-family: typography.$quicksand50;
         text-align: center;
-        color: colors.$primary;
         text-shadow: 1px 1px black;
         @include breakpoints.xl-large {
           font-size: 18px;
         }
         @include breakpoints.medium {
           font-size: 16px;
+          min-height: auto;
         }
       }
       & > div {

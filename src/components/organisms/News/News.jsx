@@ -22,7 +22,7 @@ export const News = () => {
         <div className={classes.news__container}>
           <Zoom cascade>
             <div className={classes.news__text}>
-              <h2>Ultimas noticias</h2>
+              <h1>Últimas noticias</h1>
               <p>
                 ¿Qué está pasando actualmente? Entérate de los últimos
                 acontecimientos en relación al mundo animal

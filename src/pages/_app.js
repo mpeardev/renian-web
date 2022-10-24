@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Web3Provider } from "../contexts/Web3/Web3Provider";
 import Script from "next/script";
 import "../styles/main.scss";
+import { Footer, Header } from "../components";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -13,7 +14,9 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Script src="https://cdn.lordicon.com/xdjxvujz.js"></Script>
       <Web3Provider>
+        <Header />
         <Component {...pageProps} />
+        <Footer />
       </Web3Provider>
     </>
   );

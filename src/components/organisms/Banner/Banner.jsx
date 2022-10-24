@@ -4,8 +4,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
-import Image from "next/image";
-import { Link } from "react-scroll";
 import { Flip } from "react-reveal";
 import { MainContainer, DefaultButton } from "../../";
 
@@ -26,27 +24,24 @@ export const Banner = () => {
             modules={[Autoplay, Navigation]}
           >
             <SwiperSlide>
-              <div className={classes.banner__first}>
+              <div
+                className={`${classes.banner__background} ${classes.banner__first}`}
+              >
                 <MainContainer>
                   <div className={classes.banner__slide}>
                     <div className={classes.banner__slideDetail}>
-                      <h4>Al servicio del cuidado de las mascotas</h4>
+                      <h4>Demos juntos el primer paso</h4>
                       <h1>
-                        Nunca fue tan fácil ser parte de esta comunidad RENIAN
+                        Ellos también tienen derecho ser identificados (Ley
+                        30407)
                       </h1>
-                      <div>
-                        <Link
-                          to="contact"
-                          smooth={true}
-                          duration={500}
-                          spy={true}
-                          exact="true"
-                          // offset={-80}
-                        >
-                          <DefaultButton name="contáctanos" />
-                        </Link>
-                        <p>(+51) 923-683-933</p>
-                      </div>
+                      <a
+                        href="https://bit.ly/Informacion_RENIAN"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        <DefaultButton name="contáctanos" />
+                      </a>
                     </div>
                   </div>
                 </MainContainer>
@@ -54,28 +49,24 @@ export const Banner = () => {
             </SwiperSlide>
 
             <SwiperSlide>
-              <div className={classes.banner__second}>
+              <div
+                className={`${classes.banner__background} ${classes.banner__second}`}
+              >
                 <MainContainer>
                   <div className={classes.banner__slide}>
                     <div className={classes.banner__slideDetail}>
-                      <h4>Al servicio del cuidado de las mascotas</h4>
+                      <h4>Demos juntos el primer paso</h4>
                       <h1>
-                        Ellos también tienen derecho a una identificación,
-                        protejámoslos (Ley 30407)
+                        Sé parte de la comunidad RENIAN, se parte de la Tenencia
+                        Responsable
                       </h1>
-                      <div>
-                        <Link
-                          to="contact"
-                          smooth={true}
-                          duration={500}
-                          spy={true}
-                          exact="true"
-                          // offset={-80}
-                        >
-                          <DefaultButton name="contáctanos" />
-                        </Link>
-                        <p>(+51) 923-683-933</p>
-                      </div>
+                      <a
+                        href="https://bit.ly/Informacion_RENIAN"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        <DefaultButton name="contáctanos" />
+                      </a>
                     </div>
                   </div>
                 </MainContainer>

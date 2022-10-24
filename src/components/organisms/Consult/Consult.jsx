@@ -39,8 +39,8 @@ export const Consult = () => {
 
   useEffect(() => {
     if (web3.account) {
-      getSearch(web3.wallet, "0x3dD85B618Cf7a86e06D2a390e85E8fb183fd56f5");
-      // getSearch(web3.wallet, "0x4415B2Bfc4445b33C17c1A0b0D10cC18e9F928D0");
+      // getSearch(web3.wallet, "0x3dD85B618Cf7a86e06D2a390e85E8fb183fd56f5");
+      getSearch(web3.wallet, "0x4415B2Bfc4445b33C17c1A0b0D10cC18e9F928D0");
       // getSearch(web3.wallet, "0xb69EC01E4FFB2669669fBEbB9f5224C5B66145CE");
     }
   }, [web3.account]);
@@ -97,7 +97,6 @@ export const Consult = () => {
               <div>
                 <Image
                   src="/img/renian-img.png"
-                  // layout="responsive"
                   width={80}
                   height={85}
                   alt="image"
@@ -120,7 +119,7 @@ export const Consult = () => {
                   <lord-icon
                     src="https://cdn.lordicon.com/zniqnylq.json"
                     trigger="loop"
-                    colors="primary:#000000,secondary:#dd0000"
+                    colors="primary:#bf002a,secondary:#bf002a"
                   ></lord-icon>
                 </div>
               </div>
@@ -133,8 +132,6 @@ export const Consult = () => {
                 />
               </div>
             </div>
-
-            {/* <ContentWeb3Pet /> */}
 
             {!dataPet && !showDataPetWeb3 && !onLoad && <Default />}
 
@@ -149,8 +146,6 @@ export const Consult = () => {
             {pets && !onLoad && showDataPetWeb3 && (
               <ContentWeb3Pet pets={pets} />
             )}
-
-            {/* {pets && !onLoad && !showDataPetWeb3 && showListPreview && <ListPreview />} */}
           </ConsultCard>
         </MainContainer>
       </section>

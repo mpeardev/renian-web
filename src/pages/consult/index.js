@@ -1,11 +1,5 @@
-import { Header, Footer, ConsultView } from "../../components";
+import { ConsultView } from "../../components";
 
 export default function ConsultMain() {
-  return (
-    <>
-      <Header />
-      <ConsultView />;
-      <Footer />
-    </>
-  );
+  return <ConsultView />;
 }
