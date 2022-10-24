@@ -69,17 +69,6 @@ export const MobileLinksFrame = ({
         </div>
         <div>
           <p>
-            <a
-              href="https://registro.firulaixcoin.finance/"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              registro
-            </a>
-          </p>
-        </div>
-        <div>
-          <p>
             <a onClick={() => router.push("/faq")}>preguntas frecuentes</a>
           </p>
         </div>

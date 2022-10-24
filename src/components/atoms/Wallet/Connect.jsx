@@ -25,7 +25,7 @@ export const Connect = ({ setOpenModal }) => {
       <div className={modalClasses.modal__contentBoxlist}>
         <div onClick={() => validate("metamask")}>
           <p>Metamask</p>
-          <div style={{ width: "3rem" }}>
+          <div>
             <Image
               src="/svg/metamask-logo.svg"
               layout="responsive"
@@ -35,18 +35,18 @@ export const Connect = ({ setOpenModal }) => {
             />
           </div>
         </div>
-        {/* <div onClick={() => validate("metamask")}>
-          <p>Metamask</p>
-          <div style={{ width: "3rem" }}>
+        <div onClick={() => validate("walletconnect")}>
+          <p>WalletConnect</p>
+          <div>
             <Image
-              src="/svg/metamask-logo.svg"
+              src="/img/walletconnect.png"
               layout="responsive"
               width={30}
               height={30}
-              alt="metamask-logo"
+              alt="walletconnect-logo"
             />
           </div>
-        </div> */}
+        </div>
       </div>
     </DefaultModal>
   );

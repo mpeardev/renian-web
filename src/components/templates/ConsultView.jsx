@@ -1,5 +1,9 @@
-import { Consult } from "../";
+import { Consult, DrawerContainer } from "../";
 
 export const ConsultView = () => {
-  return <Consult />;
+  return (
+    <DrawerContainer>
+      <Consult />
+    </DrawerContainer>
+  );
 };

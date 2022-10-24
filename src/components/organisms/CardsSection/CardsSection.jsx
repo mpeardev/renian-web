@@ -105,8 +105,14 @@ export const CardsSection = () => {
               <div>
                 <div className={classes.cards__cardDetail}>
                   <p>Consulta y edita los datos de tus mascotas</p>
-                  <div onClick={() => setOpenModal(true)}>
-                    <CardsButton name="ingresar" />
+                  <div>
+                    <a
+                      href="https://registro.firulaixcoin.finance/"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      <CardsButton name="ingresar" />
+                    </a>
                   </div>
                 </div>
               </div>

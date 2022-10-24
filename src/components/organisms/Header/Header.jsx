@@ -149,13 +149,6 @@ export const Header = () => {
                   >
                     nuestra misión
                   </Link>
-                  <a
-                    href="https://registro.firulaixcoin.finance/"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    registro
-                  </a>
                   <a onClick={() => router.push("/faq")}>
                     preguntas frecuentes
                   </a>

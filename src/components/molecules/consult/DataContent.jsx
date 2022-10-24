@@ -6,37 +6,39 @@ export const ContentMongoPet = ({ dataPet }) => {
   return (
     <div className={classes.consult__content}>
       <div className={classes.consult__contentBg}></div>
-      {dataPet.pet?.name != undefined && <h1>{dataPet.pet?.name}</h1>}
-      {dataPet.pet?.usuario_empresa != undefined && (
-        <h1>{dataPet.pet?.usuario_empresa}</h1>
-      )}
 
       <div>
-        <div className={classes.consult__contentImg}>
-          <div>
-            <Image
-              src={
-                dataPet.pet?.chip != undefined
-                  ? `https://firu.alejandroaguilar.dev/public/images/image/${dataPet?.pet.chip}.jpg`
-                  : "/img/img-nofound.png"
-              }
-              layout="responsive"
-              width={60}
-              height={75}
-              href="image-dog"
-            />
-          </div>
-          <div>
-            {dataPet.type == "RENIAN" && (
-              <>
-                <lord-icon
-                  src="https://cdn.lordicon.com/hgpfwhzk.json"
-                  colors="primary:#ffae00,secondary:#ffae00"
-                  trigger="loop"
-                ></lord-icon>
-                <p>Esta mascota debe actualizar sus datos.</p>
-              </>
-            )}
+        <div>
+          {dataPet.pet?.name != undefined && <h1>{dataPet.pet?.name}</h1>}
+          {dataPet.pet?.usuario_empresa != undefined && (
+            <h1>{dataPet.pet?.usuario_empresa}</h1>
+          )}
+          <div className={classes.consult__contentImg}>
+            <div>
+              <Image
+                src={
+                  dataPet.pet?.chip != undefined
+                    ? `https://firu.alejandroaguilar.dev/public/images/image/${dataPet?.pet.chip}.jpg`
+                    : "/img/img-nofound.png"
+                }
+                layout="responsive"
+                width={60}
+                height={75}
+                href="image-dog"
+              />
+            </div>
+            <div>
+              {dataPet.type == "RENIAN" && (
+                <>
+                  <lord-icon
+                    src="https://cdn.lordicon.com/hgpfwhzk.json"
+                    colors="primary:#ffae00,secondary:#ffae00"
+                    trigger="loop"
+                  ></lord-icon>
+                  <p>Esta mascota debe actualizar sus datos.</p>
+                </>
+              )}
+            </div>
           </div>
         </div>
 
@@ -216,17 +218,16 @@ export const ContentWeb3Pet = ({ pets }) => {
   return (
     <div className={classes.consult__content}>
       <div className={classes.consult__contentBg}></div>
-      <h1>{dataPetWeb3?.name}</h1>
       <div>
-        <div className={classes.consult__contentImg}>
-          <div>
-            <Image
-              src={`https://firu.alejandroaguilar.dev/public/images/image/${dataPetWeb3?.image}.jpg`}
-              layout="responsive"
-              width={60}
-              height={75}
-              href="image-dog"
-            />
+        <div>
+          <h1>{dataPetWeb3?.name}</h1>
+          <div className={classes.consult__contentImg}>
+            <div>
+              <img
+                src={`https://ipfs.io/ipfs/${dataPetWeb3?.image}`}
+                alt="image-dog"
+              />
+            </div>
           </div>
         </div>
 

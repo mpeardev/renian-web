@@ -66,6 +66,9 @@
           opacity: 1;
           filter: brightness(100%);
         }
+        & > div {
+          width: 3rem;
+        }
         & > p {
           font-family: typography.$roboto20;
           font-size: 14px;

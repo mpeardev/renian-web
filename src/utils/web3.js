@@ -3,12 +3,12 @@ import { providers, validateMetamask } from "./providers";
 const web3Connect = async (handleWeb3, providerString, provider) => {
   try {
     if (providerString === "walletconnect") {
-      provider.networkId = 1285;
+      provider.networkId = `0x${Number(1285).toString(16)}`;
       await provider.enable();
     }
     handleWeb3(provider, providerString);
   } catch (e) {
-    console.log("cancelado");
+    console.error(e);
   }
 };
 

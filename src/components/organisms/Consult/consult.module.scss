@@ -126,12 +126,13 @@
     min-height: 50rem;
     position: relative;
     padding: 4rem 0;
-    & > h1 {
+    & h1 {
       font-family: typography.$indie;
       font-size: 65px;
       color: colors.$primary;
       text-align: center;
       position: relative;
+      margin-bottom: 0.5rem;
     }
     & > div:last-child {
       padding: 2%;
@@ -175,6 +176,9 @@
         @include breakpoints.m-large {
           max-width: 15rem;
         }
+        & img {
+          width: 100%;
+        }
       }
       & > div:last-child {
         margin-top: 0.8rem;
@@ -195,6 +199,9 @@
           auto,
           1.5rem
         );
+        @include breakpoints.medium {
+          @include utilities.renian-grid-param(grid, 1fr, auto, 1.5rem);
+        }
         & > div {
           width: 100%;
           border-radius: 8px;
@@ -203,6 +210,10 @@
           position: relative;
           overflow: hidden;
           backdrop-filter: blur(20px);
+          @include breakpoints.medium {
+            max-width: 25rem;
+            margin: 0 auto;
+          }
         }
         &Img {
           width: 100%;
@@ -222,11 +233,23 @@
             text-transform: uppercase;
             margin-bottom: 1rem;
             position: relative;
+            @include breakpoints.large {
+              font-size: 17px;
+            }
+            @include breakpoints.small {
+              font-size: 14px;
+            }
           }
           & > span {
             font-family: typography.$roboto20;
-            font-size: 14px;
+            font-size: 18px;
             color: colors.$gray50;
+            @include breakpoints.large {
+              font-size: 15px;
+            }
+            @include breakpoints.large {
+              font-size: 13px;
+            }
           }
         }
       }

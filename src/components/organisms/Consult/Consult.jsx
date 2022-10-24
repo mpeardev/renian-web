@@ -9,39 +9,28 @@ import { ConnectButton, Loader, MainContainer, DefaultModal } from "../../";
 import { useLoader } from "../../../hook/useLoader";
 import { Web3Context } from "../../../contexts/Web3/Web3Context";
 import { useAdopterPet } from "../../../hook/useAdopterPet";
-import { web3Provider } from "../../../utils/web3";
 import { Default } from "../../molecules/consult/Default";
 import { NotFound } from "../../molecules/consult/NotFound";
 import {
   ContentMongoPet,
   ContentWeb3Pet,
 } from "../../molecules/consult/DataContent";
-// import { ListPreview } from "../../molecules/consult/ListPreview";
 
 export const Consult = () => {
   const router = useRouter();
-  const { web3, handleWeb3 } = useContext(Web3Context);
+  const { web3 } = useContext(Web3Context);
   const [dataPet, setdataPet] = useState(false);
   const inputValue = useRef();
   const { pets, getSearch, openModal, setOpenModal } = useAdopterPet();
   const [onLoad, setOnLoad] = useLoader();
 
   const [showDataPetWeb3, setShowDataPetWeb3] = useState();
-  // const [showListPreview, setShowListPreview] = useState();
-
-  // const validate = (providerString) => {
-  //   web3Provider(handleWeb3, providerString);
-  // };
-
-  // useEffect(() => {
-  //   validate("metamask");
-  // }, []);
 
   useEffect(() => {
     if (web3.account) {
       // getSearch(web3.wallet, "0x3dD85B618Cf7a86e06D2a390e85E8fb183fd56f5");
-      getSearch(web3.wallet, "0x4415B2Bfc4445b33C17c1A0b0D10cC18e9F928D0");
-      // getSearch(web3.wallet, "0xb69EC01E4FFB2669669fBEbB9f5224C5B66145CE");
+      // getSearch(web3.wallet, "0x4415B2Bfc4445b33C17c1A0b0D10cC18e9F928D0");
+      getSearch(web3.wallet, web3.account);
     }
   }, [web3.account]);
 
@@ -149,7 +138,6 @@ export const Consult = () => {
           </ConsultCard>
         </MainContainer>
       </section>
-
       {openModal && web3.account && pets && (
         <DefaultModal setOpenModal={setOpenModal}>
           {pets.length > 0 && (
@@ -167,7 +155,11 @@ export const Consult = () => {
                       src="https://cdn.lordicon.com/cqqydgge.json"
                       trigger="none"
                       colors="primary:#000000,secondary:#dd0000"
-                      style={{ width: "55px", height: "55px", opacity: ".7" }}
+                      style={{
+                        width: "55px",
+                        height: "55px",
+                        opacity: ".7",
+                      }}
                     ></lord-icon>
                     {/* <p>Ver mis mascotas</p> */}
                     <p>Proximamente</p>
@@ -181,7 +173,11 @@ export const Consult = () => {
                       src="https://cdn.lordicon.com/cqqydgge.json"
                       trigger="none"
                       colors="primary:#000000,secondary:#dd0000"
-                      style={{ width: "55px", height: "55px", opacity: ".7" }}
+                      style={{
+                        width: "55px",
+                        height: "55px",
+                        opacity: ".7",
+                      }}
                     ></lord-icon>
                     <p>Ver mi mascota</p>
                   </div>

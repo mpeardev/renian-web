@@ -33,3 +33,4 @@ export * from "./templates/FaqView";
 /* -----CONTAINERS----- */
 export * from "./containers/modals/DefaultModal/DefaultModal";
 export * from "./containers/MainContainer/MainContainer";
+export * from "./containers/DrawerContainer";
