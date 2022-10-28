@@ -97,13 +97,13 @@ export const Footer = () => {
 };
 
 export const Controls = () => {
-  const { openModal, setOpenModal } = useModal();
+  const { openDefaultModal, setOpenDefaultModal } = useModal();
   const router = useRouter();
 
   return (
     <>
-      {openModal && (
-        <DefaultModal setOpenModal={setOpenModal}>
+      {openDefaultModal && (
+        <DefaultModal setOpenDefaultModal={setOpenDefaultModal}>
           <h1>
             Próximamente en <span>Renian</span>
           </h1>

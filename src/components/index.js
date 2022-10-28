@@ -2,7 +2,12 @@
 export * from "./atoms/Loader/Loader";
 export * from "./atoms/buttons/DefaultButton/DefaultButton";
 export * from "./atoms/buttons/CardsButton/CardsButton";
+export * from "./atoms/buttons/ModalButton/ModalButton";
 export * from "./atoms/ConnectButton";
+export * from "./atoms/inputs/Modalnput/ModalInput";
+export * from "./atoms/inputs/ModalSelect/ModalSelect";
+export * from "./atoms/inputs/ModalCheckbox/ModalCheckbox";
+export * from "./atoms/inputs/ModalFile/ModalFile";
 
 /* -----MOLECULES----- */
 export * from "./molecules/Back/Back";
@@ -23,6 +28,7 @@ export * from "./organisms/Contact/Contact";
 export * from "./organisms/Footer/Footer";
 export * from "./organisms/Consult/Consult";
 export * from "./organisms/Faq/Faq";
+export * from "./organisms/WhatsappWidget/WhatsappWidget";
 
 /* -----TEMPLATES----- */
 export * from "./templates/HomeView";
@@ -32,5 +38,6 @@ export * from "./templates/FaqView";
 
 /* -----CONTAINERS----- */
 export * from "./containers/modals/DefaultModal/DefaultModal";
+export * from "./containers/modals/RegistryModal/RegistryModal";
 export * from "./containers/MainContainer/MainContainer";
 export * from "./containers/DrawerContainer";

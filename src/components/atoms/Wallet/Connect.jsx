@@ -6,7 +6,7 @@ import { web3Provider } from "../../../utils/web3";
 import { DefaultModal } from "../../";
 import modalClasses from "../../containers/modals/DefaultModal/default-modal.module.scss";
 
-export const Connect = ({ setOpenModal }) => {
+export const Connect = ({ setOpenDefaultModal }) => {
   const { handleWeb3 } = useContext(Web3Context);
 
   const validate = (providerString) => {
@@ -14,7 +14,7 @@ export const Connect = ({ setOpenModal }) => {
   };
 
   return (
-    <DefaultModal setOpenModal={setOpenModal}>
+    <DefaultModal setOpenDefaultModal={setOpenDefaultModal}>
       <h3>Conectar</h3>
       <p>
         Al conectar una billetera, acepta los Términos de servicio de Firulaix

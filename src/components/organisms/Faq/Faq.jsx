@@ -5,14 +5,14 @@ import { useModal } from "../../../hook/useModal";
 import classes from "./faq.module.scss";
 
 export const Faq = () => {
-  const { openModal, setOpenModal } = useModal();
+  const { openDefaultModal, setOpenDefaultModal } = useModal();
 
   return (
     <>
-      {openModal && (
-        <DefaultModal setOpenModal={setOpenModal}>
+      {openDefaultModal && (
+        <DefaultModal setOpenDefaultModal={setOpenDefaultModal}>
           <h1>
-            Proximamente en <span>Renian</span>
+            Próximamente en <span>Renian</span>
           </h1>
         </DefaultModal>
       )}
@@ -106,7 +106,7 @@ export const Faq = () => {
                 día para expandir nuestro proyecto a todas las veterinarias del
                 Perú; ya contamos con veterinarias afiliadas que puedes
                 consultar dando{" "}
-                <a onClick={() => setOpenModal(true)}>click aquí.</a>
+                <a onClick={() => setOpenDefaultModal(true)}>click aquí.</a>
               </ExpandPanel>
             </div>
           </div>

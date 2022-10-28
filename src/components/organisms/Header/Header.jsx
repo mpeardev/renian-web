@@ -13,7 +13,7 @@ export const Header = () => {
   const [show, setShow] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const router = useRouter();
-  const { openModal, setOpenModal } = useModal();
+  const { openDefaultModal, setOpenDefaultModal } = useModal();
   const [initialBackground, setInitialBackground] = useState();
   // const [path, setPath] = useState();
 
@@ -51,6 +51,9 @@ export const Header = () => {
           header.style.position = "absolute";
           header.style.top = "auto";
           header.style.backdropFilter = "blur(0)";
+          if (router.asPath == "/faq") {
+            header.style.backdropFilter = "blur(0.8rem)";
+          }
           if (router.asPath == "/") {
             header.style.background = "#fff";
           } else {
@@ -64,10 +67,10 @@ export const Header = () => {
 
   return (
     <>
-      {openModal && (
-        <DefaultModal setOpenModal={setOpenModal}>
+      {openDefaultModal && (
+        <DefaultModal setOpenDefaultModal={setOpenDefaultModal}>
           <h1>
-            Proximamente en <span>Renian</span>
+            Próximamente en <span>Renian</span>
           </h1>
         </DefaultModal>
       )}
@@ -78,7 +81,7 @@ export const Header = () => {
         setShow={setShow}
         isOpen={isOpen}
         setOpen={setOpen}
-        setOpenModal={setOpenModal}
+        setOpenDefaultModal={setOpenDefaultModal}
       />
 
       <header className={classes.header} id="navbar" style={initialBackground}>

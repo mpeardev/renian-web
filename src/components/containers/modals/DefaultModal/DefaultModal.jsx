@@ -2,12 +2,16 @@ import classes from "./default-modal.module.scss";
 import Fade from "react-reveal/Fade";
 import Image from "next/image";
 
-export const DefaultModal = ({ children, setOpenModal, width = "30rem" }) => {
+export const DefaultModal = ({
+  children,
+  setOpenDefaultModal,
+  width = "30rem",
+}) => {
   return (
     <div className={classes.modal}>
       <div
         className={classes.modal__background}
-        onClick={() => setOpenModal(false)}
+        onClick={() => setOpenDefaultModal(false)}
       >
         <div className={classes.modal__container}>
           <Fade>

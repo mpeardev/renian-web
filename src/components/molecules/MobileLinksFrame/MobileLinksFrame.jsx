@@ -7,7 +7,7 @@ export const MobileLinksFrame = ({
   setShow,
   isOpen,
   setOpen,
-  setOpenModal,
+  setOpenDefaultModal,
 }) => {
   const router = useRouter();
 
@@ -69,7 +69,14 @@ export const MobileLinksFrame = ({
         </div>
         <div>
           <p>
-            <a onClick={() => router.push("/faq")}>preguntas frecuentes</a>
+            <a
+              onClick={() => {
+                router.push("/faq");
+                linkClicked();
+              }}
+            >
+              preguntas frecuentes
+            </a>
           </p>
         </div>
         <div>

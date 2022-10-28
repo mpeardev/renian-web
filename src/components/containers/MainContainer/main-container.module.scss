@@ -9,7 +9,7 @@
   height: 100%;
   max-width: breakpoints.$screen-max;
   position: relative;
-  z-index: positions.$z-container;
+  // z-index: positions.$z-container;
   margin: 0 auto;
   padding: 0 2%;
   @include breakpoints.medium {

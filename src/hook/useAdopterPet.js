@@ -11,7 +11,7 @@ export const useAdopterPet = () => {
   const [entityRegister, setEntityRegister] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const { openModal, setOpenModal } = useModal();
+  const { openDefaultModal, setOpenDefaultModal } = useModal();
 
   const reset = () => {
     setPets([]);
@@ -43,7 +43,7 @@ export const useAdopterPet = () => {
                 resolve2.image = resolve2.image.replace("ipfs://", "");
                 resolve2.pedigree = resolve2.pedigree.replace("ipfs://", "");
                 setPets((p) => [...p, resolve2]);
-                setOpenModal(true);
+                setOpenDefaultModal(true);
                 registeringEntity(web3, resolve2.addressEr)
                   .then((resolve3) => {
                     if (resolve3)
@@ -63,7 +63,7 @@ export const useAdopterPet = () => {
           setLoading(false);
         } else {
           setLoading(false);
-          setOpenModal(true);
+          setOpenDefaultModal(true);
           setPets([]);
         }
       })
@@ -76,7 +76,7 @@ export const useAdopterPet = () => {
     entityRegister,
     loading,
     getSearch,
-    openModal,
-    setOpenModal,
+    openDefaultModal,
+    setOpenDefaultModal,
   };
 };

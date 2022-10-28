@@ -149,6 +149,7 @@
 .copyright {
   width: 100%;
   padding: 0.6rem 0;
+  position: relative;
   background: colors.$primary100;
   @include breakpoints.medium {
     padding: 0.3rem 0;

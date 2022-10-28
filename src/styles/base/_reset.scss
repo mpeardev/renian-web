@@ -14,6 +14,7 @@ body {
 
 body {
   font-size: 1rem;
+  background: #f5f5f5;
 }
 
 // CUSTOM-SCROLLBAR
@@ -83,4 +84,12 @@ input[type="number"]::-webkit-outer-spin-button {
       font-size: 25px !important;
     }
   }
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #bf002a !important;
+}
+
+input[type="file"] {
+  display: none;
 }

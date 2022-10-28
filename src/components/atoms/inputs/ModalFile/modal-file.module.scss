@@ -1,0 +1,18 @@
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/typography" as typography;
+@use "/src/styles/base/positions" as positions;
+
+.file {
+  width: 100%;
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 4px;
+  padding: 0.4rem 0.5rem;
+  cursor: pointer;
+  @include utilities.renian-flexbox-param(flex, center, center);
+  font-family: typography.$roboto30;
+  color: colors.$black;
+  font-size: 13px;
+  text-transform: capitalize;
+}

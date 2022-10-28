@@ -1,6 +1,4 @@
 import {
-  WelcomeAd,
-  SectionCards,
   MainHomeSection,
   Functionality,
   OurMission,
@@ -12,7 +10,7 @@ import {
 
 export const HomeView = () => {
   return (
-    <div style={{ overflow: "hidden", position: "relative" }}>
+    <>
       <MainHomeSection />
       <Functionality />
       <OurMission />
@@ -20,6 +18,6 @@ export const HomeView = () => {
       <Back />
       <News />
       <Contact />
-    </div>
+    </>
   );
 };

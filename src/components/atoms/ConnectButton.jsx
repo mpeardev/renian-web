@@ -2,12 +2,15 @@ import { useContext, useEffect, useState } from "react";
 import { Connect } from "./Wallet/Connect";
 // import { Session } from "../Wallet/Session";
 import { Web3Context } from "../../contexts/Web3/Web3Context";
-import { DefaultButton, DefaultModal } from "../";
+import { DefaultButton } from "../";
 import classes from "../containers/modals/DefaultModal/default-modal.module.scss";
 
-export const ConnectButton = ({ pets, openModal, setOpenModal }) => {
+export const ConnectButton = ({
+  pets,
+  openDefaultModal,
+  setOpenDefaultModal,
+}) => {
   const { web3 } = useContext(Web3Context);
-  // const { openModal, setOpenModal } = useModal();
   const [buttonColor, setButtonColor] = useState("rgb(255, 191, 0)");
 
   useEffect(() => {
@@ -18,7 +21,7 @@ export const ConnectButton = ({ pets, openModal, setOpenModal }) => {
 
   return (
     <>
-      <div onClick={() => setOpenModal(true)}>
+      <div onClick={() => setOpenDefaultModal(true)}>
         <DefaultButton
           name={
             web3.account
@@ -28,7 +31,9 @@ export const ConnectButton = ({ pets, openModal, setOpenModal }) => {
           background={buttonColor}
         />
       </div>
-      {openModal && !web3.account && <Connect setOpenModal={setOpenModal} />}
+      {openDefaultModal && !web3.account && (
+        <Connect setOpenDefaultModal={setOpenDefaultModal} />
+      )}
 
       {/* {open && web3.account && <Session handleClose={() => setOpen(false)} />} */}
     </>

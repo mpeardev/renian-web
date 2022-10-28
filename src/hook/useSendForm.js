@@ -4,7 +4,7 @@ import { helpHttp } from "../utils/helpHttp";
 export const useSendForm = () => {
   const [response, setResponse] = useState(null);
 
-  const dataSubmit = (data, setOpenModal, reset) => {
+  const dataSubmit = (data, setOpenDefaultModal, reset) => {
     helpHttp()
       .post("https://formsubmit.co/ajax/contacto@renian.pe", {
         body: data,
@@ -16,7 +16,7 @@ export const useSendForm = () => {
       .then((res) => {
         setResponse(true);
         setTimeout(() => setResponse(false), 5000);
-        setOpenModal(true);
+        setOpenDefaultModal(true);
         reset();
       });
   };

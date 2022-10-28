@@ -1,0 +1,51 @@
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/typography" as typography;
+@use "/src/styles/base/positions" as positions;
+
+.button {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  color: colors.$white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  outline: 0;
+  padding: 9px 21px !important;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: typography.$roboto40;
+  text-transform: capitalize;
+  overflow: hidden;
+  @include breakpoints.large {
+    font-size: 12px;
+    padding: 6px 17px !important;
+  }
+  &:before {
+    background-color: initial;
+    background-image: linear-gradient(
+      colors.$white 0,
+      rgba(255, 255, 255, 0) 100%
+    );
+    border-radius: 8px;
+    content: "";
+    height: 50%;
+    left: 0;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s;
+    width: 100%;
+  }
+  &:hover {
+    box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset,
+      rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
+  }
+}

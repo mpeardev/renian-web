@@ -16,7 +16,7 @@ export const Contact = () => {
     },
   };
 
-  const { openModal, setOpenModal } = useModal();
+  const { openDefaultModal, setOpenDefaultModal } = useModal();
 
   const {
     register,
@@ -32,21 +32,21 @@ export const Contact = () => {
   const { dataSubmit } = useSendForm();
 
   const onSubmit = (data) => {
-    dataSubmit(data, setOpenModal, reset);
+    dataSubmit(data, setOpenDefaultModal, reset);
   };
 
   return (
     <>
-      {openModal && (
-        <DefaultModal setOpenModal={setOpenModal}>
-          <h1>Correo enviado exitosamente!</h1>
+      {openDefaultModal && (
+        <DefaultModal setOpenDefaultModal={setOpenDefaultModal}>
+          <h1>Correo enviado exitósamente!</h1>
         </DefaultModal>
       )}
       <section className={classes.contact} id="contact">
         <MainContainer>
           <div className={classes.contact__container}>
             <div className={classes.contact__form}>
-              <h4>Contactanos</h4>
+              <h4>Contáctanos</h4>
               <h1>Renian center</h1>
 
               <div>

@@ -1,0 +1,156 @@
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/typography" as typography;
+@use "/src/styles/base/positions" as positions;
+
+.button {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 1.5rem 1rem 0;
+  background: colors.$success;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
+  fill: colors.$white;
+  transition: 0.2s;
+  @include utilities.renian-flexbox-param(flex, center, center);
+  position: fixed;
+  z-index: positions.$z-widget;
+  bottom: 0;
+  right: 0;
+  &:hover {
+    fill: colors.$success !important;
+    background: colors.$gray10 !important;
+  }
+  @include breakpoints.small {
+    margin: 0 0.5rem 1rem 0;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  @include breakpoints.x-small {
+    margin: 0 0.3rem 1rem 0;
+  }
+}
+
+.card {
+  width: 100%;
+  max-width: 25rem;
+  border-radius: 15px;
+  background: url("/img/whatsapp-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0 1.5rem 1rem 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  overflow: hidden;
+  position: fixed;
+  z-index: positions.$z-widget;
+  bottom: 5rem;
+  right: 0;
+  @include breakpoints.small {
+    margin: 0 0.5rem 1rem 0;
+  }
+  @include breakpoints.x-small {
+    margin: 0 0 1rem 0;
+  }
+  &__header {
+    width: 100%;
+    background: #1a5f54;
+    position: relative;
+    @include utilities.renian-flexbox-param(flex, center, flex-start);
+    gap: 0.5rem;
+    padding: 1.5rem;
+    position: relative;
+    &Close {
+      position: absolute;
+      font-family: typography.$quicksand50;
+      color: colors.$white;
+      font-size: 20px;
+      top: 5%;
+      right: 4%;
+      cursor: pointer;
+    }
+    &Img {
+      width: 100%;
+      max-width: 3rem;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    &Title {
+      & > h3 {
+        font-family: typography.$quicksand30;
+        color: colors.$white;
+        font-size: 20px;
+        text-transform: capitalize;
+      }
+      & > p {
+        font-family: typography.$roboto30;
+        color: colors.$gray20;
+        font-size: 13px;
+      }
+    }
+  }
+  &__section {
+    width: 100%;
+    background: transparent;
+    padding: 1.5rem 1.5rem 5rem 1.5rem;
+    @include breakpoints.medium {
+      padding: 1.5rem 1.5rem 3rem 0.5rem;
+    }
+    & > div {
+      width: 100%;
+      max-width: 13rem;
+      border-radius: 8px;
+      background: colors.$white;
+      padding: 0.4rem;
+      & > h6 {
+        font-family: typography.$quicksand20;
+        color: colors.$gray60;
+        font-size: 14px;
+        text-transform: capitalize;
+      }
+      & > p {
+        font-family: typography.$roboto20;
+        color: colors.$black;
+        font-size: 13px;
+        margin-top: 0.3rem;
+      }
+    }
+  }
+  &__footer {
+    width: 100%;
+    // background: colors.$white;
+    padding: 0.8rem 0.5rem;
+    @include utilities.renian-flexbox-param(flex, center, center);
+    &Button {
+      width: 100%;
+      max-width: 15rem;
+      border-radius: 50px;
+      padding: 0.4rem 1rem;
+      background: colors.$success;
+      @include utilities.renian-flexbox-param(flex, center, center);
+      gap: 0.5rem;
+      fill: colors.$white;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        transform: scale(1.01);
+      }
+      & > div {
+        & svg {
+          width: 1.6rem;
+        }
+      }
+      & > p {
+        font-family: typography.$roboto40;
+        color: colors.$white;
+        font-size: 14px;
+        text-transform: capitalize;
+      }
+    }
+  }
+}

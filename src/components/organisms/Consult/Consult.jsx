@@ -21,7 +21,8 @@ export const Consult = () => {
   const { web3 } = useContext(Web3Context);
   const [dataPet, setdataPet] = useState(false);
   const inputValue = useRef();
-  const { pets, getSearch, openModal, setOpenModal } = useAdopterPet();
+  const { pets, getSearch, openDefaultModal, setOpenDefaultModal } =
+    useAdopterPet();
   const [onLoad, setOnLoad] = useLoader();
 
   const [showDataPetWeb3, setShowDataPetWeb3] = useState();
@@ -116,8 +117,8 @@ export const Consult = () => {
               <div className={classes.consult__searchButton}>
                 <ConnectButton
                   pets={pets}
-                  openModal={openModal}
-                  setOpenModal={setOpenModal}
+                  openDefaultModal={openDefaultModal}
+                  setOpenDefaultModal={setOpenDefaultModal}
                 />
               </div>
             </div>
@@ -138,8 +139,8 @@ export const Consult = () => {
           </ConsultCard>
         </MainContainer>
       </section>
-      {openModal && web3.account && pets && (
-        <DefaultModal setOpenModal={setOpenModal}>
+      {openDefaultModal && web3.account && pets && (
+        <DefaultModal setOpenDefaultModal={setOpenDefaultModal}>
           {pets.length > 0 && (
             <>
               <h2>
@@ -162,7 +163,7 @@ export const Consult = () => {
                       }}
                     ></lord-icon>
                     {/* <p>Ver mis mascotas</p> */}
-                    <p>Proximamente</p>
+                    <p>Próximamente</p>
                   </div>
                 </div>
               )}

@@ -1,19 +1,33 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { MainContainer, CardsButton, DefaultModal } from "../../";
+import {
+  MainContainer,
+  CardsButton,
+  DefaultModal,
+  RegistryModal,
+} from "../../";
 import { useModal } from "../../../hook/useModal";
 import classes from "./cards-section.module.scss";
 
 export const CardsSection = () => {
   const router = useRouter();
-  const { openModal, setOpenModal } = useModal();
+  const {
+    openDefaultModal,
+    setOpenDefaultModal,
+    openRegistryModal,
+    setOpenRegistryModal,
+  } = useModal();
 
   return (
     <>
-      {openModal && (
-        <DefaultModal setOpenModal={setOpenModal}>
+      {openRegistryModal && (
+        <RegistryModal setOpenRegistryModal={setOpenRegistryModal} />
+      )}
+
+      {openDefaultModal && (
+        <DefaultModal setOpenDefaultModal={setOpenDefaultModal}>
           <h1>
-            Proximamente en <span>Renian</span>
+            Próximamente en <span>Renian</span>
           </h1>
         </DefaultModal>
       )}
@@ -61,7 +75,7 @@ export const CardsSection = () => {
                     Pre registra los datos y asiste a nuestro local para la
                     aplicación de microchip
                   </p>
-                  <div onClick={() => setOpenModal(true)}>
+                  <div onClick={() => setOpenRegistryModal(true)}>
                     <CardsButton name="completar" />
                   </div>
                 </div>
@@ -83,7 +97,7 @@ export const CardsSection = () => {
               <div>
                 <div className={classes.cards__cardDetail}>
                   <p>Conoce nuestros centros de registro en todo el Perú</p>
-                  <div onClick={() => setOpenModal(true)}>
+                  <div onClick={() => setOpenDefaultModal(true)}>
                     <CardsButton name="ver mapa" />
                   </div>
                 </div>

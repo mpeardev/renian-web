@@ -220,7 +220,9 @@ export const ContentWeb3Pet = ({ pets }) => {
       <div className={classes.consult__contentBg}></div>
       <div>
         <div>
-          <h1>{dataPetWeb3?.name}</h1>
+          <h1>
+            Nombre: <span>{dataPetWeb3?.name}</span>
+          </h1>
           <div className={classes.consult__contentImg}>
             <div>
               <img

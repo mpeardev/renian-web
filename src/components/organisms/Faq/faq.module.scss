@@ -46,10 +46,9 @@
   &__content {
     width: 100%;
     background: colors.$white;
-    padding: 0 3%;
-    margin-top: 5rem;
+    padding: 5rem 3% 0 3%;
+    height: calc((100vh) - (2.5rem));
     overflow-y: scroll;
-    height: calc((100vh) - (2.5rem + 5rem));
     &::-webkit-scrollbar {
       width: 9px;
     }
@@ -64,11 +63,11 @@
       display: none;
     }
     @include breakpoints.xl-large {
-      margin-top: 4.5rem;
-      height: calc((100vh) - (2rem + 4.5rem));
+      padding: 4.5rem 3% 0 3%;
+      height: calc((100vh) - (2rem));
     }
     @include breakpoints.large {
-      margin-top: 7rem;
+      padding: 7rem 3% 0 3%;
     }
     & > h1 {
       font-family: typography.$roboto40;

@@ -1,0 +1,24 @@
+@use "/src/styles/base/breakpoints" as breakpoints;
+@use "/src/styles/base/colors" as colors;
+@use "/src/styles/base/utilities" as utilities;
+@use "/src/styles/base/typography" as typography;
+@use "/src/styles/base/positions" as positions;
+
+.checkbox {
+  position: relative;
+  border: 1.5px solid hsl(0, 0%, 80%);
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  & > div:first-child {
+    width: 1.1rem;
+    height: 1.1rem;
+    position: relative;
+    & > div {
+      position: absolute;
+      z-index: 2;
+      top: -100%;
+      left: -50%;
+    }
+  }
+}
