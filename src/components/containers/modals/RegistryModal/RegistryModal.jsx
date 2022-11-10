@@ -131,12 +131,8 @@ export const RegistryModal = ({ setOpenRegistryModal, width = "80rem" }) => {
                     >
                       <h3>identificación</h3>
                       <div>
-                        <ModalSelect name="pais" options={countries} required />
-                        <ModalSelect
-                          name="tipo persona"
-                          options={persons}
-                          required
-                        />
+                        <ModalSelect name="pais" required />
+                        <ModalSelect name="tipo persona" required />
                         <ModalSelect name="tipo documento" required />
                         <ModalInput
                           name="numero documento"
