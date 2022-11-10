@@ -67,15 +67,18 @@ const Card = ({ setOpenMsj }) => {
         </section>
 
         <div className={classes.card__footer}>
-          <div
+          <a
+            href="https://bit.ly/3FnG8lJ"
+            target="_blank"
             className={classes.card__footerButton}
+            rel="noreferrer noopener"
             onClick={() => setOpenMsj(false)}
           >
             <div>
               <WhatsappIcon />
             </div>
             <p>empezar conversación</p>
-          </div>
+          </a>
         </div>
       </div>
     </Fade>

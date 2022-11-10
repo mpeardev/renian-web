@@ -12,7 +12,7 @@ export const OurMission = () => {
             <h1>Nuestra Misión</h1>
             <p>
               Reducir significativamente la población de animales callejeros y
-              en estado de abandono, a través de un resgistro único, rápido y
+              en estado de abandono, a través de un registro único, rápido y
               eficaz ( Web 3 - Blockchain), trabajando con entidades
               municipales, regionales y organizaciones privadas, dentro de un
               marco de políticas públicas de protección, bienestar animal y

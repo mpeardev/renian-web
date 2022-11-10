@@ -1,66 +1,77 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import classes from "../../organisms/Consult/consult.module.scss";
+import classes from "./data-content.module.scss";
+import { Tooltip } from "react-tippy";
+import "react-tippy/dist/tippy.css";
+import { usePetState } from "../../../../hook/consult/usePetState";
 
 export const ContentMongoPet = ({ dataPet }) => {
-  return (
-    <div className={classes.consult__content}>
-      <div className={classes.consult__contentBg}></div>
+  const { obtainPetState, petState, colorState } = usePetState(dataPet);
 
+  useEffect(() => {
+    obtainPetState();
+  }, [petState]);
+
+  return (
+    <div className={classes.content}>
+      <div className={classes.contentBg}></div>
       <div>
         <div>
-          {dataPet.pet?.name != undefined && <h1>{dataPet.pet?.name}</h1>}
-          {dataPet.pet?.usuario_empresa != undefined && (
-            <h1>{dataPet.pet?.usuario_empresa}</h1>
-          )}
-          <div className={classes.consult__contentImg}>
+          <div className={classes.contentImg}>
+            {dataPet.pet?.name != undefined && <h1>{dataPet.pet?.name}</h1>}
+            {dataPet.pet?.usuario_empresa != undefined && (
+              <h1>{dataPet.pet?.usuario_empresa}</h1>
+            )}
             <div>
-              <Image
-                src={
-                  dataPet.pet?.chip != undefined
-                    ? `https://firu.alejandroaguilar.dev/public/images/image/${dataPet?.pet.chip}.jpg`
-                    : "/img/img-nofound.png"
-                }
-                layout="responsive"
-                width={60}
-                height={75}
-                href="image-dog"
-              />
-            </div>
-            <div>
-              {dataPet.type == "RENIAN" && (
-                <>
-                  <lord-icon
-                    src="https://cdn.lordicon.com/hgpfwhzk.json"
-                    colors="primary:#ffae00,secondary:#ffae00"
-                    trigger="loop"
-                  ></lord-icon>
-                  <p>Esta mascota debe actualizar sus datos.</p>
-                </>
+              <div>
+                <Image
+                  src={
+                    dataPet.pet?.chip != undefined
+                      ? `https://firu.alejandroaguilar.dev/public/images/image/${dataPet?.pet.chip}.jpg`
+                      : "/img/img-nofound.png"
+                  }
+                  layout="responsive"
+                  width={60}
+                  height={70}
+                  href="image-dog"
+                />
+              </div>
+              {petState && (
+                <div className={classes.contentImgStatus}>
+                  <Tooltip
+                    position="bottom"
+                    theme="light"
+                    animation="scale"
+                    html={
+                      <div className={classes.contentImgStatusTooltip}>
+                        Estado:{" "}
+                        <span style={{ color: colorState }}>{petState}</span>
+                      </div>
+                    }
+                  >
+                    <div style={{ background: colorState }}></div>
+                  </Tooltip>
+                </div>
               )}
             </div>
+
+            {dataPet.type == "RENIAN" && (
+              <div className={classes.contentImgUpdate}>
+                <lord-icon
+                  src="https://cdn.lordicon.com/hgpfwhzk.json"
+                  colors="primary:#ffae00,secondary:#ffae00"
+                  trigger="loop"
+                ></lord-icon>
+                <p>Esta mascota debe actualizar sus datos.</p>
+              </div>
+            )}
           </div>
         </div>
 
-        <div className={classes.consult__contentInfo}>
-          <div className={classes.consult__contentInfo__cards}>
+        <div className={classes.contentInfo}>
+          <div className={classes.contentInfo__cards}>
             <div>
-              <div className={classes.consult__contentInfo__cardsImg}>
-                <div>
-                  <lord-icon
-                    src="https://cdn.lordicon.com/sruywmtf.json"
-                    trigger="none"
-                    colors="primary:#000000,secondary:#dd0000"
-                    style={{
-                      width: "165px",
-                      height: "165px",
-                      opacity: ".7",
-                    }}
-                  ></lord-icon>
-                </div>
-              </div>
-
-              <div className={classes.consult__contentInfo__cardsText}>
+              <div className={classes.contentInfo__cardsText}>
                 <h4>Microchip:</h4>
                 {dataPet.pet?.chip != undefined && (
                   <span>{dataPet.pet?.chip}</span>
@@ -69,36 +80,48 @@ export const ContentMongoPet = ({ dataPet }) => {
                   <span>{dataPet.pet?.usuario_cargo}</span>
                 )}
               </div>
+
+              <div className={classes.contentInfo__cardsImg}>
+                <div>
+                  <Image
+                    src="/img/chip-consult.png"
+                    layout="responsive"
+                    width={50}
+                    height={50}
+                    href="chip-image"
+                  />
+                </div>
+              </div>
             </div>
 
             <div>
-              <div className={classes.consult__contentInfo__cardsImg}>
-                <div>
-                  <lord-icon
-                    src="https://cdn.lordicon.com/zkzytvcr.json"
-                    trigger="none"
-                    colors="primary:#000000,secondary:#dd0000"
-                    style={{
-                      width: "165px",
-                      height: "165px",
-                      opacity: ".7",
-                    }}
-                  ></lord-icon>
-                </div>
-              </div>
-
-              <div className={classes.consult__contentInfo__cardsText}>
+              <div className={classes.contentInfo__cardsText}>
                 <h4>Registrado por:</h4>
                 {dataPet.pet?.userAddress != undefined && (
-                  <span>{dataPet.pet?.userAddress}</span>
+                  <span>{`${dataPet.pet?.userAddress.substring(
+                    0,
+                    10
+                  )}...`}</span>
                 )}
                 {!dataPet.pet?.userAddress && <span>No definido</span>}
+              </div>
+
+              <div className={classes.contentInfo__cardsImg}>
+                <div>
+                  <Image
+                    src="/img/registry-consult.png"
+                    layout="responsive"
+                    width={50}
+                    height={50}
+                    href="chip-image"
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          <div className={classes.consult__contentInfo__general}>
-            <div className={classes.consult__contentInfo__generalTable}>
+          <div className={classes.contentInfo__general}>
+            <div className={classes.contentInfo__generalTable}>
               <div>
                 <h5>Propietario:</h5>
                 {dataPet.pet?.adopterName &&
@@ -204,11 +227,6 @@ export const ContentWeb3Pet = ({ pets }) => {
     if (pets.length == 1) {
       setDataWeb3Pet(pets[0]);
     }
-    // if(pets.length > 1){
-    //   let filterData = pets.filter((data) => {
-    //     return data.chip == 'aqui ira el chip identificador';
-    //   })
-    // }
   };
 
   useEffect(() => {
@@ -216,72 +234,80 @@ export const ContentWeb3Pet = ({ pets }) => {
   }, [pets]);
 
   return (
-    <div className={classes.consult__content}>
-      <div className={classes.consult__contentBg}></div>
+    <div className={classes.content}>
+      <div className={classes.contentBg}></div>
       <div>
         <div>
-          <h1>
-            Nombre: <span>{dataPetWeb3?.name}</span>
-          </h1>
-          <div className={classes.consult__contentImg}>
+          <div className={classes.contentImg}>
+            <h1>{dataPetWeb3?.name}</h1>
             <div>
-              <img
-                src={`https://ipfs.io/ipfs/${dataPetWeb3?.image}`}
-                alt="image-dog"
-              />
+              <div>
+                <img
+                  src={`https://ipfs.io/ipfs/${dataPetWeb3?.image}`}
+                  alt="image-dog"
+                />
+              </div>
+              {/* <div className={classes.contentImgStatus}>
+                <Tooltip
+                  position="bottom"
+                  theme="light"
+                  animation="scale"
+                  html={
+                    <div className={classes.contentImgStatusTooltip}>
+                      Estado:{" "}
+                      <span style={{ color: colorState }}>{petState}</span>
+                    </div>
+                  }
+                >
+                  <div style={{ background: colorState }}></div>
+                </Tooltip>
+              </div> */}
             </div>
           </div>
         </div>
 
-        <div className={classes.consult__contentInfo}>
-          <div className={classes.consult__contentInfo__cards}>
+        <div className={classes.contentInfo}>
+          <div className={classes.contentInfo__cards}>
             <div>
-              <div className={classes.consult__contentInfo__cardsImg}>
-                <div>
-                  <lord-icon
-                    src="https://cdn.lordicon.com/sruywmtf.json"
-                    trigger="none"
-                    colors="primary:#000000,secondary:#dd0000"
-                    style={{
-                      width: "165px",
-                      height: "165px",
-                      opacity: ".7",
-                    }}
-                  ></lord-icon>
-                </div>
-              </div>
-
-              <div className={classes.consult__contentInfo__cardsText}>
+              <div className={classes.contentInfo__cardsText}>
                 <h4>Microchip:</h4>
                 <span>{dataPetWeb3?.chip}</span>
+              </div>
+
+              <div className={classes.contentInfo__cardsImg}>
+                <div>
+                  <Image
+                    src="/img/chip-consult.png"
+                    layout="responsive"
+                    width={50}
+                    height={50}
+                    href="chip-image"
+                  />
+                </div>
               </div>
             </div>
 
             <div>
-              <div className={classes.consult__contentInfo__cardsImg}>
-                <div>
-                  <lord-icon
-                    src="https://cdn.lordicon.com/zkzytvcr.json"
-                    trigger="none"
-                    colors="primary:#000000,secondary:#dd0000"
-                    style={{
-                      width: "165px",
-                      height: "165px",
-                      opacity: ".7",
-                    }}
-                  ></lord-icon>
-                </div>
-              </div>
-
-              <div className={classes.consult__contentInfo__cardsText}>
+              <div className={classes.contentInfo__cardsText}>
                 <h4>Registrado por:</h4>
-                <span>{dataPetWeb3?.userAddress}</span>
+                <span>{`${dataPetWeb3?.userAddress.substring(0, 10)}...`}</span>
+              </div>
+              <div className={classes.contentInfo__cardsImg}>
+                <div>
+                  <Image
+                    src="/img/registry-consult.png"
+                    layout="responsive"
+                    width={50}
+                    height={50}
+                    href="chip-image"
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          <div className={classes.consult__contentInfo__general}>
-            <div className={classes.consult__contentInfo__generalTable}>
+          <div className={classes.contentInfo__general}>
+            <div className={classes.contentInfo__generalTable}>
               <div>
                 <h5>Propietario:</h5>
                 <span>

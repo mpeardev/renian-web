@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useRef } from "react";
-import { ConnectButton, Loader, MainContainer, DefaultModal } from "../../";
+import { ConnectButton, Loader, DefaultModal } from "../../";
 import { useLoader } from "../../../hook/useLoader";
 import { Web3Context } from "../../../contexts/Web3/Web3Context";
 import { useAdopterPet } from "../../../hook/useAdopterPet";
@@ -14,17 +14,16 @@ import { NotFound } from "../../molecules/consult/NotFound";
 import {
   ContentMongoPet,
   ContentWeb3Pet,
-} from "../../molecules/consult/DataContent";
+} from "../../molecules/consult/DataContent/DataContent";
 
 export const Consult = () => {
   const router = useRouter();
   const { web3 } = useContext(Web3Context);
   const [dataPet, setdataPet] = useState(false);
   const inputValue = useRef();
-  const { pets, getSearch, openDefaultModal, setOpenDefaultModal } =
+  const { pets, getSearch, openDefaultModal, setOpenDefaultModal, status } =
     useAdopterPet();
   const [onLoad, setOnLoad] = useLoader();
-
   const [showDataPetWeb3, setShowDataPetWeb3] = useState();
 
   useEffect(() => {
@@ -72,7 +71,7 @@ export const Consult = () => {
   return (
     <>
       <section className={classes.consult}>
-        <MainContainer>
+        <div className={classes.consult__container}>
           <ConsultCard>
             <div className={classes.consult__header}>
               <div onClick={() => router.push("/")}>
@@ -137,7 +136,7 @@ export const Consult = () => {
               <ContentWeb3Pet pets={pets} />
             )}
           </ConsultCard>
-        </MainContainer>
+        </div>
       </section>
       {openDefaultModal && web3.account && pets && (
         <DefaultModal setOpenDefaultModal={setOpenDefaultModal}>

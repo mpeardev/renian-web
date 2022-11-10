@@ -1,0 +1,53 @@
+{
+  "documents": {
+    "CO": {
+      "NATURAL": {
+        "identity": "C.I."
+      },
+      "LEGAL": {
+        "identity": ""
+      }
+    },
+    "EC": {
+      "NATURAL": {
+        "identity": "C.I."
+      },
+      "LEGAL": {
+        "identity": ""
+      }
+    },
+    "GT": {
+      "NATURAL": {
+        "identity": "D.P.I."
+      },
+      "LEGAL": {
+        "identity": ""
+      }
+    },
+    "HN": {
+      "NATURAL": {
+        "identity": "T.I."
+      },
+      "LEGAL": {
+        "identity": ""
+      }
+    },
+    "PE": {
+      "NATURAL": {
+        "identity": "D.N.I.",
+        "foreign": "C.E."
+      },
+      "LEGAL": {
+        "identity": "R.U.C."
+      }
+    },
+    "SV": {
+      "NATURAL": {
+        "identity": "D.U.I."
+      },
+      "LEGAL": {
+        "identity": ""
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@ export * from "./atoms/inputs/Modalnput/ModalInput";
 export * from "./atoms/inputs/ModalSelect/ModalSelect";
 export * from "./atoms/inputs/ModalCheckbox/ModalCheckbox";
 export * from "./atoms/inputs/ModalFile/ModalFile";
+export * from "./atoms/MapCenters/MapCenters";
 
 /* -----MOLECULES----- */
 export * from "./molecules/Back/Back";
@@ -29,12 +30,14 @@ export * from "./organisms/Footer/Footer";
 export * from "./organisms/Consult/Consult";
 export * from "./organisms/Faq/Faq";
 export * from "./organisms/WhatsappWidget/WhatsappWidget";
+export * from "./organisms/Centers/Centers";
 
 /* -----TEMPLATES----- */
 export * from "./templates/HomeView";
 export * from "./templates/MaintenanceView";
 export * from "./templates/ConsultView";
 export * from "./templates/FaqView";
+export * from "./templates/CentersView";
 
 /* -----CONTAINERS----- */
 export * from "./containers/modals/DefaultModal/DefaultModal";

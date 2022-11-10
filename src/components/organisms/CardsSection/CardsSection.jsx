@@ -50,9 +50,10 @@ export const CardsSection = () => {
               <div>
                 <div className={classes.cards__cardDetail}>
                   <p>Revisa los datos de cualquier mascota</p>
-                  <div onClick={() => router.push("/consult")}>
-                    <CardsButton name="aqui" />
-                  </div>
+                  <CardsButton
+                    name="aquí"
+                    onClick={() => router.push("/consult")}
+                  />
                 </div>
               </div>
             </div>
@@ -75,9 +76,10 @@ export const CardsSection = () => {
                     Pre registra los datos y asiste a nuestro local para la
                     aplicación de microchip
                   </p>
-                  <div onClick={() => setOpenRegistryModal(true)}>
-                    <CardsButton name="completar" />
-                  </div>
+                  <CardsButton
+                    name="completar"
+                    onClick={() => setOpenRegistryModal(true)}
+                  />
                 </div>
               </div>
             </div>
@@ -97,9 +99,16 @@ export const CardsSection = () => {
               <div>
                 <div className={classes.cards__cardDetail}>
                   <p>Conoce nuestros centros de registro en todo el Perú</p>
-                  <div onClick={() => setOpenDefaultModal(true)}>
-                    <CardsButton name="ver mapa" />
-                  </div>
+                  <a
+                    href="http://www.renian.org/centros/?fbclid=IwAR0jU8TfLuQn9rwcHWfV4cyPVCfnpBmRrd-O53guouFtXdBQnSfakHpTFFM"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <CardsButton
+                      name="ver mapa"
+                      // onClick={() => router.push("/centers")}
+                    />
+                  </a>
                 </div>
               </div>
             </div>
@@ -119,15 +128,13 @@ export const CardsSection = () => {
               <div>
                 <div className={classes.cards__cardDetail}>
                   <p>Consulta y edita los datos de tus mascotas</p>
-                  <div>
-                    <a
-                      href="https://registro.firulaixcoin.finance/"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    >
-                      <CardsButton name="ingresar" />
-                    </a>
-                  </div>
+                  <a
+                    href="https://registro.firulaixcoin.finance/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <CardsButton name="ingresar" />
+                  </a>
                 </div>
               </div>
             </div>

@@ -15,14 +15,15 @@ export const Functionality = () => {
                 <span>¡El proceso es bastante simple y rápido!</span>
                 <p>
                   Primero verificamos que la mascota no cuente con una
-                  identificación, luego insertamos el microchip …
+                  identificación, luego insertamos el microchip de
+                  identificación permanente en el lomo de la mascotita, este
+                  dispositivo cuenta con un número único a nivel mundial.
                 </p>
                 <p>
                   Este número es detectado por un lector de microchip, es
-                  Ingresando a nuestro Sistema de Registro de Mascotas en la
-                  Web3 (Blockchain) anexando las características de las
-                  mascotas, su información sanitaria y datos del propietario
-                  legal.
+                  ingresado a nuestro Sistema de Registro de Mascotas en la Web3
+                  (Blockchain) anexando las características de las mascotas, su
+                  información sanitaria y datos del propietario legal.
                 </p>
               </div>
 

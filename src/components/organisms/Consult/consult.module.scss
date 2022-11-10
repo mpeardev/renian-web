@@ -10,6 +10,9 @@
   position: relative;
   overflow: hidden;
   padding: 6% 0;
+  @include breakpoints.xl-large {
+    padding: 9% 0;
+  }
   @include breakpoints.large {
     padding: 15% 0;
   }
@@ -18,18 +21,30 @@
   }
   &__container {
     width: 100%;
+    max-width: breakpoints.$screen-max;
     height: 100%;
-    @include utilities.renian-flexbox-param(flex, center, center);
+    margin: 0 auto;
+    padding: 0 2%;
+    // @include utilities.renian-flexbox-param(flex, center, center);
+    @include breakpoints.medium {
+      padding: 0 2.5%;
+    }
   }
   &__card {
     width: 100%;
     height: 100%;
-    min-height: 85vh;
+    min-height: 50rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background: colors.$white;
     border-radius: 15px;
     overflow: hidden;
     position: relative;
+    @include breakpoints.xl-large {
+      min-height: 45rem;
+    }
+    @include breakpoints.large {
+      min-height: 40rem;
+    }
   }
   &__header {
     width: 100%;
@@ -119,193 +134,7 @@
       }
     }
   }
-  &__content {
-    width: 100%;
-    height: 100%;
-    min-height: 50rem;
-    position: relative;
-    padding: 4rem 0;
-    & h1 {
-      font-family: typography.$quicksand30;
-      color: colors.$gray40;
-      font-size: 50px;
-      text-align: center;
-      position: relative;
-      margin-bottom: 0.5rem;
-      & > span {
-        font-family: typography.$quicksand50;
-        color: colors.$primary;
-        font-size: 55px;
-      }
-    }
-    & > div:last-child {
-      padding: 2%;
-      width: 100%;
-      height: 100%;
-      @include utilities.renian-grid-param(grid, 0.8fr 1.2fr, auto, 4rem);
-      position: relative;
-      @include breakpoints.m-large {
-        @include utilities.renian-grid-param(grid, 1fr, 4rem, auto);
-      }
-    }
-    &Bg {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      background: url("/img/background4.jpg");
-      background-position: initial;
-      background-repeat: no-repeat;
-      background-size: cover;
-      filter: opacity(0.3);
-    }
-    &Img {
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-      @include utilities.renian-flexbox-param(flex, center, center);
-      flex-direction: column;
-      padding: 4rem;
-      backdrop-filter: blur(20px);
-      opacity: 0.85;
-      @include breakpoints.m-large {
-        box-shadow: none;
-        backdrop-filter: blur(0);
-        padding: 2rem;
-      }
-      & > div {
-        width: 100%;
-        max-width: 25rem;
-        position: relative;
-        @include breakpoints.m-large {
-          max-width: 15rem;
-        }
-        & img {
-          width: 100%;
-        }
-      }
-      & > div:last-child {
-        margin-top: 0.8rem;
-        @include utilities.renian-flexbox-param(flex, center, auto);
-        gap: 0.5rem;
-        & > p {
-          font-family: typography.$roboto20;
-          font-size: 14px;
-          color: #ffae00;
-        }
-      }
-    }
-    &Info {
-      &__cards {
-        @include utilities.renian-grid-param(
-          grid,
-          repeat(2, 1fr),
-          auto,
-          1.5rem
-        );
-        @include breakpoints.medium {
-          @include utilities.renian-grid-param(grid, 1fr, auto, 1.5rem);
-        }
-        & > div {
-          width: 100%;
-          border-radius: 8px;
-          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-          padding: 2.5rem 25% 2.5rem 2.5rem;
-          position: relative;
-          overflow: hidden;
-          backdrop-filter: blur(20px);
-          @include breakpoints.medium {
-            max-width: 25rem;
-            margin: 0 auto;
-          }
-        }
-        &Img {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          top: 0;
-          right: -50px;
-          @include utilities.renian-flexbox-param(flex, center, flex-end);
-          @include breakpoints.medium {
-            opacity: 0.5;
-          }
-        }
-        &Text {
-          & > h4 {
-            font-family: typography.$quicksand50;
-            font-size: 20px;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            position: relative;
-            @include breakpoints.large {
-              font-size: 17px;
-            }
-            @include breakpoints.small {
-              font-size: 14px;
-            }
-          }
-          & > span {
-            font-family: typography.$roboto20;
-            font-size: 18px;
-            color: colors.$gray50;
-            @include breakpoints.large {
-              font-size: 15px;
-            }
-            @include breakpoints.large {
-              font-size: 13px;
-            }
-          }
-        }
-      }
-      &__general {
-        width: 100%;
-        margin-top: 4rem;
 
-        &Table {
-          @include utilities.renian-flexbox-param(flex, auto, auto);
-          flex-direction: column;
-          gap: 0.5rem;
-
-          & > div {
-            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-            backdrop-filter: blur(20px);
-            @include utilities.renian-flexbox-param(flex, auto, auto);
-            border-radius: 4px;
-            padding: 0.8rem 2.5rem;
-            gap: 10%;
-            color: colors.$gray80;
-            transition: 0.3s;
-            @include breakpoints.medium {
-              padding: 0.8rem 1rem;
-            }
-            & > h5 {
-              width: 15rem;
-              font-family: typography.$quicksand40;
-              font-size: 15px;
-              text-transform: uppercase;
-              @include breakpoints.xl-large {
-                width: 12.5rem;
-              }
-              @include breakpoints.medium {
-                width: 7rem;
-                font-size: 10px;
-              }
-            }
-            & > span {
-              font-family: typography.$roboto20;
-              font-size: 13px;
-              color: colors.$gray60 !important;
-              text-transform: uppercase;
-              @include breakpoints.medium {
-                font-size: 9px;
-                @include utilities.renian-truncate-lines(1);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
   &__default {
     width: 100%;
     height: 100%;
@@ -316,18 +145,23 @@
     filter: grayscale(0.8);
     @include utilities.renian-flexbox-param(flex, center, center);
     gap: 4rem;
+    @include breakpoints.small {
+      @include utilities.renian-flexbox-param(flex, center, flex-end);
+      flex-direction: column;
+    }
     & > div {
       position: relative;
+      margin-bottom: 2rem;
       width: 100%;
       max-width: 20rem;
       @include breakpoints.medium {
-        max-width: 15rem;
+        max-width: 14rem;
       }
       &:last-child {
         width: 100%;
         max-width: 12rem;
         @include breakpoints.medium {
-          max-width: 9rem;
+          max-width: 8rem;
         }
       }
     }

@@ -32,7 +32,7 @@ export const Banner = () => {
                     <div className={classes.banner__slideDetail}>
                       <h4>Demos juntos el primer paso</h4>
                       <h1>
-                        Ellos también tienen derecho ser identificados (Ley
+                        Ellos también tienen derecho a ser identificados (Ley
                         30407)
                       </h1>
                       <a
@@ -57,7 +57,7 @@ export const Banner = () => {
                     <div className={classes.banner__slideDetail}>
                       <h4>Demos juntos el primer paso</h4>
                       <h1>
-                        Sé parte de la comunidad RENIAN, se parte de la Tenencia
+                        Sé parte de la comunidad RENIAN, sé parte de la Tenencia
                         Responsable
                       </h1>
                       <a

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
+import { ArrowIcon } from "../../atoms/icons";
 import classes from "./expand-panel.module.scss";
 
 export const ExpandPanel = ({ question, response, children }) => {
@@ -15,23 +16,13 @@ export const ExpandPanel = ({ question, response, children }) => {
           <h4 style={{ color: activate ? "#bf002a" : "#757575" }}>
             {question}
           </h4>
-          <div style={{ transform: activate ? "rotate(180deg)" : "rotate(0)" }}>
-            {!activate && (
-              <Image
-                src="/img/faq/disabled.png"
-                layout="responsive"
-                width={50}
-                height={50}
-              />
-            )}
-            {activate && (
-              <Image
-                src="/img/faq/enable.png"
-                layout="responsive"
-                width={50}
-                height={50}
-              />
-            )}
+          <div
+            style={{
+              transform: activate ? "rotate(180deg)" : "rotate(0)",
+              fill: activate ? "#bf002a" : "#757575",
+            }}
+          >
+            <ArrowIcon />
           </div>
         </div>
 

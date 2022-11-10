@@ -33,14 +33,24 @@
     min-height: 35rem;
     height: 80vh;
     @include utilities.renian-grid-param(grid, 0.7fr 1.3fr, auto, auto);
+    @include breakpoints.large {
+      @include utilities.renian-grid-param(grid, 1fr, auto, auto);
+    }
+    @include breakpoints.small {
+      max-width: 90%;
+    }
     & > div:first-child {
       width: 100%;
       height: 80vh;
+      min-height: 35rem;
       background: colors.$secondary;
       padding: 0 4%;
       position: relative;
       @include utilities.renian-flexbox-param(flex, center, auto);
       flex-direction: column;
+      @include breakpoints.large {
+        display: none;
+      }
       & > div:last-child {
         width: 100%;
         max-width: 18rem;
@@ -53,6 +63,9 @@
           font-size: 40px;
           text-shadow: 1.5px 1.5px colors.$black;
           text-transform: uppercase;
+          @include breakpoints.max-large {
+            font-size: 30px;
+          }
           & > span {
             color: colors.$primary;
           }
@@ -67,12 +80,19 @@
       margin-top: 2rem;
       @include utilities.renian-flexbox-param(flex, center, center);
       border: 3px solid colors.$white;
+      @include breakpoints.max-large {
+        width: 4.8rem;
+        height: 4.8rem;
+      }
       & > div {
         width: 100%;
       }
     }
     &Price {
       margin-top: 25%;
+      @include breakpoints.max-large {
+        margin-top: 10%;
+      }
       & > h3 {
         font-family: typography.$roboto40;
         color: colors.$gray50;
@@ -80,6 +100,12 @@
         text-align: center;
         font-style: italic;
         text-transform: uppercase;
+        @include breakpoints.max-large {
+          font-size: 17px;
+        }
+        @include breakpoints.xl-large {
+          font-size: 14px;
+        }
       }
       & > h1 {
         font-family: typography.$roboto40;
@@ -87,9 +113,21 @@
         font-size: 120px;
         text-shadow: 2.5px 2.5px colors.$black;
         line-height: 110px;
+        @include breakpoints.max-large {
+          font-size: 90px;
+        }
+        @include breakpoints.xl-large {
+          font-size: 80px;
+        }
         & > span {
           font-family: typography.$roboto10;
           font-size: 70px;
+          @include breakpoints.xxl-large {
+            font-size: 60px;
+          }
+          @include breakpoints.xl-large {
+            font-size: 52px;
+          }
         }
       }
     }
@@ -101,6 +139,12 @@
         font-size: 20px;
         text-align: center;
         margin-bottom: 2%;
+        @include breakpoints.max-large {
+          font-size: 17px;
+        }
+        @include breakpoints.xl-large {
+          font-size: 15px;
+        }
       }
       & > ul {
         list-style-type: circle;
@@ -110,12 +154,21 @@
         border-bottom: 2px dotted colors.$gray60;
         & > li {
           line-height: 30px;
+          @include breakpoints.max-large {
+            line-height: 25px;
+            font-size: 12px;
+          }
+          @include breakpoints.xl-large {
+            line-height: 18px;
+          }
         }
       }
     }
     &Main {
       width: 100%;
       background: colors.$white;
+      min-height: 35rem;
+      height: 80vh;
       &Stepper {
         width: 100%;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
@@ -127,6 +180,9 @@
           margin: 0 auto;
           @include utilities.renian-flexbox-param(flex, center, center);
           position: relative;
+          @include breakpoints.medium {
+            max-width: 5rem;
+          }
           & > span {
             width: 100%;
             height: 1px;
@@ -150,6 +206,11 @@
               background: colors.$white;
               font-family: typography.$roboto30;
               color: colors.$gray40;
+              @include breakpoints.medium {
+                width: 1.2rem;
+                height: 1.2rem;
+                font-size: 10px;
+              }
               &:first-child {
                 background: colors.$primary;
                 color: colors.$white;
@@ -162,7 +223,7 @@
       &Form {
         width: 100%;
         height: 10rem;
-        height: calc((80vh) - ((5rem) + (4.5rem)));
+        height: calc((100%) - ((5rem) + (4.5rem)));
         padding: 2.5rem 3% 5rem 3%;
         color: colors.$black;
         overflow: hidden;
@@ -179,6 +240,9 @@
         }
         &::-webkit-scrollbar-button {
           display: none;
+        }
+        @include breakpoints.medium {
+          padding: 2.5rem 5% 5rem 5%;
         }
         & p {
           font-family: typography.$roboto40;
@@ -224,6 +288,9 @@
               1rem,
               1rem
             );
+            @include breakpoints.small {
+              @include utilities.renian-grid-param(grid, 1fr, auto, auto);
+            }
           }
         }
         &Identification {
@@ -282,6 +349,133 @@
               font-size: 13px;
               text-align: center;
               text-transform: capitalize;
+            }
+          }
+        }
+        &Payment {
+          width: 100%;
+          padding: 2rem;
+          & > h3 {
+            font-family: typography.$quicksand40;
+            color: colors.$primary;
+            font-size: 25px;
+            text-transform: capitalize;
+            margin-bottom: 0.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
+          }
+          & > div {
+            @include utilities.renian-grid-param(
+              grid,
+              repeat(2, 1fr),
+              auto,
+              8%
+            );
+          }
+          & > div:last-child {
+            width: 100%;
+            min-height: 12rem;
+            display: block;
+            margin-top: 3rem;
+            background: colors.$gray10;
+            padding: 1.5rem 0.5rem;
+            border-radius: 15px;
+            @include utilities.renian-flexbox-param(flex, center, center);
+            & > p {
+              font-size: 15px;
+              font-family: typography.$roboto30;
+            }
+          }
+          &Card {
+            width: 100%;
+            min-height: 8rem;
+            @include utilities.renian-flexbox-param(flex, center, center);
+            flex-direction: column-reverse;
+            cursor: pointer;
+            border: 1px solid hsl(0, 0%, 80%);
+            border-radius: 4px;
+            filter: saturate(0.3);
+            transition: 0.5s;
+            color: colors.$gray70;
+            transform: scale(0.97);
+
+            &:hover {
+              filter: saturate(1) !important;
+              transform: scale(1) !important;
+            }
+            & > div {
+              width: 100%;
+              max-width: 4.5rem;
+            }
+            & > h5 {
+              font-size: 17px;
+              font-family: typography.$quicksand50;
+            }
+          }
+          &Fiat {
+            width: 100%;
+            max-width: 18rem;
+            @include utilities.renian-flexbox-param(flex, center, center);
+            flex-direction: column;
+            gap: 1rem;
+            & a {
+              width: 100%;
+            }
+          }
+          &Crypto {
+            width: 100%;
+            max-width: 25rem;
+            text-align: center;
+            & > h5 {
+              text-transform: uppercase;
+              font-family: typography.$quicksand10;
+              color: colors.$primary;
+              font-size: 16px;
+              & > span {
+                font-family: typography.$quicksand50;
+              }
+            }
+            & p {
+              margin-top: 1rem;
+              cursor: pointer;
+              font-family: typography.$roboto30;
+              font-size: 15px;
+              color: rgb(255, 217, 0);
+              margin-bottom: 2rem;
+              &:hover {
+                text-decoration: underline rgb(255, 217, 0);
+              }
+            }
+          }
+        }
+        &Capture {
+          text-align: center;
+          padding: 2rem;
+          margin-top: 2rem;
+          & > h3 {
+            font-family: typography.$quicksand40;
+            color: colors.$primary;
+            font-size: 25px;
+            text-transform: capitalize;
+            margin-bottom: 0.8rem;
+          }
+          & > div {
+            width: 100%;
+            background: colors.$gray10;
+            border-radius: 15px;
+            padding: 1.5rem 2rem;
+            margin-top: 0.5rem;
+            & > div {
+              width: 100%;
+              max-width: 20rem;
+              margin: 0 auto;
+              flex-direction: column;
+              gap: 1.5rem;
+              @include utilities.renian-flexbox-param(flex, center, center);
+              & > p {
+                font-size: 15px;
+                font-family: typography.$roboto20;
+              }
             }
           }
         }

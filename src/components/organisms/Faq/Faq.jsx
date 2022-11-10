@@ -38,6 +38,12 @@ export const Faq = () => {
             <h1>Preguntas Frecuentes</h1>
             <div className={classes.faq__contentQuestions}>
               <ExpandPanel
+                question={"¿Para que sirve el registro de mi mascota?"}
+                response={
+                  "El registro en RENIAN sirve para reconocer adecuadamente a un animal y los datos de contacto su propietario a cargo ante una gran población animal existente. Por ello, no solo es necesario implantar el microchip de identificación en tu mascota, sino también registrarla en un sistema seguro y formal, como lo es RENIAN."
+                }
+              />
+              <ExpandPanel
                 question={"¿Qué es el microchip de mascotas?"}
                 response={
                   "El microchip es un dispositivo del tamaño de un grano de arroz que permite la identificación de tu mascota, contiene 15 dígitos únicos en el mundo y es útil para toda su vida. Es importante recordar que el microchip de identificación NO ES UN GPS."
@@ -64,7 +70,7 @@ export const Faq = () => {
               <ExpandPanel
                 question={"¿Puedo colocarle más de un microchip a mi mascota?"}
                 response={
-                  "La implantación del microchip es un procedimiento rápido y sencillo, parecido a la aplicación de una vacuna. El microchip de identificación se coloca en la zona T o lomo de la mascota."
+                  "El microchip de identificación debe aplicarse en una sola ocasión, no es necesario cambiarlo de forma periódica y está en contra de la ley querer identificarlo más de una vez."
                 }
               />
               <ExpandPanel
@@ -94,7 +100,7 @@ export const Faq = () => {
               <ExpandPanel
                 question={"¿Dónde y cómo se coloca el microchip en la mascota?"}
                 response={
-                  "El microchip de identificación debe aplicarse en una sola ocasión, no es necesario cambiarlo de forma periódica y está en contra de la ley querer identificarlo más de una vez."
+                  "La implantación del microchip es un procedimiento rápido y sencillo, parecido a la aplicación de una vacuna. El microchip de identificación se coloca en la zona T o lomo de la mascota."
                 }
               />
               <ExpandPanel

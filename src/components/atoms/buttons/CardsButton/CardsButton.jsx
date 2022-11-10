@@ -4,9 +4,15 @@ export const CardsButton = ({
   type = "button",
   name = "default",
   background = "white",
+  onClick = () => false,
 }) => {
   return (
-    <button className={classes.button} type={type} style={{ background }}>
+    <button
+      className={classes.button}
+      type={type}
+      style={{ background }}
+      onClick={onClick}
+    >
       {name}
     </button>
   );
